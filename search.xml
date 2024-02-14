@@ -26,14 +26,14 @@
 <p>正确的引用该图片方式是使用下列的标签插件：</p>
 <p><code>&#123;% asset_img image.jpg This is an image %&#125;</code></p>
 <h3 id="使用hexo-asset-image-hexo-asset-img插件"><a href="#使用hexo-asset-image-hexo-asset-img插件" class="headerlink" title="使用hexo-asset-image&#x2F;hexo-asset-img插件"></a>使用<code>hexo-asset-image</code>&#x2F;<code>hexo-asset-img</code>插件</h3><p>（较为复杂，本人尝试未成功，可自行搜索）</p>
-<h3 id="使用hexo-renderer-marked-插件（-推荐-）"><a href="#使用hexo-renderer-marked-插件（-推荐-）" class="headerlink" title="使用hexo-renderer-marked&#96;插件（&#x3D;&#x3D;推荐&#x3D;&#x3D;）"></a>使用<a href="https://github.com/hexojs/hexo-renderer-marked"><code>hexo-renderer-marked</code></a>&#96;插件（&#x3D;&#x3D;推荐&#x3D;&#x3D;）</h3><h4 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h4><p>用<code>npm install hexo-renderer-marked</code>命令安装（新版hexo已集成，无需安装）</p>
+<h3 id="使用hexo-renderer-marked-插件（推荐）"><a href="#使用hexo-renderer-marked-插件（推荐）" class="headerlink" title="使用hexo-renderer-marked&#96;插件（推荐）"></a>使用<a href="https://github.com/hexojs/hexo-renderer-marked"><code>hexo-renderer-marked</code></a>&#96;插件（推荐）</h3><h4 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h4><p>用<code>npm install hexo-renderer-marked</code>命令安装（新版hexo已集成，无需安装）</p>
 <h4 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h4><p>在<code>_config.yml</code>中更改配置如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
-<p>第一行在前文已修改，后三行需要自行添加到第一行后。<br>此时在hexo网页中，使用<code>![](image.jpg)</code>的相对路径的方法可成功进行引用。</p>
+<p>第一行在前文已修改，后三行需要自行添加到第一行后。<br>此时在hexo网页中，使用<code>![](image.jpg)</code>的相对路径的方法可成功进行引用。<br>（注意：路径中不能有空格）</p>
 <h2 id="方法完善"><a href="#方法完善" class="headerlink" title="方法完善"></a>方法完善</h2><p>注意到，如果使用<code>![](image.jpg)</code>的相对路径在typora本地无法正确引用图片（typora需要使用<code>![](1/image.jpg)</code>）<br>在文章的front-matter中添加一行<code>typora-root-url: 文章标题</code>。那么在typora中所有的路径前都会加上<code>文章标题/</code>。（<code>image.jpg-&gt;1/image.jpg</code>）<br>进一步可以在<code>scaffolds</code>文件夹中的文章模板中添加<code>typora-root-url: &#123;&#123;title&#125;&#125;</code>这样每次执行<code>hexo new</code>命令新建文章的时候，会在front-matter中自动添加该配置。</p>
 <h2 id="hexo与Typora的进一步联动"><a href="#hexo与Typora的进一步联动" class="headerlink" title="hexo与Typora的进一步联动"></a>hexo与Typora的进一步联动</h2><p>文章资源文件夹中引用图片，<strong>前提是先将图片放入到文章资源文件夹</strong>，如果图片数量众多的话，一张一张的放很影响效率。<br>使用Typora可以在复制图片到文章中时，自动将图片复制到指定文件夹，并修改成对应的路径。</p>
 <h3 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h3><p>找到Typora的偏好设置-&gt;图像，进行如下设置</p>
-<p>![](&#x2F;屏幕截图 2024-02-14 204044.png)</p>
+<p><img src="/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
 <p><code>./$&#123;filename&#125;</code>设置与hexo的文章资源文件夹设置相对应，<strong>至此写博客时插入图片只需将图片复制（拖动）到文章中即可。</strong></p>
 <h2 id="实际工作流"><a href="#实际工作流" class="headerlink" title="实际工作流"></a>实际工作流</h2><p>方法一：使用<code>hexo new &lt;layout&gt; &quot;filename&quot;</code>指令生成md文件（同时生成资源文件夹），然后使用typora打开md文件进行书写。</p>
 <p>方法二：在<code>/source/_posts</code>新建md文件，然后使用typora打开md文件进行书写，在插入图片时会自动生成资源文件夹。</p>
