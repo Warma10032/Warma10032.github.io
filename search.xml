@@ -227,7 +227,7 @@
 </li>
 <li><code>-f</code> &#x3D; <code>--force</code> 表示强制覆盖</li>
 <li><code>-u</code> &#x3D; <code>--set-upstream</code> 推送到远端的同时并且建立起和远端分支的关联关系。<ul>
-<li><code>git push --set-upstream origin master</code></li>
+<li><code>git push --set-upstream origin main</code></li>
 </ul>
 </li>
 <li>如果<strong>当前分支已经和远端分支关联</strong>，则可以省略分支名和远端名。<ul>
