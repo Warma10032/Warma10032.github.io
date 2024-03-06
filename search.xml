@@ -331,13 +331,60 @@
 <h2 id="附：IDEA集成GitBash作为Terminal"><a href="#附：IDEA集成GitBash作为Terminal" class="headerlink" title="附：IDEA集成GitBash作为Terminal"></a>附：IDEA集成GitBash作为Terminal</h2><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA%E9%9B%86%E6%88%90GitBash%E4%BD%9C%E4%B8%BATerminal.png" alt="IDEA集成GitBash作为Terminal"></p>
 ]]></content>
       <categories>
-        <category>教程</category>
-        <category>Git</category>
+        <category>学习笔记</category>
       </categories>
       <tags>
         <tag>教程</tag>
         <tag>Git</tag>
         <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>hexo与Typora插入图片的解决方法</title>
+    <url>/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>众所周知，在md文件中插入图片的语法为<code>![]()</code>。</p>
+<p>其中<strong>方括号</strong>是图片描述，<strong>圆括号</strong>是图片路径。</p>
+<p>一般来说有三种图片路径，分别是<strong>相对路径，绝对路径和网络路径</strong>。</p>
+<h2 id="网络路径（图床）"><a href="#网络路径（图床）" class="headerlink" title="网络路径（图床）"></a>网络路径（图床）</h2><p>所谓的网络路径就是直接引用网上的图片，直接复制图片的网络地址，放在圆括号中就完事了。</p>
+<p>这种方式十分的方便，但是也存在一定的问题：</p>
+<ul>
+<li>图片失效导致无法加载；</li>
+<li>打开网页后要再请求加载图片；</li>
+<li>原网站限制，如微信公众号的图片会变得不可见等。</li>
+</ul>
+<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p>绝对路径是图片在计算机中的绝对位置。</p>
+<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p>相对路径是相对于当前文件的路径。</p>
+<p>当采用相对路径时，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 <code>/source/images</code> 文件夹中。然后通过类似于 <code>![图片描述](/images/image.jpg)</code> 的方法访问它们。</p>
+<p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。你需要将 <code>_config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开<strong>文章资源文件夹</strong>。</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
+
+<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹在<code>/source/_posts</code>文件夹中。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
+<p>例如新建一个博客名为<code>1.md</code>，相应的会生成一个<code>1</code>文件夹，在该文件夹中存放图片<code>image.jpg</code>。<br>在Typora编辑器中打开<code>1.md</code>，使用<code>![](1/image.jpg)</code>能在编辑器中正常引用该图片。<br>在hexo网页中，却无法使用<code>![]()</code>的相对路径的方法进行引用，本人尝试了很多种相对路径的写法都无法实现。<br>原因可能是<code>_posts</code>文件夹中的文件在构建html时，其中的图片地址会发生改变，如果图片放在<code>/source/其他文件夹</code>中，图片正常显示。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>此时如果要插入该图片，可以用以下几种方法：</p>
+<h2 id="使用相对路径引用的标签插件"><a href="#使用相对路径引用的标签插件" class="headerlink" title="使用相对路径引用的标签插件"></a>使用相对路径引用的标签插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure>
+<p>正确的引用该图片方式是使用下列的标签插件：</p>
+<p><code>&#123;% asset_img image.jpg This is an image %&#125;</code></p>
+<h2 id="使用hexo-asset-image-hexo-asset-img插件"><a href="#使用hexo-asset-image-hexo-asset-img插件" class="headerlink" title="使用hexo-asset-image&#x2F;hexo-asset-img插件"></a>使用<code>hexo-asset-image</code>&#x2F;<code>hexo-asset-img</code>插件</h2><p>（较为复杂，本人尝试未成功，可自行搜索）</p>
+<h2 id="使用hexo-renderer-marked-插件（推荐）"><a href="#使用hexo-renderer-marked-插件（推荐）" class="headerlink" title="使用hexo-renderer-marked&#96;插件（推荐）"></a>使用<a href="https://github.com/hexojs/hexo-renderer-marked"><code>hexo-renderer-marked</code></a>&#96;插件（推荐）</h2><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>用<code>npm install hexo-renderer-marked</code>命令安装（新版hexo已集成，无需安装）</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>在<code>_config.yml</code>中更改配置如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
+<p>第一行在前文已修改，后三行需要自行添加到第一行后。<br>此时在hexo网页中，使用<code>![](image.jpg)</code>的相对路径的方法可成功进行引用。<br>（注意：路径中不能有空格）</p>
+<h1 id="方法完善"><a href="#方法完善" class="headerlink" title="方法完善"></a>方法完善</h1><p>注意到，如果使用<code>![](image.jpg)</code>的相对路径在typora本地无法正确引用图片（typora需要使用<code>![](1/image.jpg)</code>）<br>在文章的front-matter中添加一行<code>typora-root-url: 文章标题</code>。那么在typora中所有的路径前都会加上<code>文章标题/</code>。（<code>image.jpg-&gt;1/image.jpg</code>）<br>进一步可以在<code>scaffolds</code>文件夹中的文章模板中添加<code>typora-root-url: &#123;&#123;title&#125;&#125;</code>这样每次执行<code>hexo new</code>命令新建文章的时候，会在front-matter中自动添加该配置。</p>
+<h1 id="hexo与Typora的进一步联动"><a href="#hexo与Typora的进一步联动" class="headerlink" title="hexo与Typora的进一步联动"></a>hexo与Typora的进一步联动</h1><p>文章资源文件夹中引用图片，<strong>前提是先将图片放入到文章资源文件夹</strong>，如果图片数量众多的话，一张一张的放很影响效率。<br>使用Typora可以在复制图片到文章中时，自动将图片复制到指定文件夹，并修改成对应的路径。</p>
+<h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><p>找到Typora的偏好设置-&gt;图像，进行如下设置</p>
+<p><img src="/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
+<p><code>./$&#123;filename&#125;</code>设置与hexo的文章资源文件夹设置相对应，<strong>至此写博客时插入图片只需将图片复制（拖动）到文章中，然后调整路径为<code>文件名.png</code>(一般情况只需删除文件名前的‘&#x2F;’)即可。</strong></p>
+<h1 id="实际工作流"><a href="#实际工作流" class="headerlink" title="实际工作流"></a>实际工作流</h1><p>方法一：使用<code>hexo new &lt;layout&gt; &quot;filename&quot;</code>指令生成md文件（同时生成资源文件夹），然后使用typora打开md文件进行书写。</p>
+<p>方法二：在<code>/source/_posts</code>新建md文件，然后使用typora打开md文件进行书写，在插入图片时会自动生成资源文件夹。</p>
+]]></content>
+      <categories>
+        <category>经验之谈</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>Typora</tag>
+        <tag>markdown</tag>
       </tags>
   </entry>
   <entry>
@@ -447,8 +494,7 @@
 </ul>
 ]]></content>
       <categories>
-        <category>人工智能</category>
-        <category>AI</category>
+        <category>科研日记</category>
       </categories>
       <tags>
         <tag>Transformer</tag>
@@ -456,56 +502,6 @@
         <tag>人工智能</tag>
         <tag>论文</tag>
         <tag>gpt</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>hexo与Typora插入图片的解决方法</title>
-    <url>/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>众所周知，在md文件中插入图片的语法为<code>![]()</code>。</p>
-<p>其中<strong>方括号</strong>是图片描述，<strong>圆括号</strong>是图片路径。</p>
-<p>一般来说有三种图片路径，分别是<strong>相对路径，绝对路径和网络路径</strong>。</p>
-<h2 id="网络路径（图床）"><a href="#网络路径（图床）" class="headerlink" title="网络路径（图床）"></a>网络路径（图床）</h2><p>所谓的网络路径就是直接引用网上的图片，直接复制图片的网络地址，放在圆括号中就完事了。</p>
-<p>这种方式十分的方便，但是也存在一定的问题：</p>
-<ul>
-<li>图片失效导致无法加载；</li>
-<li>打开网页后要再请求加载图片；</li>
-<li>原网站限制，如微信公众号的图片会变得不可见等。</li>
-</ul>
-<h2 id="绝对路径"><a href="#绝对路径" class="headerlink" title="绝对路径"></a>绝对路径</h2><p>绝对路径是图片在计算机中的绝对位置。</p>
-<h2 id="相对路径"><a href="#相对路径" class="headerlink" title="相对路径"></a>相对路径</h2><p>相对路径是相对于当前文件的路径。</p>
-<p>当采用相对路径时，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 <code>/source/images</code> 文件夹中。然后通过类似于 <code>![图片描述](/images/image.jpg)</code> 的方法访问它们。</p>
-<p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。你需要将 <code>_config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开<strong>文章资源文件夹</strong>。</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
-
-<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹在<code>/source/_posts</code>文件夹中。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
-<p>例如新建一个博客名为<code>1.md</code>，相应的会生成一个<code>1</code>文件夹，在该文件夹中存放图片<code>image.jpg</code>。<br>在Typora编辑器中打开<code>1.md</code>，使用<code>![](1/image.jpg)</code>能在编辑器中正常引用该图片。<br>在hexo网页中，却无法使用<code>![]()</code>的相对路径的方法进行引用，本人尝试了很多种相对路径的写法都无法实现。<br>原因可能是<code>_posts</code>文件夹中的文件在构建html时，其中的图片地址会发生改变，如果图片放在<code>/source/其他文件夹</code>中，图片正常显示。</p>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>此时如果要插入该图片，可以用以下几种方法：</p>
-<h2 id="使用相对路径引用的标签插件"><a href="#使用相对路径引用的标签插件" class="headerlink" title="使用相对路径引用的标签插件"></a>使用相对路径引用的标签插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure>
-<p>正确的引用该图片方式是使用下列的标签插件：</p>
-<p><code>&#123;% asset_img image.jpg This is an image %&#125;</code></p>
-<h2 id="使用hexo-asset-image-hexo-asset-img插件"><a href="#使用hexo-asset-image-hexo-asset-img插件" class="headerlink" title="使用hexo-asset-image&#x2F;hexo-asset-img插件"></a>使用<code>hexo-asset-image</code>&#x2F;<code>hexo-asset-img</code>插件</h2><p>（较为复杂，本人尝试未成功，可自行搜索）</p>
-<h2 id="使用hexo-renderer-marked-插件（推荐）"><a href="#使用hexo-renderer-marked-插件（推荐）" class="headerlink" title="使用hexo-renderer-marked&#96;插件（推荐）"></a>使用<a href="https://github.com/hexojs/hexo-renderer-marked"><code>hexo-renderer-marked</code></a>&#96;插件（推荐）</h2><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>用<code>npm install hexo-renderer-marked</code>命令安装（新版hexo已集成，无需安装）</p>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>在<code>_config.yml</code>中更改配置如下：</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
-<p>第一行在前文已修改，后三行需要自行添加到第一行后。<br>此时在hexo网页中，使用<code>![](image.jpg)</code>的相对路径的方法可成功进行引用。<br>（注意：路径中不能有空格）</p>
-<h1 id="方法完善"><a href="#方法完善" class="headerlink" title="方法完善"></a>方法完善</h1><p>注意到，如果使用<code>![](image.jpg)</code>的相对路径在typora本地无法正确引用图片（typora需要使用<code>![](1/image.jpg)</code>）<br>在文章的front-matter中添加一行<code>typora-root-url: 文章标题</code>。那么在typora中所有的路径前都会加上<code>文章标题/</code>。（<code>image.jpg-&gt;1/image.jpg</code>）<br>进一步可以在<code>scaffolds</code>文件夹中的文章模板中添加<code>typora-root-url: &#123;&#123;title&#125;&#125;</code>这样每次执行<code>hexo new</code>命令新建文章的时候，会在front-matter中自动添加该配置。</p>
-<h1 id="hexo与Typora的进一步联动"><a href="#hexo与Typora的进一步联动" class="headerlink" title="hexo与Typora的进一步联动"></a>hexo与Typora的进一步联动</h1><p>文章资源文件夹中引用图片，<strong>前提是先将图片放入到文章资源文件夹</strong>，如果图片数量众多的话，一张一张的放很影响效率。<br>使用Typora可以在复制图片到文章中时，自动将图片复制到指定文件夹，并修改成对应的路径。</p>
-<h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><p>找到Typora的偏好设置-&gt;图像，进行如下设置</p>
-<p><img src="/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
-<p><code>./$&#123;filename&#125;</code>设置与hexo的文章资源文件夹设置相对应，<strong>至此写博客时插入图片只需将图片复制（拖动）到文章中，然后调整路径为<code>文件名.png</code>(一般情况只需删除文件名前的‘&#x2F;’)即可。</strong></p>
-<h1 id="实际工作流"><a href="#实际工作流" class="headerlink" title="实际工作流"></a>实际工作流</h1><p>方法一：使用<code>hexo new &lt;layout&gt; &quot;filename&quot;</code>指令生成md文件（同时生成资源文件夹），然后使用typora打开md文件进行书写。</p>
-<p>方法二：在<code>/source/_posts</code>新建md文件，然后使用typora打开md文件进行书写，在插入图片时会自动生成资源文件夹。</p>
-]]></content>
-      <categories>
-        <category>博客</category>
-        <category>hexo</category>
-        <category>markdown</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
-        <tag>Typora</tag>
-        <tag>markdown</tag>
       </tags>
   </entry>
 </search>
