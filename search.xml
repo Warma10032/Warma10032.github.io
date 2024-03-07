@@ -15,11 +15,13 @@
 
 <h3 id="2-2、版本控制器的方式"><a href="#2-2、版本控制器的方式" class="headerlink" title="2.2、版本控制器的方式"></a>2.2、版本控制器的方式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a、集中式版本控制工具</span><br><span class="line">	集中式版本控制工具，版本库是集中存放在中央服务器的，team里每个人work时从中央服务器下载代码，是必须联网才能工作，局域网或互联网。个人修改后然后提交到中央版本库。</span><br><span class="line">	举例：SVN和CVS</span><br><span class="line">b、分布式版本控制工具</span><br><span class="line">	分布式版本控制系统没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样工作的时候，无需要联网了，因为版本库就在你自己的电脑上。多人协作只需要各自的修改推送给对方，就能互相看到对方的修改了。</span><br><span class="line">	举例：Git</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-3、SVN"><a href="#2-3、SVN" class="headerlink" title="2.3、SVN"></a>2.3、SVN</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/SVN.png" alt="SVN"></p>
+<h3 id="2-3、SVN"><a href="#2-3、SVN" class="headerlink" title="2.3、SVN"></a>2.3、SVN</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/SVN.png" alt="SVN1"></p>
 <h3 id="2-4、Git"><a href="#2-4、Git" class="headerlink" title="2.4、Git"></a>2.4、Git</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Git是分布式的,Git不需要有中心服务器，我们每台电脑拥有的东西都是一样的。我们使用Git并且有个中心服务器，仅仅是为了方便交换大家的修改，但是这个服务器的地位和我们每个人的PC是一样的。我们可以把它当做一个开发者的pc就可以就是为了大家代码容易交流不关机用的。没有它大家一样可以工作，只不过“交换”修改不方便而已。</span><br><span class="line">git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git是Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</span><br><span class="line">同生活中的许多伟大事物一样，Git 诞生于一个极富纷争大举创新的年代。Linux 内核开源项目有着为数众多的参与者。 绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上（1991－2002年间）。 到 2002 年，整个项目组开始启用一个专有的分布式版本控制系统 BitKeeper 来管理和维护代码。</span><br><span class="line">到了 2005 年，开发 BitKeeper 的商业公司同 Linux 内核开源社区的合作关系结束，他们收回了Linux 内核社区免费使用 BitKeeper 的权力。 这就迫使 Linux 开源社区（特别是 Linux 的缔造者Linus Torvalds）基于使用 BitKeeper 时的经验教训，开发出自己的版本系统。 他们对新的系统制订了若干目标：</span><br><span class="line"> 速度</span><br><span class="line"> 简单的设计</span><br><span class="line"> 对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</span><br><span class="line"> 完全分布式</span><br><span class="line"> 有能力高效管理类似 Linux 内核一样的超大规模项目（速度和数据量）</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/Git.png" alt="Git"></p>
-<h3 id="2-5、Git工作流程图"><a href="#2-5、Git工作流程图" class="headerlink" title="2.5、Git工作流程图"></a>2.5、Git工作流程图</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/Git%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%E5%9B%BE.png" alt="Git工作流程图"></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git.png" alt="Git" style="zoom:80%;">
+
+<h3 id="2-5、Git工作流程图"><a href="#2-5、Git工作流程图" class="headerlink" title="2.5、Git工作流程图"></a>2.5、Git工作流程图</h3><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git工作流程图.png" alt="Git工作流程图" style="zoom:80%;">
+
 <p>命令如下：</p>
 <ol>
 <li>clone（克隆）: 从远程仓库中克隆代码到本地仓库</li>
@@ -38,11 +40,13 @@
 <li><code>vi</code> vi编辑器（使用vi编辑器是为了方便展示效果，学员可以记事本、EditPlus、NotePad++等其它编辑器）</li>
 </ul>
 <h3 id="3-1、-Git环境配置"><a href="#3-1、-Git环境配置" class="headerlink" title="3.1、 Git环境配置"></a>3.1、 Git环境配置</h3><h4 id="3-1-1-下载与安装"><a href="#3-1-1-下载与安装" class="headerlink" title="3.1.1 下载与安装"></a>3.1.1 下载与安装</h4><p>下载地址： <a href="https://git-scm.com/download">https://git-scm.com/download</a></p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/Git%E4%B8%8B%E8%BD%BD%E4%B8%8E%E5%AE%89%E8%A3%85.png" alt="Git下载与安装"></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git下载与安装.png" alt="Git下载与安装" style="zoom:80%;">
+
 <p>下载完成后可以得到如下安装文件：</p>
 <p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/Git%E5%AE%89%E8%A3%85%E5%8C%85.png" alt="Git安装包"></p>
 <p>双击下载的安装文件来安装Git。安装完成后在电脑桌面（也可以是其他目录)点击右键，如果能够看到如下两个菜单则说明Git安装成功。</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/Git%E5%8F%B3%E9%94%AE%E8%8F%9C%E5%8D%95.png" alt="Git右键菜单"></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git右键菜单.png" alt="Git右键菜单" style="zoom:80%;">
+
 <p>备注：</p>
 <p>Git GUI：Git提供的图形界面工具</p>
 <p>Git Bash：Git提供的命令行工具</p>
@@ -54,13 +58,14 @@
 <p>查看配置信息<br><code>git config --global user.name</code><br><code>git config --global user.email</code></p>
 <h4 id="3-1-3-为常用指令配置别名（可选）"><a href="#3-1-3-为常用指令配置别名（可选）" class="headerlink" title="3.1.3 为常用指令配置别名（可选）"></a>3.1.3 为常用指令配置别名（可选）</h4><p>有些常用的指令参数非常多，每次都要输入好多参数，我们可以使用别名。</p>
 <ol>
-<li><p>打开用户目录，创建<code>.bashrc</code>文件<code>touch .bashrc</code><br>部分windows系统不允许用户创建点号开头的文件，可以打开gitBash,执行<code>touch ~/.bashrc</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%88%9B%E5%BB%BAbashrc.png" alt="创建bashrc"></p>
+<li><p>打开用户目录，创建<code>.bashrc</code>文件<code>touch .bashrc</code><br>部分windows系统不允许用户创建点号开头的文件，可以打开gitBash,执行<code>touch ~/.bashrc</code></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/创建bashrc.png" alt="创建bashrc" style="zoom:80%;">
 </li>
 <li><p>在<code>.bashrc</code>文件中输入如下内容：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于输出git提交日志</span></span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于输出当前目录所有文件及基本信息</span></span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于一次性暂存并提交所有修改和删除的文件</span></span><br><span class="line">alias commit=&#x27;git commit -a&#x27;</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>打开gitBash，执行<code>source ~/.bashrc</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/bashrc.png" alt="bashrc"></p>
-</li>
+<li><p>打开gitBash，执行<code>source ~/.bashrc</code></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/bashrc.png" alt="bashrc" style="zoom:80%;"></li>
 </ol>
 <h4 id="3-1-4-解决GitBash乱码问题"><a href="#3-1-4-解决GitBash乱码问题" class="headerlink" title="3.1.4 解决GitBash乱码问题"></a>3.1.4 解决GitBash乱码问题</h4><ol>
 <li><p>打开GitBash执行下面命令</p>
@@ -70,9 +75,11 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="3-2、获取本地仓库"><a href="#3-2、获取本地仓库" class="headerlink" title="3.2、获取本地仓库"></a>3.2、获取本地仓库</h3><p>要使用Git对我们的代码进行版本控制，首先需要获得本地仓库<br>1）在电脑的任意位置创建一个空目录（例如test）作为我们的本地Git仓库<br>2）进入这个目录中，点击右键打开Git bash窗口<br>3）执行命令<code>git init</code><br>4）如果创建成功后可在文件夹下看到隐藏的.git目录。</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E8%8E%B7%E5%8F%96%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" alt="获取本地仓库"></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/获取本地仓库.png" alt="获取本地仓库" style="zoom:80%;">
+
 <h3 id="3-3、基础操作指令"><a href="#3-3、基础操作指令" class="headerlink" title="3.3、基础操作指令"></a>3.3、基础操作指令</h3><p>Git工作目录下对于文件的<strong>修改</strong>（增加、删除、更新）会存在几个状态，这些修改的状态会随着我们执行Git的命令而发生变化。</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C%E6%8C%87%E4%BB%A4.png" alt="基础操作指令"></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/基础操作指令.png" alt="基础操作指令" style="zoom:80%;">
+
 <p>本章节主要讲解如何使用命令来控制这些状态之间的转换：</p>
 <ol>
 <li>git add (工作区 –&gt; 暂存区)</li>
@@ -174,17 +181,20 @@
 <li>feature&#x2F;xxxx分支<br>从develop创建的分支，一般是同期并行开发，但不同期上线时创建的分支，分支上的研发任务完成后合并到develop分支。</li>
 <li>hotfix&#x2F;xxxx分支，<br>从master派生的分支，一般作为线上bug修复使用，修复完成后需要合并到master、test、develop分支。</li>
 <li>还有一些其他分支，在此不再详述，例如test分支（用于代码测试）、pre分支（预上线分支）等等。</li>
-<li><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%88%86%E6%94%AF.png" alt="分支"></li>
+<li><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/分支.png" alt="分支" style="zoom:80%;"></li>
 </ul>
 <h4 id="练习-分支操作"><a href="#练习-分支操作" class="headerlink" title="练习:分支操作"></a>练习:分支操作</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################创建并切换到dev01分支，在dev01分支提交</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]创建分支dev01</span></span><br><span class="line">git branch dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]切换到dev01</span></span><br><span class="line">git checkout dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]创建文件file02.txt</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]将修改加入暂存区并提交到仓库,提交记录内容为：add file02 on dev</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m &#x27;add file02 on dev&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################切换到master分支，将dev01合并到master分支</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]切换到master分支</span></span><br><span class="line">git checkout master</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]合并dev01到master分支</span></span><br><span class="line">git merge dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]查看文件变化(目录下也出现了file02.txt)</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#########################删除dev01分支</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]删除dev01分支</span></span><br><span class="line">git branch -d dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br></pre></td></tr></table></figure>
 
 <h2 id="4、Git远程仓库"><a href="#4、Git远程仓库" class="headerlink" title="4、Git远程仓库"></a>4、Git远程仓库</h2><h3 id="4-1、-常用的托管服务-远程仓库"><a href="#4-1、-常用的托管服务-远程仓库" class="headerlink" title="4.1、 常用的托管服务[远程仓库]"></a>4.1、 常用的托管服务[远程仓库]</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">前面我们已经知道了Git中存在两种类型的仓库，即本地仓库和远程仓库。那么我们如何搭建Git远程仓库呢？我们可以借助互联网上提供的一些代码托管服务来实现，其中比较常用的有GitHub、码云、GitLab等。</span><br><span class="line">	gitHub（ 地址：https://github.com/ ）是一个面向开源及私有软件项目的托管平台，因为只支持Git 作为唯一的版本库格式进行托管，故名gitHub</span><br><span class="line">	码云（地址： https://gitee.com/ ）是国内的一个代码托管平台，由于服务器在国内，所以相比于GitHub，码云速度会更快</span><br><span class="line">	GitLab （地址： https://about.gitlab.com/ ）是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的web服务,一般用于在企业、学校等内部网络搭建git私服。</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-2、-注册码云"><a href="#4-2、-注册码云" class="headerlink" title="4.2、 注册码云"></a>4.2、 注册码云</h3><p>要想使用码云的相关服务，需要注册账号（地址： <a href="https://gitee.com/signup">https://gitee.com/signup</a> ）</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E6%B3%A8%E5%86%8C%E7%A0%81%E4%BA%91.png" alt="注册码云"></p>
-<h3 id="4-3、-创建远程仓库"><a href="#4-3、-创建远程仓库" class="headerlink" title="4.3、 创建远程仓库"></a>4.3、 创建远程仓库</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%88%9B%E5%BB%BA%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="创建远程仓库"></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/注册码云.png" alt="注册码云" style="zoom:80%;">
+
+<h3 id="4-3、-创建远程仓库"><a href="#4-3、-创建远程仓库" class="headerlink" title="4.3、 创建远程仓库"></a>4.3、 创建远程仓库</h3><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/创建远程仓库.png" alt="创建远程仓库" style="zoom:80%;">
+
 <p>仓库创建完成后可以看到仓库地址，如下图所示:</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E4%BB%93%E5%BA%93%E5%9C%B0%E5%9D%80.png" alt="仓库地址"></p>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/仓库地址.png" alt="仓库地址" style="zoom:80%;">
+
 <h3 id="4-4、配置SSH公钥"><a href="#4-4、配置SSH公钥" class="headerlink" title="4.4、配置SSH公钥"></a>4.4、配置SSH公钥</h3><ul>
 <li>生成SSH公钥<ul>
 <li><code>ssh-keygen -t rsa</code></li>
@@ -199,7 +209,7 @@
 <li><code>cat ~/.ssh/id_rsa.pub</code></li>
 </ul>
 </li>
-<li><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/SSH%E5%85%AC%E9%92%A5.png" alt="SSH公钥"></li>
+<li><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/SSH公钥.png" alt="SSH公钥" style="zoom:80%;"></li>
 <li>验证是否配置成功<ul>
 <li><code>ssh -T git@gitee.com</code></li>
 </ul>
@@ -212,12 +222,12 @@
 <li>命令： <code>git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</code><ul>
 <li>远端名称，默认是origin，取决于远端服务器设置</li>
 <li>仓库路径，从远端服务器获取此URL</li>
-<li>例如：<br><code>git remote add origin git@gitee.com:czbk_zhang_meng/git_test.git</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="添加远程仓库"></li>
+<li>例如：<br><code>git remote add origin git@gitee.com:czbk_zhang_meng/git_test.git</code><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/添加远程仓库.png" alt="添加远程仓库" style="zoom:80%;"></li>
 </ul>
 </li>
 </ul>
 <h4 id="4-5-2、查看远程仓库"><a href="#4-5-2、查看远程仓库" class="headerlink" title="4.5.2、查看远程仓库"></a>4.5.2、查看远程仓库</h4><ul>
-<li>命令：<code>git remote</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E6%9F%A5%E7%9C%8B%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="查看远程仓库"></li>
+<li>命令：<code>git remote</code><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/查看远程仓库.png" alt="/查看远程仓库" style="zoom:80%;"></li>
 </ul>
 <h4 id="4-5-3、推送到远程仓库"><a href="#4-5-3、推送到远程仓库" class="headerlink" title="4.5.3、推送到远程仓库"></a>4.5.3、推送到远程仓库</h4><ul>
 <li>命令：<code>git push[ -f][ --set-upstream][ 远端名称[ 本地分支名[:远端分支名]]]</code><ul>
