@@ -15,12 +15,12 @@
 
 <h3 id="2-2、版本控制器的方式"><a href="#2-2、版本控制器的方式" class="headerlink" title="2.2、版本控制器的方式"></a>2.2、版本控制器的方式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a、集中式版本控制工具</span><br><span class="line">	集中式版本控制工具，版本库是集中存放在中央服务器的，team里每个人work时从中央服务器下载代码，是必须联网才能工作，局域网或互联网。个人修改后然后提交到中央版本库。</span><br><span class="line">	举例：SVN和CVS</span><br><span class="line">b、分布式版本控制工具</span><br><span class="line">	分布式版本控制系统没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样工作的时候，无需要联网了，因为版本库就在你自己的电脑上。多人协作只需要各自的修改推送给对方，就能互相看到对方的修改了。</span><br><span class="line">	举例：Git</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-3、SVN"><a href="#2-3、SVN" class="headerlink" title="2.3、SVN"></a>2.3、SVN</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/SVN.png" alt="SVN1"></p>
+<h3 id="2-3、SVN"><a href="#2-3、SVN" class="headerlink" title="2.3、SVN"></a>2.3、SVN</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/SVN.png" alt="SVN"></p>
 <h3 id="2-4、Git"><a href="#2-4、Git" class="headerlink" title="2.4、Git"></a>2.4、Git</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Git是分布式的,Git不需要有中心服务器，我们每台电脑拥有的东西都是一样的。我们使用Git并且有个中心服务器，仅仅是为了方便交换大家的修改，但是这个服务器的地位和我们每个人的PC是一样的。我们可以把它当做一个开发者的pc就可以就是为了大家代码容易交流不关机用的。没有它大家一样可以工作，只不过“交换”修改不方便而已。</span><br><span class="line">git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git是Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</span><br><span class="line">同生活中的许多伟大事物一样，Git 诞生于一个极富纷争大举创新的年代。Linux 内核开源项目有着为数众多的参与者。 绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上（1991－2002年间）。 到 2002 年，整个项目组开始启用一个专有的分布式版本控制系统 BitKeeper 来管理和维护代码。</span><br><span class="line">到了 2005 年，开发 BitKeeper 的商业公司同 Linux 内核开源社区的合作关系结束，他们收回了Linux 内核社区免费使用 BitKeeper 的权力。 这就迫使 Linux 开源社区（特别是 Linux 的缔造者Linus Torvalds）基于使用 BitKeeper 时的经验教训，开发出自己的版本系统。 他们对新的系统制订了若干目标：</span><br><span class="line"> 速度</span><br><span class="line"> 简单的设计</span><br><span class="line"> 对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</span><br><span class="line"> 完全分布式</span><br><span class="line"> 有能力高效管理类似 Linux 内核一样的超大规模项目（速度和数据量）</span><br></pre></td></tr></table></figure>
 
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git.png" alt="Git" style="zoom:80%;">
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git.png" alt="Git">
 
-<h3 id="2-5、Git工作流程图"><a href="#2-5、Git工作流程图" class="headerlink" title="2.5、Git工作流程图"></a>2.5、Git工作流程图</h3><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git工作流程图.png" alt="Git工作流程图" style="zoom:80%;">
+<h3 id="2-5、Git工作流程图"><a href="#2-5、Git工作流程图" class="headerlink" title="2.5、Git工作流程图"></a>2.5、Git工作流程图</h3><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git工作流程图.png" alt="Git工作流程图">
 
 <p>命令如下：</p>
 <ol>
@@ -40,12 +40,12 @@
 <li><code>vi</code> vi编辑器（使用vi编辑器是为了方便展示效果，学员可以记事本、EditPlus、NotePad++等其它编辑器）</li>
 </ul>
 <h3 id="3-1、-Git环境配置"><a href="#3-1、-Git环境配置" class="headerlink" title="3.1、 Git环境配置"></a>3.1、 Git环境配置</h3><h4 id="3-1-1-下载与安装"><a href="#3-1-1-下载与安装" class="headerlink" title="3.1.1 下载与安装"></a>3.1.1 下载与安装</h4><p>下载地址： <a href="https://git-scm.com/download">https://git-scm.com/download</a></p>
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git下载与安装.png" alt="Git下载与安装" style="zoom:80%;">
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git下载与安装.png" alt="Git下载与安装">
 
 <p>下载完成后可以得到如下安装文件：</p>
 <p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/Git%E5%AE%89%E8%A3%85%E5%8C%85.png" alt="Git安装包"></p>
 <p>双击下载的安装文件来安装Git。安装完成后在电脑桌面（也可以是其他目录)点击右键，如果能够看到如下两个菜单则说明Git安装成功。</p>
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git右键菜单.png" alt="Git右键菜单" style="zoom:80%;">
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git右键菜单.png" alt="Git右键菜单">
 
 <p>备注：</p>
 <p>Git GUI：Git提供的图形界面工具</p>
@@ -59,13 +59,13 @@
 <h4 id="3-1-3-为常用指令配置别名（可选）"><a href="#3-1-3-为常用指令配置别名（可选）" class="headerlink" title="3.1.3 为常用指令配置别名（可选）"></a>3.1.3 为常用指令配置别名（可选）</h4><p>有些常用的指令参数非常多，每次都要输入好多参数，我们可以使用别名。</p>
 <ol>
 <li><p>打开用户目录，创建<code>.bashrc</code>文件<code>touch .bashrc</code><br>部分windows系统不允许用户创建点号开头的文件，可以打开gitBash,执行<code>touch ~/.bashrc</code></p>
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/创建bashrc.png" alt="创建bashrc" style="zoom:80%;">
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/创建bashrc.png" alt="创建bashrc">
 </li>
 <li><p>在<code>.bashrc</code>文件中输入如下内容：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于输出git提交日志</span></span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于输出当前目录所有文件及基本信息</span></span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于一次性暂存并提交所有修改和删除的文件</span></span><br><span class="line">alias commit=&#x27;git commit -a&#x27;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>打开gitBash，执行<code>source ~/.bashrc</code></p>
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/bashrc.png" alt="bashrc" style="zoom:80%;"></li>
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/bashrc.png" alt="bashrc"></li>
 </ol>
 <h4 id="3-1-4-解决GitBash乱码问题"><a href="#3-1-4-解决GitBash乱码问题" class="headerlink" title="3.1.4 解决GitBash乱码问题"></a>3.1.4 解决GitBash乱码问题</h4><ol>
 <li><p>打开GitBash执行下面命令</p>
@@ -75,10 +75,10 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure></li>
 </ol>
 <h3 id="3-2、获取本地仓库"><a href="#3-2、获取本地仓库" class="headerlink" title="3.2、获取本地仓库"></a>3.2、获取本地仓库</h3><p>要使用Git对我们的代码进行版本控制，首先需要获得本地仓库<br>1）在电脑的任意位置创建一个空目录（例如test）作为我们的本地Git仓库<br>2）进入这个目录中，点击右键打开Git bash窗口<br>3）执行命令<code>git init</code><br>4）如果创建成功后可在文件夹下看到隐藏的.git目录。</p>
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/获取本地仓库.png" alt="获取本地仓库" style="zoom:80%;">
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/获取本地仓库.png" alt="获取本地仓库">
 
 <h3 id="3-3、基础操作指令"><a href="#3-3、基础操作指令" class="headerlink" title="3.3、基础操作指令"></a>3.3、基础操作指令</h3><p>Git工作目录下对于文件的<strong>修改</strong>（增加、删除、更新）会存在几个状态，这些修改的状态会随着我们执行Git的命令而发生变化。</p>
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/基础操作指令.png" alt="基础操作指令" style="zoom:80%;">
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/基础操作指令.png" alt="基础操作指令">
 
 <p>本章节主要讲解如何使用命令来控制这些状态之间的转换：</p>
 <ol>
@@ -181,19 +181,19 @@
 <li>feature&#x2F;xxxx分支<br>从develop创建的分支，一般是同期并行开发，但不同期上线时创建的分支，分支上的研发任务完成后合并到develop分支。</li>
 <li>hotfix&#x2F;xxxx分支，<br>从master派生的分支，一般作为线上bug修复使用，修复完成后需要合并到master、test、develop分支。</li>
 <li>还有一些其他分支，在此不再详述，例如test分支（用于代码测试）、pre分支（预上线分支）等等。</li>
-<li><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/分支.png" alt="分支" style="zoom:80%;"></li>
+<li><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/分支.png" alt="分支"></li>
 </ul>
 <h4 id="练习-分支操作"><a href="#练习-分支操作" class="headerlink" title="练习:分支操作"></a>练习:分支操作</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################创建并切换到dev01分支，在dev01分支提交</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]创建分支dev01</span></span><br><span class="line">git branch dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]切换到dev01</span></span><br><span class="line">git checkout dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]创建文件file02.txt</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]将修改加入暂存区并提交到仓库,提交记录内容为：add file02 on dev</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m &#x27;add file02 on dev&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################切换到master分支，将dev01合并到master分支</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[dev01]切换到master分支</span></span><br><span class="line">git checkout master</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]合并dev01到master分支</span></span><br><span class="line">git merge dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]查看文件变化(目录下也出现了file02.txt)</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#########################删除dev01分支</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]删除dev01分支</span></span><br><span class="line">git branch -d dev01</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[master]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br></pre></td></tr></table></figure>
 
 <h2 id="4、Git远程仓库"><a href="#4、Git远程仓库" class="headerlink" title="4、Git远程仓库"></a>4、Git远程仓库</h2><h3 id="4-1、-常用的托管服务-远程仓库"><a href="#4-1、-常用的托管服务-远程仓库" class="headerlink" title="4.1、 常用的托管服务[远程仓库]"></a>4.1、 常用的托管服务[远程仓库]</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">前面我们已经知道了Git中存在两种类型的仓库，即本地仓库和远程仓库。那么我们如何搭建Git远程仓库呢？我们可以借助互联网上提供的一些代码托管服务来实现，其中比较常用的有GitHub、码云、GitLab等。</span><br><span class="line">	gitHub（ 地址：https://github.com/ ）是一个面向开源及私有软件项目的托管平台，因为只支持Git 作为唯一的版本库格式进行托管，故名gitHub</span><br><span class="line">	码云（地址： https://gitee.com/ ）是国内的一个代码托管平台，由于服务器在国内，所以相比于GitHub，码云速度会更快</span><br><span class="line">	GitLab （地址： https://about.gitlab.com/ ）是一个用于仓库管理系统的开源项目，使用Git作为代码管理工具，并在此基础上搭建起来的web服务,一般用于在企业、学校等内部网络搭建git私服。</span><br></pre></td></tr></table></figure>
 
 <h3 id="4-2、-注册码云"><a href="#4-2、-注册码云" class="headerlink" title="4.2、 注册码云"></a>4.2、 注册码云</h3><p>要想使用码云的相关服务，需要注册账号（地址： <a href="https://gitee.com/signup">https://gitee.com/signup</a> ）</p>
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/注册码云.png" alt="注册码云" style="zoom:80%;">
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/注册码云.png" alt="注册码云">
 
-<h3 id="4-3、-创建远程仓库"><a href="#4-3、-创建远程仓库" class="headerlink" title="4.3、 创建远程仓库"></a>4.3、 创建远程仓库</h3><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/创建远程仓库.png" alt="创建远程仓库" style="zoom:80%;">
+<h3 id="4-3、-创建远程仓库"><a href="#4-3、-创建远程仓库" class="headerlink" title="4.3、 创建远程仓库"></a>4.3、 创建远程仓库</h3><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/创建远程仓库.png" alt="创建远程仓库">
 
 <p>仓库创建完成后可以看到仓库地址，如下图所示:</p>
-<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/仓库地址.png" alt="仓库地址" style="zoom:80%;">
+<img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/仓库地址.png" alt="仓库地址">
 
 <h3 id="4-4、配置SSH公钥"><a href="#4-4、配置SSH公钥" class="headerlink" title="4.4、配置SSH公钥"></a>4.4、配置SSH公钥</h3><ul>
 <li>生成SSH公钥<ul>
@@ -209,7 +209,7 @@
 <li><code>cat ~/.ssh/id_rsa.pub</code></li>
 </ul>
 </li>
-<li><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/SSH公钥.png" alt="SSH公钥" style="zoom:80%;"></li>
+<li><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/SSH公钥.png" alt="SSH公钥"></li>
 <li>验证是否配置成功<ul>
 <li><code>ssh -T git@gitee.com</code></li>
 </ul>
@@ -222,17 +222,17 @@
 <li>命令： <code>git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</code><ul>
 <li>远端名称，默认是origin，取决于远端服务器设置</li>
 <li>仓库路径，从远端服务器获取此URL</li>
-<li>例如：<br><code>git remote add origin git@gitee.com:czbk_zhang_meng/git_test.git</code><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/添加远程仓库.png" alt="添加远程仓库" style="zoom:80%;"></li>
+<li>例如：<br><code>git remote add origin git@gitee.com:czbk_zhang_meng/git_test.git</code><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/添加远程仓库.png" alt="添加远程仓库"></li>
 </ul>
 </li>
 </ul>
 <h4 id="4-5-2、查看远程仓库"><a href="#4-5-2、查看远程仓库" class="headerlink" title="4.5.2、查看远程仓库"></a>4.5.2、查看远程仓库</h4><ul>
-<li>命令：<code>git remote</code><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/查看远程仓库.png" alt="/查看远程仓库" style="zoom:80%;"></li>
+<li>命令：<code>git remote</code><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/查看远程仓库.png" alt="/查看远程仓库"></li>
 </ul>
 <h4 id="4-5-3、推送到远程仓库"><a href="#4-5-3、推送到远程仓库" class="headerlink" title="4.5.3、推送到远程仓库"></a>4.5.3、推送到远程仓库</h4><ul>
 <li>命令：<code>git push[ -f][ --set-upstream][ 远端名称[ 本地分支名[:远端分支名]]]</code><ul>
 <li>如果远程分支名和本地分支名称相同，则可以只写本地分支<ul>
-<li><code>git push origin master</code>&#x3D;<code>git push origin master:master</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95.png" alt="推送到远程仓库-两种写法"></li>
+<li><code>git push origin master</code>&#x3D;<code>git push origin master:master</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93-%E4%B8%A4%E7%A7%8D%E5%86%99%E6%B3%95.png" alt="推送到远程仓库-两种写法"></li>
 </ul>
 </li>
 <li><code>-f</code> &#x3D; <code>--force</code> 表示强制覆盖</li>
@@ -242,18 +242,18 @@
 </ul>
 </li>
 <li>如果<strong>当前分支已经和远端分支关联</strong>，则可以省略分支名和远端名。<ul>
-<li><code>git push</code> 将master分支推送到已关联的远端分支。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="推送到远程仓库"></li>
+<li><code>git push</code> 将master分支推送到已关联的远端分支。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="推送到远程仓库"></li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
 <p>查询远程仓库</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E6%9F%A5%E8%AF%A2%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="查询远程仓库"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E6%9F%A5%E8%AF%A2%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="查询远程仓库"></p>
 <h4 id="4-5-4、-本地分支与远程分支的关联关系"><a href="#4-5-4、-本地分支与远程分支的关联关系" class="headerlink" title="4.5.4、 本地分支与远程分支的关联关系"></a>4.5.4、 本地分支与远程分支的关联关系</h4><ul>
 <li>查看关联关系我们可以使用 <code>git branch -vv</code> 命令</li>
 </ul>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%92%8C%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E7%9A%84%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB.png" alt="查看本地分支和远程分支的关联关系"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E6%9F%A5%E7%9C%8B%E6%9C%AC%E5%9C%B0%E5%88%86%E6%94%AF%E5%92%8C%E8%BF%9C%E7%A8%8B%E5%88%86%E6%94%AF%E7%9A%84%E5%85%B3%E8%81%94%E5%85%B3%E7%B3%BB.png" alt="查看本地分支和远程分支的关联关系"></p>
 <h4 id="4-5-5、从远程仓库克隆"><a href="#4-5-5、从远程仓库克隆" class="headerlink" title="4.5.5、从远程仓库克隆"></a>4.5.5、从远程仓库克隆</h4><p>如果已经有一个远端仓库，我们可以直接clone到本地。</p>
 <ul>
 <li>命令: <code>git clone &lt;仓库路径&gt; [本地目录]</code><ul>
@@ -261,7 +261,7 @@
 </ul>
 </li>
 </ul>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0.png" alt="克隆远程仓库到本地"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0.png" alt="克隆远程仓库到本地"></p>
 <h4 id="4-5-6、从远程仓库中抓取和拉取"><a href="#4-5-6、从远程仓库中抓取和拉取" class="headerlink" title="4.5.6、从远程仓库中抓取和拉取"></a>4.5.6、从远程仓库中抓取和拉取</h4><p>远程分支和本地的分支一样，我们可以进行merge操作，只是需要先把远端仓库里的更新都下载到本地，再进行操作。</p>
 <ul>
 <li>抓取 命令：<code>git fetch [remote name] [branch name]</code><ul>
@@ -276,12 +276,12 @@
 </li>
 </ul>
 <ol>
-<li>在test01这个本地仓库进行一次提交并推送到远程仓库<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%9C%A8test01%E8%BF%99%E4%B8%AA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="在test01这个本地仓库进行一次提交并推送到远程仓库"></li>
-<li>在另一个仓库将远程提交的代码拉取到本地仓库<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%B0%86%E4%BB%93%E5%BA%93%E9%87%8C%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8B%89%E5%8F%96%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" alt="将仓库里远程提交的代码拉取到本地仓库"></li>
+<li>在test01这个本地仓库进行一次提交并推送到远程仓库<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E5%9C%A8test01%E8%BF%99%E4%B8%AA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E8%BF%9B%E8%A1%8C%E4%B8%80%E6%AC%A1%E6%8F%90%E4%BA%A4%E5%B9%B6%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="在test01这个本地仓库进行一次提交并推送到远程仓库"></li>
+<li>在另一个仓库将远程提交的代码拉取到本地仓库<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E5%B0%86%E4%BB%93%E5%BA%93%E9%87%8C%E8%BF%9C%E7%A8%8B%E6%8F%90%E4%BA%A4%E7%9A%84%E4%BB%A3%E7%A0%81%E6%8B%89%E5%8F%96%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" alt="将仓库里远程提交的代码拉取到本地仓库"></li>
 </ol>
 <h4 id="4-5-7、解决合并冲突"><a href="#4-5-7、解决合并冲突" class="headerlink" title="4.5.7、解决合并冲突"></a>4.5.7、解决合并冲突</h4><p>在一段时间，A、B用户修改了同一个文件，且修改了同一行位置的代码，此时会发生合并冲突。</p>
 <p>A用户在本地修改代码后优先推送到远程仓库，此时B用户在本地修订代码，提交到本地仓库后，也需要推送到远程仓库，此时B用户晚于A用户，<strong>故需要先拉取远程仓库的提交，经过合并后才能推送到远端分支</strong>，如下图所示。</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E8%A7%A3%E5%86%B3%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81.png" alt="解决远程仓库合并冲突"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E8%A7%A3%E5%86%B3%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%90%88%E5%B9%B6%E5%86%B2%E7%AA%81.png" alt="解决远程仓库合并冲突"></p>
 <p>在B用户拉取代码时，因为A、B用户同一段时间修改了同一个文件的相同位置代码，故会发生合并冲突。</p>
 <p><strong>远程分支也是分支，所以合并时冲突的解决方式也和解决本地分支冲突相同相同</strong>，在此不再赘述，需要学员自己练习。</p>
 <h4 id="练习-远程仓库操作"><a href="#练习-远程仓库操作" class="headerlink" title="练习:远程仓库操作"></a>练习:远程仓库操作</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">#########################1-将本地仓库推送到远程仓库</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">完成4.1、4.2、4.3、4.4的操作</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test01]添加远程仓库</span></span><br><span class="line">git remote add origin git@gitee.com/**/**.git</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test01]将master分支推送到远程仓库,并与远程仓库的master分支绑定关联关系</span></span><br><span class="line">git push --set-upstream origin master</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################2-将远程仓库克隆到本地</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将远程仓库克隆到本地git_test02目录下</span></span><br><span class="line">git clone git@gitee.com/**/**.git git_test02</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test02]以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################3-将本地修改推送到远程仓库</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test01]创建文件file03.txt</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test01]将修改加入暂存区并提交到仓库,提交记录内容为：add file03</span></span><br><span class="line">git add .</span><br><span class="line">git commit -m &#x27;add file03&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test01]将master分支的修改推送到远程仓库</span></span><br><span class="line">git push origin master</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">##########################4-将远程仓库的修改更新到本地</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">[git_test02]将远程仓库修改再拉取到本地</span></span><br><span class="line">git pull</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看文件变化(目录下也出现了file03.txt)</span></span><br><span class="line">略</span><br></pre></td></tr></table></figure>
@@ -290,30 +290,30 @@
 <li>命令：<code>git remote rm &lt;remote-name&gt;</code> &#x3D; <code>git remote remove &lt;remote-name&gt;</code></li>
 </ul>
 <h2 id="5、在Idea中使用Git"><a href="#5、在Idea中使用Git" class="headerlink" title="5、在Idea中使用Git"></a>5、在Idea中使用Git</h2><h3 id="5-1、在Idea中配置Git"><a href="#5-1、在Idea中配置Git" class="headerlink" title="5.1、在Idea中配置Git"></a>5.1、在Idea中配置Git</h3><p>安装好IntelliJ IDEA后，如果Git安装在默认路径下，那么idea会自动找到git的位置，如果更改了Git的安装位置则需要手动配置下Git的路径。选择File→Settings打开设置窗口，找到Version Control下的git选项：</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%9C%A8Idea%E4%B8%AD%E9%85%8D%E7%BD%AEGit.png" alt="在Idea中配置Git"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E5%9C%A8Idea%E4%B8%AD%E9%85%8D%E7%BD%AEGit.png" alt="在Idea中配置Git"></p>
 <p>点击Test按钮,现在执行成功，配置完成</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%9C%A8Idea%E4%B8%AD%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AEGit.png" alt="在Idea中成功配置Git"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E5%9C%A8Idea%E4%B8%AD%E6%88%90%E5%8A%9F%E9%85%8D%E7%BD%AEGit.png" alt="在Idea中成功配置Git"></p>
 <h3 id="5-2、在Idea中操作Git"><a href="#5-2、在Idea中操作Git" class="headerlink" title="5.2、在Idea中操作Git"></a>5.2、在Idea中操作Git</h3><p>场景：本地已经有一个项目，但是并不是git项目，我们需要将这个放到码云的仓库里，和其他开发人员继续一起协作开发。</p>
-<h4 id="5-2-1、创建项目远程仓库（参照4-3）"><a href="#5-2-1、创建项目远程仓库（参照4-3）" class="headerlink" title="5.2.1、创建项目远程仓库（参照4.3）"></a>5.2.1、创建项目远程仓库（参照4.3）</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="IDEA-创建项目远程仓库"></p>
-<h4 id="5-2-2、初始化本地仓库"><a href="#5-2-2、初始化本地仓库" class="headerlink" title="5.2.2、初始化本地仓库"></a>5.2.2、初始化本地仓库</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" alt="IDEA-初始化本地仓库"></p>
-<h4 id="5-2-3、设置远程仓库"><a href="#5-2-3、设置远程仓库" class="headerlink" title="5.2.3、设置远程仓库"></a>5.2.3、设置远程仓库</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="IDEA-设置远程仓库"></p>
-<h4 id="5-2-4、提交到本地仓库"><a href="#5-2-4、提交到本地仓库" class="headerlink" title="5.2.4、提交到本地仓库"></a>5.2.4、提交到本地仓库</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E6%8F%90%E4%BA%A4%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" alt="IDEA-提交到本地仓库"></p>
-<h4 id="5-2-6、推送到远程仓库"><a href="#5-2-6、推送到远程仓库" class="headerlink" title="5.2.6、推送到远程仓库"></a>5.2.6、推送到远程仓库</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="IDEA-推送到远程仓库"></p>
-<h4 id="5-2-7、克隆远程仓库到本地"><a href="#5-2-7、克隆远程仓库到本地" class="headerlink" title="5.2.7、克隆远程仓库到本地"></a>5.2.7、克隆远程仓库到本地</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0.png" alt="IDEA-克隆远程仓库到本地"></p>
+<h4 id="5-2-1、创建项目远程仓库（参照4-3）"><a href="#5-2-1、创建项目远程仓库（参照4-3）" class="headerlink" title="5.2.1、创建项目远程仓库（参照4.3）"></a>5.2.1、创建项目远程仓库（参照4.3）</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%9B%E5%BB%BA%E9%A1%B9%E7%9B%AE%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="IDEA-创建项目远程仓库"></p>
+<h4 id="5-2-2、初始化本地仓库"><a href="#5-2-2、初始化本地仓库" class="headerlink" title="5.2.2、初始化本地仓库"></a>5.2.2、初始化本地仓库</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%9D%E5%A7%8B%E5%8C%96%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" alt="IDEA-初始化本地仓库"></p>
+<h4 id="5-2-3、设置远程仓库"><a href="#5-2-3、设置远程仓库" class="headerlink" title="5.2.3、设置远程仓库"></a>5.2.3、设置远程仓库</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E8%AE%BE%E7%BD%AE%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="IDEA-设置远程仓库"></p>
+<h4 id="5-2-4、提交到本地仓库"><a href="#5-2-4、提交到本地仓库" class="headerlink" title="5.2.4、提交到本地仓库"></a>5.2.4、提交到本地仓库</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E6%8F%90%E4%BA%A4%E5%88%B0%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93.png" alt="IDEA-提交到本地仓库"></p>
+<h4 id="5-2-6、推送到远程仓库"><a href="#5-2-6、推送到远程仓库" class="headerlink" title="5.2.6、推送到远程仓库"></a>5.2.6、推送到远程仓库</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93.png" alt="IDEA-推送到远程仓库"></p>
+<h4 id="5-2-7、克隆远程仓库到本地"><a href="#5-2-7、克隆远程仓库到本地" class="headerlink" title="5.2.7、克隆远程仓库到本地"></a>5.2.7、克隆远程仓库到本地</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%85%8B%E9%9A%86%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%E5%88%B0%E6%9C%AC%E5%9C%B0.png" alt="IDEA-克隆远程仓库到本地"></p>
 <h4 id="5-2-8、创建分支"><a href="#5-2-8、创建分支" class="headerlink" title="5.2.8、创建分支"></a>5.2.8、创建分支</h4><ul>
-<li>最常规的方式<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%EF%BC%88%E5%B8%B8%E8%A7%84%EF%BC%89.png" alt="IDEA-创建分支（常规）"></li>
-<li>最强大的的方式<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%EF%BC%88%E5%BC%BA%E5%A4%A7%EF%BC%89.png" alt="IDEA-创建分支（强大）"></li>
+<li>最常规的方式<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%EF%BC%88%E5%B8%B8%E8%A7%84%EF%BC%89.png" alt="IDEA-创建分支（常规）"></li>
+<li>最强大的的方式<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%9B%E5%BB%BA%E5%88%86%E6%94%AF%EF%BC%88%E5%BC%BA%E5%A4%A7%EF%BC%89.png" alt="IDEA-创建分支（强大）"></li>
 </ul>
-<h4 id="5-2-9、切换分支及其他分支相关操作"><a href="#5-2-9、切换分支及其他分支相关操作" class="headerlink" title="5.2.9、切换分支及其他分支相关操作"></a>5.2.9、切换分支及其他分支相关操作</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF%E5%8F%8A%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C.png" alt="IDEA-切换分支及其他分支相关操作"></p>
+<h4 id="5-2-9、切换分支及其他分支相关操作"><a href="#5-2-9、切换分支及其他分支相关操作" class="headerlink" title="5.2.9、切换分支及其他分支相关操作"></a>5.2.9、切换分支及其他分支相关操作</h4><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF%E5%8F%8A%E5%85%B6%E4%BB%96%E5%88%86%E6%94%AF%E7%9B%B8%E5%85%B3%E6%93%8D%E4%BD%9C.png" alt="IDEA-切换分支及其他分支相关操作"></p>
 <h4 id="5-2-11、解决冲突"><a href="#5-2-11、解决冲突" class="headerlink" title="5.2.11、解决冲突"></a>5.2.11、解决冲突</h4><ol>
-<li>执行merge或pull操作时，可能发生冲突<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png" alt="IDEA-解决冲突"></li>
+<li>执行merge或pull操作时，可能发生冲突<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA-%E8%A7%A3%E5%86%B3%E5%86%B2%E7%AA%81.png" alt="IDEA-解决冲突"></li>
 <li>冲突解决后加入暂存区<br>略</li>
 <li>提交到本地仓库<br>略</li>
 <li>推送到远程仓库<br>略</li>
 </ol>
 <h3 id="5-3、IDEA常用GIT操作入口"><a href="#5-3、IDEA常用GIT操作入口" class="headerlink" title="5.3、IDEA常用GIT操作入口"></a>5.3、IDEA常用GIT操作入口</h3><ol>
-<li>第一张图上的快捷入口可以基本满足开发的需求。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA%E5%B8%B8%E7%94%A8GIT%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A31.png" alt="IDEA常用GIT操作入口"></li>
-<li>第二张图是更多在IDEA操作git的入口。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA%E5%B8%B8%E7%94%A8GIT%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A32.png" alt="IDEA常用GIT操作入口"></li>
+<li>第一张图上的快捷入口可以基本满足开发的需求。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA%E5%B8%B8%E7%94%A8GIT%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A31.png" alt="IDEA常用GIT操作入口"></li>
+<li>第二张图是更多在IDEA操作git的入口。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA%E5%B8%B8%E7%94%A8GIT%E6%93%8D%E4%BD%9C%E5%85%A5%E5%8F%A32.png" alt="IDEA常用GIT操作入口"></li>
 </ol>
 <h3 id="5-4、场景分析"><a href="#5-4、场景分析" class="headerlink" title="5.4、场景分析"></a>5.4、场景分析</h3><p>基于我们后面的实战模式，我们做一个综合练习</p>
 <p>当前的开发环境如下，我们每个人都对这个项目已经开发一段时间，接下来我们要切换成团队开发模<br>式。</p>
@@ -321,24 +321,24 @@
 <p>所有操作都在idea中完成。</p>
 <p>练习场景如下：</p>
 <ol>
-<li>由组长，基于本项目创建本地仓库；创建远程仓库，推送项目到远程仓库。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-1.png" alt="综合练习-1"></li>
-<li>每一位组员从远程仓库克隆项目到idea中,这样每位同学在自己电脑上就有了一个工作副本，可以正<br>式的开始开发了。我们模拟两个组员(组员A、组员B)，克隆两个工作区。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-2.png" alt="综合练习-2"></li>
-<li>组员A修改工作区,提交到本地仓库，再推送到远程仓库。组员B可以直接从远程仓库获取最新的代<br>码。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-3.png" alt="综合练习-3"></li>
-<li>组员A和组员B修改了同一个文件的同一行，提交到本地没有问题，但是推送到远程仓库时，后一个<br>推送操作就会失败。<br>解决方法：需要先获取远程仓库的代码到本地仓库，编辑冲突，提交并推送代码。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-4.png" alt="综合练习-4"></li>
+<li>由组长，基于本项目创建本地仓库；创建远程仓库，推送项目到远程仓库。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-1.png" alt="综合练习-1"></li>
+<li>每一位组员从远程仓库克隆项目到idea中,这样每位同学在自己电脑上就有了一个工作副本，可以正<br>式的开始开发了。我们模拟两个组员(组员A、组员B)，克隆两个工作区。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-2.png" alt="综合练习-2"></li>
+<li>组员A修改工作区,提交到本地仓库，再推送到远程仓库。组员B可以直接从远程仓库获取最新的代<br>码。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-3.png" alt="综合练习-3"></li>
+<li>组员A和组员B修改了同一个文件的同一行，提交到本地没有问题，但是推送到远程仓库时，后一个<br>推送操作就会失败。<br>解决方法：需要先获取远程仓库的代码到本地仓库，编辑冲突，提交并推送代码。<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E7%BB%BC%E5%90%88%E7%BB%83%E4%B9%A0-4.png" alt="综合练习-4"></li>
 </ol>
 <h2 id="附-几条铁令"><a href="#附-几条铁令" class="headerlink" title="附:几条铁令"></a>附:几条铁令</h2><ol>
 <li><strong>切换分支前先提交本地的修改</strong></li>
 <li>代码及时提交，提交过了就不会丢</li>
 <li>遇到任何问题都不要删除文件目录，第1时间找老师</li>
 </ol>
-<h2 id="附-疑难问题解决"><a href="#附-疑难问题解决" class="headerlink" title="附:疑难问题解决"></a>附:疑难问题解决</h2><h3 id="1-windows下看不到隐藏的文件（-bashrc、-gitignore）"><a href="#1-windows下看不到隐藏的文件（-bashrc、-gitignore）" class="headerlink" title="1. windows下看不到隐藏的文件（.bashrc、.gitignore）"></a>1. windows下看不到隐藏的文件（.bashrc、.gitignore）</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/windows%E4%B8%8B%E6%9F%A5%E7%9C%8B%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6.png" alt="windows下查看隐藏文件"></p>
+<h2 id="附-疑难问题解决"><a href="#附-疑难问题解决" class="headerlink" title="附:疑难问题解决"></a>附:疑难问题解决</h2><h3 id="1-windows下看不到隐藏的文件（-bashrc、-gitignore）"><a href="#1-windows下看不到隐藏的文件（-bashrc、-gitignore）" class="headerlink" title="1. windows下看不到隐藏的文件（.bashrc、.gitignore）"></a>1. windows下看不到隐藏的文件（.bashrc、.gitignore）</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/windows%E4%B8%8B%E6%9F%A5%E7%9C%8B%E9%9A%90%E8%97%8F%E6%96%87%E4%BB%B6.png" alt="windows下查看隐藏文件"></p>
 <h3 id="2-windows下无法创建-ignore-bashrc文件"><a href="#2-windows下无法创建-ignore-bashrc文件" class="headerlink" title="2. windows下无法创建.ignore|.bashrc文件"></a>2. windows下无法创建.ignore|.bashrc文件</h3><p>这里以创建.ignore 文件为例：</p>
 <ul>
 <li>在git目录下打开gitbash</li>
 <li>执行指令<code>touch .gitignore</code></li>
 </ul>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/windows%E4%B8%8B%E5%88%9B%E5%BB%BA.ignore%E3%80%81.bashrc%E6%96%87%E4%BB%B6.png" alt="windows下创建.ignore、.bashrc文件"></p>
-<h2 id="附：IDEA集成GitBash作为Terminal"><a href="#附：IDEA集成GitBash作为Terminal" class="headerlink" title="附：IDEA集成GitBash作为Terminal"></a>附：IDEA集成GitBash作为Terminal</h2><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/IDEA%E9%9B%86%E6%88%90GitBash%E4%BD%9C%E4%B8%BATerminal.png" alt="IDEA集成GitBash作为Terminal"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/windows%E4%B8%8B%E5%88%9B%E5%BB%BA.ignore%E3%80%81.bashrc%E6%96%87%E4%BB%B6.png" alt="windows下创建.ignore、.bashrc文件"></p>
+<h2 id="附：IDEA集成GitBash作为Terminal"><a href="#附：IDEA集成GitBash作为Terminal" class="headerlink" title="附：IDEA集成GitBash作为Terminal"></a>附：IDEA集成GitBash作为Terminal</h2><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA%E9%9B%86%E6%88%90GitBash%E4%BD%9C%E4%B8%BATerminal.png" alt="IDEA集成GitBash作为Terminal"></p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -357,7 +357,7 @@
 <p>首先，我们将详细介绍Transformer模型的基本结构，包括自注意力机制（self-attention）。这种机制使其能够同时处理输入序列中的各个元素，无论是单词、像素还是其他形式的数据。这个思想的强大之处在于它的通用性，它使Transformer能够在各种领域中取得成功。在NLP领域，Transformer模型已在文本分类、命名实体识别和机器翻译等领域取得了巨大成功。而在计算机视觉领域，Transformer也已经在图像分类和目标检测中崭露头角。</p>
 <p>然而，虽然Transformer模型在不同领域之间的应用非常广泛，但它在每个领域中都有自己的独特挑战和特点。例如，在NLP中，BERT模型通过让模型获得双向输入，掌握上下文信息来改善预训练词嵌入，而在CV中，ViT模型通过对图像的分块处理来应对图像数据的巨大复杂性。通过对这些异同之处的深入研究，我们可以更好地理解Transformer模型的多领域适用性，以及如何将其推向新的高度。</p>
 <h2 id="什么是Transformer"><a href="#什么是Transformer" class="headerlink" title="什么是Transformer"></a>什么是Transformer</h2><p>Transformer是一个基于注意力机制的神经网络模型，Transformer模型由编码器和解码器组成，两者都由多个相同的层组成，每一层有两个子层：多头自注意力机制层和全连接前馈神经网络，Transformer模型利用自注意力机制捕捉输入序列中每个元素与其他元素之间的关系，利用多头机制提高模型的性能。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/transformer%E7%BB%93%E6%9E%84.png" alt="Transformer架构"></p>
+<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/transformer%E7%BB%93%E6%9E%84.png" alt="Transformer架构"></p>
 <p>接下来我将自下而上从输入到输出介绍transformer模型。</p>
 <h3 id="Input-Embedding-and-Output-Embedding（输入嵌入和输出嵌入）"><a href="#Input-Embedding-and-Output-Embedding（输入嵌入和输出嵌入）" class="headerlink" title="Input Embedding and Output Embedding（输入嵌入和输出嵌入）"></a>Input Embedding and Output Embedding（输入嵌入和输出嵌入）</h3><p>Word Embedding（词嵌入）是将离散化的符号序列（如单词、字符）转换为连续的向量表示，以便使神经网络可以有效地处理文本数据。它使得模型能够理解文本数据的语义和上下文信息，并为后续的自注意力层和前馈神经网络提供了输入。</p>
 <h3 id="Positional-Encoding（位置编码）"><a href="#Positional-Encoding（位置编码）" class="headerlink" title="Positional Encoding（位置编码）"></a>Positional Encoding（位置编码）</h3><p>由于 Transformer 不包含处理输入序列的循环或卷积操作，它不能自动地理解单词的顺序信息。因此，我们必须注入一些关于相对或绝对位置的信息序列中的标记。为此，我们引入了“位置编码”来将位置信息嵌入到模型中。位置编码是一个与位置、维度相关的矩阵，它会与输入的词嵌入相加。在原论文中，作者采用了正余弦函数来进行位置编码。</p>
@@ -375,9 +375,9 @@
 </li>
 </ul>
 <p>自注意力机制允许模型动态地分配不同位置的权重，从而在不同任务中灵活捕获上下文信息。这是 Transformer 模型在各种自然语言处理任务中表现出色的关键之一。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6.png" alt="自注意力机制"></p>
+<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6.png" alt="自注意力机制"></p>
 <h4 id="Multi-Head-Attention（多头注意力机制）"><a href="#Multi-Head-Attention（多头注意力机制）" class="headerlink" title="Multi-Head Attention（多头注意力机制）"></a>Multi-Head Attention（多头注意力机制）</h4><p>Transformer 中的多头注意力机制（Multi-Head Attention）是自注意力机制的扩展，允许模型在不同表示子空间中学习自注意力。这个机制增加了模型的表示能力，使其能够同时关注输入序列中的不同信息，从而更好地捕捉序列中的复杂关系。多头注意力机制通过将多个并行的自注意力机制组合在一起，每个自注意力机制都称为一个“头”。每个头有自己的一组查询、键和值参数，这些参数是通过学习而得的。将所有注意力头的输出连接在一起，并通过一个线性变换来产生最终的多头注意力输出。其优点在于提高了模型的学习能力：不同的头可以学习捕获不同的关系，从而提高了模型的表示能力。例如，一些头可以关注语法关系，而其他头可以关注语义关系。提高了训练效率：多头注意力可以并行计算，因为每个头都是独立的，这提高了模型的训练和推理效率。提高了模型稳定性：多头注意力有助于减轻注意力机制中的一些不稳定性，因为多个头的组合可以平滑化注意力权重的分布。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6.png" alt="多头注意力机制"></p>
+<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E5%A4%9A%E5%A4%B4%E8%87%AA%E6%B3%A8%E6%84%8F%E5%8A%9B%E6%9C%BA%E5%88%B6.png" alt="多头注意力机制"></p>
 <h4 id="Add-Norm（残差连接-层归一化）"><a href="#Add-Norm（残差连接-层归一化）" class="headerlink" title="Add &amp; Norm（残差连接&amp;层归一化）"></a>Add &amp; Norm（残差连接&amp;层归一化）</h4><p>Transformer在每个子层（自注意力层和前馈神经网络层）的输入和输出之间，引入了残差连接和层归一化，残差连接可以通过跳过该层来传递一定量的信息，使梯度直接流过某层；层归一化把数据转化成均值为 0 方差为1的数据，保证数据特征分布的稳定性。这些方法可以帮助缓解训练过程中的梯度消失问题。</p>
 <h4 id="Feed-Forward-Neural-Network（前馈神经网络）"><a href="#Feed-Forward-Neural-Network（前馈神经网络）" class="headerlink" title="Feed-Forward Neural Network（前馈神经网络）"></a>Feed-Forward Neural Network（前馈神经网络）</h4><p>Transformer的每个编码器和解码器层都包括一个前馈神经网络。它将自注意力层的输出映射到一个更高维度的空间，然后再映射回原始维度。这个过程包括两个线性变换和一个非线性激活函数，通常是ReLU。其作用是通过线性变换，先将数据映射到高纬度的空间再映射到低纬度的空间，提取了更深层次的特征。并且加入一定非线性变换，提高模型学习能力。</p>
 <h4 id="Masked-Multi-Head-Attention（带掩码的多头注意力机制）"><a href="#Masked-Multi-Head-Attention（带掩码的多头注意力机制）" class="headerlink" title="Masked Multi-Head Attention（带掩码的多头注意力机制）"></a>Masked Multi-Head Attention（带掩码的多头注意力机制）</h4><p>Masked Multi-Head Attention是一种用于处理可变长度序列的重要技术。它的主要作用是在自注意力计算中，确保模型只关注当前位置之前的信息，而不会泄露未来位置的信息。在处理序列数据时，尤其是在解码器中，我们会用到掩码机制来确保生成的每个位置的信息只取决于当前位置及其之前的信息。这是因为在生成输出序列时，未来的信息是不可见的。具体来说，掩码机制会创建一个掩码矩阵，该矩阵与注意力分数相乘，将未来位置的分数置为负无穷大（或经过 softmax 后为零），从而在注意力计算中消除了未来位置的影响。这使得模型只能关注于当前位置以及之前的信息，而不关注当前位置之后的信息。</p>
@@ -390,29 +390,29 @@
 </li>
 </ul>
 <h2 id="Transformer-in-NLP"><a href="#Transformer-in-NLP" class="headerlink" title="Transformer in NLP"></a>Transformer in NLP</h2><p>Transformer被提出时，是被用在机器翻译上的。它帮助改善了RNN在并行性和长文本处理上的缺陷，使得机器翻译模型的准确率提高了几个百分点。当人们意识到transformer和attention在NLP上具有很多优势，便想把transformer扩展应用文本分类、语义分析、语言生成等领域。他们将transformer 与预训练结合，训练出一个模型，再通过微调去适应不同的任务。这样可以减少模型在特定任务上的训练时间和数据量，并且降低过拟合的发生模型更加准确和可靠。于是在NLP中，预训练transformer开始大行其道。</p>
-<h3 id="Bert-Bidirectional-Encoder-Representation-from-Transformers"><a href="#Bert-Bidirectional-Encoder-Representation-from-Transformers" class="headerlink" title="Bert: :Bidirectional Encoder Representation from Transformers"></a>Bert: :Bidirectional Encoder Representation from Transformers</h3><p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/bert%E6%9E%B6%E6%9E%84.png" alt="Bert架构"></p>
+<h3 id="Bert-Bidirectional-Encoder-Representation-from-Transformers"><a href="#Bert-Bidirectional-Encoder-Representation-from-Transformers" class="headerlink" title="Bert: :Bidirectional Encoder Representation from Transformers"></a>Bert: :Bidirectional Encoder Representation from Transformers</h3><p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/bert%E6%9E%B6%E6%9E%84.png" alt="Bert架构"></p>
 <p>Bert 是一个预训练的语言表征模型。其主要用到了transformer 的Encoder 模块，在预训练时采用了Masked Language Model（MLM）和Next Sentence Prediction（NSP）方法，强调双向获取信息，充分利用上下文信息，提高模型的理解能力。下面我将就Bert的一些改进进行介绍。</p>
 <h4 id="Encoder-only"><a href="#Encoder-only" class="headerlink" title="Encoder only"></a>Encoder only</h4><p>Bert作为一个特征提取器，其主要目的是进行自监督的预训练学习，学习文本的深层语义信息。因此它仅保留了transformer中的Encoder部分，并且借助Encoder不掩盖后面位置的信息的特点，Bert实现了让模型学习双向的文本信息，结合上下文进行预测。</p>
 <h4 id="Masked-Language-Model"><a href="#Masked-Language-Model" class="headerlink" title="Masked Language Model"></a>Masked Language Model</h4><p>MLM是 BERT 模型的预训练任务之一。在 MLM 任务中，输入文本的一部分词汇会被随机遮盖，模型的任务是根据上下文来预测这些被遮盖的词汇。首先，它随机地将输入文本中的15%的词替换为一个特殊的[MASK]标记，表示这些词被遮盖了。然后，它使用一个基于Transformer的编码器来处理这个遮盖后的文本，得到每个位置的隐藏状态向量。最后，将每个位置的隐藏状态向量输入一个softmax来得到词汇表中所有词的概率分布，进而预测被覆盖的词。MLM任务使得Bert不是像之前的语言模型那样只能从左到右或者从右到左地处理文本。这对于很多自然语言处理的下游任务，如机器阅读理解，自然语言推理，问答系统等，都有很大的帮助。</p>
 <h4 id="Next-Sentence-Prediction"><a href="#Next-Sentence-Prediction" class="headerlink" title="Next Sentence Prediction"></a>Next Sentence Prediction</h4><p>NSP也是BERT 模型的预训练任务之一。在NSP任务中，模型会输入两个句子，模型需要判断这两个句子是否具有上下文关联关系。首先，它从文本语料库中随机选择两个句子作为输入，其中第一个句子称为A，第二个句子称为B。然后，它在两个句子之间加入一个特殊的分隔符[SEP]，并在句子A的开头加入一个特殊的token [CLS]，作为整个输入序列的第一个词。接着，它使用一个基于Transformer的编码器来处理这个输入序列，得到每个位置的隐藏状态向量。最后，它使用一个二分类器来预测句子B是否在原始文档中是句子A的下一句。在训练期间，输入的句子对50％ 在原始文档中是前后关系，另外 50％ 是从语料库中随机组成的无关句子对。</p>
 <h4 id="Improve-of-input-embeddings"><a href="#Improve-of-input-embeddings" class="headerlink" title="Improve of input embeddings"></a>Improve of input embeddings</h4><p>Bert的input embeddings相较于Transformer进行了改进，它将Position Embeddings不再由公式进行转换，而是让模型去学习如何对位置进行编码。并且Bert加入了Segment Embeddings，用来表示两个不同的句子，以匹配它的预训练任务。Bert还开创性的在input embeddings中加入了一些特殊token。如[CLS]，[SEP]，[CLS]经过自注意力机制后的输出就是模型对一整句话的注意力，即模型对句子的特征提取。因为注意力机制的特殊性，把它放在句子中的任意位置效果都相同。而[SEP]则是用来分隔不同的句子的。这些特殊字符在模型中有特殊的含义，后续的ViT模型也借鉴了这种用特殊字符的方法来提高模型的理解能力。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E8%BE%93%E5%85%A5%E5%B5%8C%E5%85%A5.png" alt="The input embeddings in Bert"></p>
+<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E8%BE%93%E5%85%A5%E5%B5%8C%E5%85%A5.png" alt="The input embeddings in Bert"></p>
 <h4 id="Fine-tuning（微调）"><a href="#Fine-tuning（微调）" class="headerlink" title="Fine-tuning（微调）"></a>Fine-tuning（微调）</h4><p>前面提到，Bert本质是一个预训练的特征提取器。它将输入的句子，通过transformer的Encoder进行编码，将句子的特征提取出来。为了将这些句子特征运用到各种自然语言处理任务上，还需要对模型进行微调。比如选择特定的目标函数，将句子的哪些部分的特征作为下游任务的输入等等。在【Bert框架图】中，就具体展示了Bert如何在SQuAD数据集上进行问答任务。</p>
 <h4 id="The-contribution-of-Bert"><a href="#The-contribution-of-Bert" class="headerlink" title="The contribution of Bert"></a>The contribution of Bert</h4><p>Bert模型的贡献在于它引入了预训练和微调体系和开创了双向语义理解的预训练任务。Bert模型只需要在大量无标注的数据上进行无监督训练，然后进行模型迁移和有监督微调，便可应用在不同的任务上。这大大减少了对特定任务的模型训练成本和大量有标注数据的需求。而双向语义理解的预训练任务则很好的提高了模型对上下文结合的理解能力。</p>
 <h3 id="GPT-Generative-Pre-trained-Transformer"><a href="#GPT-Generative-Pre-trained-Transformer" class="headerlink" title="GPT: Generative Pre-trained Transformer"></a>GPT: Generative Pre-trained Transformer</h3><p>GPT是一种基于Transformer的生成式预训练语言模型，它可以根据给定的文本生成连贯和自然的文本，并且可以用于多种自然语言处理的任务，如机器翻译，文本摘要，问答系统等。GPT的核心思想是利用大量的无标注文本数据进行无监督的预训练，学习文本的通用表示，然后在特定的任务上进行有监督的微调，调整模型参数，提高模型性能。GPT有多个版本，如GPT-1，GPT-2，GPT-3等，每个版本都增加了模型的参数数量和训练数据的规模，从而提高了模型的生成能力和泛化能力。下面我将就GPT-1到GPT-3的一些研究论文，介绍一下GPT的特点。</p>
-<h4 id="Decoder-only"><a href="#Decoder-only" class="headerlink" title="Decoder only"></a>Decoder only</h4><p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/gpt%E6%9E%B6%E6%9E%84.png"></p>
+<h4 id="Decoder-only"><a href="#Decoder-only" class="headerlink" title="Decoder only"></a>Decoder only</h4><p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/gpt%E6%9E%B6%E6%9E%84.png"></p>
 <p>GPT只使用了Transformer的Decoder部分，而没有使用Encoder部分。这是因为GPT的目标是做语言建模，即根据上文预测下一个单词。而语言建模只需要关注之前生成的文本，而不需要关注整个输入序列。因此，GPT只需要使用掩码自注意力层来实现这个功能，而不需要使用编码器-解码器注意力层。另外，GPT还去掉了Decoder中原本用来接收Encoder输出的多头自注意力层，因为GPT没有Encoder部分。GPT和Transformer Decoder的结构对比如图。</p>
 <h4 id="GPT-2-can-be-a-zero-shot-learning-language-model"><a href="#GPT-2-can-be-a-zero-shot-learning-language-model" class="headerlink" title="GPT-2 can be a zero-shot learning language model"></a>GPT-2 can be a zero-shot learning language model</h4><p>在模型大小和训练参数量不断扩大的情况下，GPT-2做到了zero-shot learning（零样本学习）。它可以在没有任何标注数据或者参数调整的情况下，直接执行下游任务。这一点与BERT等模型不同，它们需要在预训练之后进行有监督的微调才能适应特定的任务。当GPT-2要执行一个zero-shot的下游任务时，它只需要根据任务的描述和示例来生成相应的文本。比如，如果要做机器翻译任务，你只需要输入“Translate from English to French: Hello, how are you?”，它就会输出“Bonjour, comment allez-vous?”。如果要做问答任务，你只需要输入“Who is the president of U.S.?”，它就会输出“Joseph Robinette Biden Jr.”。这些输入都可以看作是给模型的提示或者指令（prompt），让模型知道要做什么样的任务，而不需要再去给一些有标注数据让模型进行迁移学习（微调），提高了模型的性能和泛化能力。这是因为GPT-2使用了海量的无标注文本数据进行预训练，学习了通用的语言知识和规律。这些数据包含了各种任务相关的信息，比如语法，逻辑，常识等，让模型可以理解输入的自然语言的语义。GPT-2进而通过自回归的方式，从左到右地预测下一个单词，从而进行语言生成和输出。</p>
 <h4 id="A-particularly-large-GPT-3-exhibits-emergence"><a href="#A-particularly-large-GPT-3-exhibits-emergence" class="headerlink" title="A particularly large GPT-3 exhibits emergence"></a>A particularly large GPT-3 exhibits emergence</h4><p>在GPT-2之后，OpenAI进一步的增加模型大小和训练参数量，最后在一种量变导致质变的情况下，模型的性能取得了质的飞跃，出现了Grokking（”涌现“）。例如模型的准确率和泛化性大大提高，可以通过少量的示例来完成各种下游任务。出现“涌现”的原因尚不可知，人们猜测是因为大模型具有更强的记忆和推理能力，能够从海量的数据中学习到更多的知识和规律。总之在该论文中，GPT-3在参数量提升到1750亿的情况下，模型的能力刷新了很多当时NLP领域的记录。并且论文指出，GPT模型还未见到增加参数量带来的性能饱和现象，这说明继续增加参数量和原始数据，GPT的性能还能进一步的提升。</p>
 <h4 id="Where-to-get-so-much-text-data"><a href="#Where-to-get-so-much-text-data" class="headerlink" title="Where to get so much text data"></a>Where to get so much text data</h4><p>GPT需要大量的文本数据用来学习，如何获得高质量的文本数据也是一个值得研究的方向。OpenAI在GPT-2中使用了一个国外论坛Reddit的数据，并借助Reddit的点赞机制，筛选优质数据。而GPT-3训练所用的数据量又翻了1125倍，来到了45TB，相当于互联网上所有文本的10%。GPT-3借助Common Crawl从互联网爬取的超大数据集，并将Common Crawl进行筛选过滤。其过滤算法是借助GPT-2已筛选好的优质文本作为正例训练LR分类器，用来筛选数据。再通过去重等方法得到优质数据集。</p>
 <h3 id="The-Advantages-of-Pre-trained-Transformer-in-NLP"><a href="#The-Advantages-of-Pre-trained-Transformer-in-NLP" class="headerlink" title="The Advantages of Pre-trained Transformer in NLP"></a>The Advantages of Pre-trained Transformer in NLP</h3><p>由上文可知Transformer预训练模型可以充分利用大规模的无标注文本数据，通过自监督学习的方式，学习到通用的语言知识和表示，从而提高下游任务的性能和泛化能力。并且Transformer预训练模型具有很好的可扩展性和灵活性，可以根据不同的任务需求，调整模型的结构和参数，实现多种功能和应用。Transformer预训练模型是目前NLP领域最先进和最流行的技术之一，它已经在机器翻译、文本分类、阅读理解、对话生成、文本摘要等多个任务上取得了显著的效果，展现了巨大的潜力和前景。</p>
 <h2 id="Transformer-in-CV"><a href="#Transformer-in-CV" class="headerlink" title="Transformer in CV"></a>Transformer in CV</h2><p>在CV领域，transformer也在大放异彩。一开始，人们将transformer中的attention与CNN结合，将attention用于CNN中的特征提取。后来Vision Transformer这篇论文提出，用纯的transformer结构进行预训练，训练出来的模型同样具有很好的效果。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/ViT%E6%9E%B6%E6%9E%84.png" alt="ViT架构"></p>
+<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/ViT%E6%9E%B6%E6%9E%84.png" alt="ViT架构"></p>
 <h3 id="How-to-enter-the-image-into-the-Transformer"><a href="#How-to-enter-the-image-into-the-Transformer" class="headerlink" title="How to enter the image into the Transformer"></a>How to enter the image into the Transformer</h3><p>如何将二维的图片转化为一维的序列输入transformer是想要在CV中利用transformer的第一步。这篇论文展示了一种巧妙的方法。即将图片分为一个个patch，将patchs排成一维序列输入transformer便达到了类似NLP中输入一句话的效果。这也是论文表示为什么说AN IMAGE IS WORTH 16X16 WORDS 的原因。至于为什么不将图片的每个像素分割拉直成一维，那是以为这样处理后的序列将会变得很长，增加了模型训练的复杂度。</p>
 <h3 id="Patch-and-Position-Embedding"><a href="#Patch-and-Position-Embedding" class="headerlink" title="Patch and Position Embedding"></a>Patch and Position Embedding</h3><p>将图片分割成一个个patch之后势必会损失图片的某些位置信息。不过好在transformer模型本身就提供了一个Position Embedding，这使得Patch Embedding后的向量可以再加上一个Position Embedding来表示该patch在图片中的位置信息。ViT模型主要借鉴的是前面所说的Bert模型，它在Position Embedding的具体转换方法上同样交给模型去自主学习。</p>
 <h3 id="Extra-learnable-class-embedding"><a href="#Extra-learnable-class-embedding" class="headerlink" title="Extra learnable [class] embedding"></a>Extra learnable [class] embedding</h3><p>在ViT中作者加入了一个额外的可学习的嵌入向量，它用于表示整个图像的类别信息，即ViT架构图中的“0*”。它的目的是从其他图像块的嵌入向量中学习到全局的特征，作为图像的表示向量。这类似Bert模型中的[CLS]token，都是用于获取整个序列的信息。</p>
 <h3 id="Compared-with-CNN"><a href="#Compared-with-CNN" class="headerlink" title="Compared with CNN"></a>Compared with CNN</h3><p>相比于CNN，ViT有一些常见的优点，例如利用无标注数据的能力，更好的并行性，泛化能力更强，鲁棒性更好。这些优点有些也来自transformer模型，在前文中已提及，这里就不再展开。而ViT也不仅仅都是优点，当训练数据集不够大的时候，ViT的表现通常比同等大小的ResNets要差一些，这是因为CNN在CV领域已经得到了成熟的应用，利用transformer难以使用CNN的一些先验知识，如locality&#x2F;two-dimensional neighborhood structure（图片的二维关系）和translation equivariance（平移不变性）。但当数据集不断扩大时，ViT在多项任务上的性能反超了ResNets。在论文中，作者也提到了将ResNets与transformer结合进行训练（Hybrid），即在图片Embedding时借助ResNets，将图片转化为向量。Hybrid在小数据集上的表现均好于ViT和ResNets，但在大数据集上与却差于ViT。这说明Transformer在CV领域也有取代CNN的势头。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E6%A8%A1%E5%9E%8B%E8%83%BD%E5%8A%9B%E5%AF%B9%E6%AF%94%E5%9B%BE.png" alt="模型性能比较"></p>
+<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E6%A8%A1%E5%9E%8B%E8%83%BD%E5%8A%9B%E5%AF%B9%E6%AF%94%E5%9B%BE.png" alt="模型性能比较"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在阅读了大量的关于transformer论文后，我们不难发现transformer在广度上不断扩展，从提出之时的机器翻译到NLP整个领域再到CV等其他深度学习的领域，transformer被应用在各种不同的任务中，或与传统RNN和CNN结合，或直接开辟一条新的方法，为不同领域不同任务的解决提供了更多的选择。而在深度上，从时间线上来看，transformer模型也在不断的改善和调整来适应不同的任务。包括在数据量和模型参数量上的不断扩大，将预训练和微调的思想加入transformer，这些研究都在不断的提高transformer模型的学习能力和泛化能力。</p>
 <p>下面我列举一下transformer模型目前在哪些领域已取得了比较大的成功</p>
 <ul>
@@ -499,7 +499,7 @@
 <h1 id="方法完善"><a href="#方法完善" class="headerlink" title="方法完善"></a>方法完善</h1><p>注意到，如果使用<code>![](image.jpg)</code>的相对路径在typora本地无法正确引用图片（typora需要使用<code>![](1/image.jpg)</code>）<br>在文章的front-matter中添加一行<code>typora-root-url: 文章标题</code>。那么在typora中所有的路径前都会加上<code>文章标题/</code>。（<code>image.jpg-&gt;1/image.jpg</code>）<br>进一步可以在<code>scaffolds</code>文件夹中的文章模板中添加<code>typora-root-url: &#123;&#123;title&#125;&#125;</code>这样每次执行<code>hexo new</code>命令新建文章的时候，会在front-matter中自动添加该配置。</p>
 <h1 id="hexo与Typora的进一步联动"><a href="#hexo与Typora的进一步联动" class="headerlink" title="hexo与Typora的进一步联动"></a>hexo与Typora的进一步联动</h1><p>文章资源文件夹中引用图片，<strong>前提是先将图片放入到文章资源文件夹</strong>，如果图片数量众多的话，一张一张的放很影响效率。<br>使用Typora可以在复制图片到文章中时，自动将图片复制到指定文件夹，并修改成对应的路径。</p>
 <h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><p>找到Typora的偏好设置-&gt;图像，进行如下设置</p>
-<p><img src="/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
+<p><img src="/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
 <p><code>./$&#123;filename&#125;</code>设置与hexo的文章资源文件夹设置相对应，<strong>至此写博客时插入图片只需将图片复制（拖动）到文章中，然后调整路径为<code>文件名.png</code>(一般情况只需删除文件名前的‘&#x2F;’)即可。</strong></p>
 <h1 id="实际工作流"><a href="#实际工作流" class="headerlink" title="实际工作流"></a>实际工作流</h1><p>方法一：使用<code>hexo new &lt;layout&gt; &quot;filename&quot;</code>指令生成md文件（同时生成资源文件夹），然后使用typora打开md文件进行书写。</p>
 <p>方法二：在<code>/source/_posts</code>新建md文件，然后使用typora打开md文件进行书写，在插入图片时会自动生成资源文件夹。</p>
@@ -525,17 +525,17 @@
 <li><p>下载光速虚拟机：<a href="https://gsxnj.cn/index/">下载地址</a></p>
 </li>
 <li><p>创建安卓7虚拟环境（初次使用按软件要求进行配置，包括进入开发者模式、无线调试等可自行百度）</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%88%9B%E5%BB%BA%E5%AE%89%E5%8D%937%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.jpg"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%88%9B%E5%BB%BA%E5%AE%89%E5%8D%937%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.jpg"></p>
 </li>
 <li><p>导入fake location和校园跑软件</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%AF%BC%E5%85%A5.jpg"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E9%80%89%E6%8B%A9%E5%AF%BC%E5%85%A5.jpg"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%AF%BC%E5%85%A5%E8%BD%AF%E4%BB%B6.jpg" alt="导入软件"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%AF%BC%E5%85%A5.jpg"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E9%80%89%E6%8B%A9%E5%AF%BC%E5%85%A5.jpg"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%AF%BC%E5%85%A5%E8%BD%AF%E4%BB%B6.jpg" alt="导入软件"></p>
 </li>
 <li><p>选择位置进行位置模拟（以root模式）</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E6%B7%BB%E5%8A%A0%E5%AE%9A%E4%BD%8D.jpg" alt="添加定位"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E9%80%89%E6%8B%A9%E5%AE%9A%E4%BD%8D.jpg" alt="选择位置"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%BC%80%E5%A7%8B%E6%A8%A1%E6%8B%9F.jpg" alt="开始模拟"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E6%B7%BB%E5%8A%A0%E5%AE%9A%E4%BD%8D.jpg" alt="添加定位"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E9%80%89%E6%8B%A9%E5%AE%9A%E4%BD%8D.jpg" alt="选择位置"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%BC%80%E5%A7%8B%E6%A8%A1%E6%8B%9F.jpg" alt="开始模拟"></p>
 </li>
 <li><p>移动摇杆进行移动（非VIP限速1m&#x2F;s）</p>
 </li>
