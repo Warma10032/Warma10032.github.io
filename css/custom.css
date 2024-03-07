@@ -326,9 +326,9 @@ div#archive {
     color: #ffffff;
 }
 
-/* ������������������������������������������������������������������������������������ */
-/* ����ҳH1-H6ͼ����ʽЧ�� */
-/* ���Ʒ糵ת���ٶ� 4s��������Լ����ڿ��� */
+ ������������������������������������������������������������������������������������ 
+ ����ҳH1-H6ͼ����ʽЧ�� 
+ ���Ʒ糵ת���ٶ� 4s��������Լ����ڿ��� 
 h1::before,
 h2::before,
 h3::before,
@@ -338,7 +338,7 @@ h6::before {
     -webkit-animation: ccc 4s linear infinite;
     animation: ccc 4s linear infinite;
 }
-/* ���Ʒ糵ת������ -1turn Ϊ��ʱ��ת����1turn Ϊ˳ʱ��ת������ͬ���ֲ��ּǵ�ͳһ�޸� */
+ ���Ʒ糵ת������ -1turn Ϊ��ʱ��ת����1turn Ϊ˳ʱ��ת������ͬ���ֲ��ּǵ�ͳһ�޸� 
 @-webkit-keyframes ccc {
     0% {
         -webkit-transform: rotate(0deg);
@@ -362,49 +362,43 @@ h6::before {
         transform: rotate(-1turn);
     }
 }
-/* ���÷糵��ɫ */
+ ���÷糵��ɫ 
 #content-inner.layout h1::before {
     color: #ef50a8;
-    margin-left: -1.55rem;
     font-size: 1.3rem;
     margin-top: -0.23rem;
 }
 
 #content-inner.layout h2::before {
     color: #fb7061;
-    margin-left: -1.35rem;
     font-size: 1.1rem;
     margin-top: -0.12rem;
 }
 
 #content-inner.layout h3::before {
     color: #ffbf00;
-    margin-left: -1.22rem;
     font-size: 0.95rem;
     margin-top: -0.09rem;
 }
 
 #content-inner.layout h4::before {
     color: #a9e000;
-    margin-left: -1.05rem;
     font-size: 0.8rem;
     margin-top: -0.09rem;
 }
 
 #content-inner.layout h5::before {
     color: #57c850;
-    margin-left: -0.9rem;
     font-size: 0.7rem;
     margin-top: 0rem;
 }
 
 #content-inner.layout h6::before {
     color: #5ec1e0;
-    margin-left: -0.9rem;
     font-size: 0.66rem;
     margin-top: 0rem;
 }
-/* s���÷糵hover��Ч 6s��������Լ����ڿ���*/
+ s���÷糵hover��Ч 6s��������Լ����ڿ���
 #content-inner.layout h1:hover,
 #content-inner.layout h2:hover,
 #content-inner.layout h3:hover,
