@@ -15,7 +15,7 @@
 
 <h3 id="2-2、版本控制器的方式"><a href="#2-2、版本控制器的方式" class="headerlink" title="2.2、版本控制器的方式"></a>2.2、版本控制器的方式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a、集中式版本控制工具</span><br><span class="line">	集中式版本控制工具，版本库是集中存放在中央服务器的，team里每个人work时从中央服务器下载代码，是必须联网才能工作，局域网或互联网。个人修改后然后提交到中央版本库。</span><br><span class="line">	举例：SVN和CVS</span><br><span class="line">b、分布式版本控制工具</span><br><span class="line">	分布式版本控制系统没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样工作的时候，无需要联网了，因为版本库就在你自己的电脑上。多人协作只需要各自的修改推送给对方，就能互相看到对方的修改了。</span><br><span class="line">	举例：Git</span><br></pre></td></tr></table></figure>
 
-<h3 id="2-3、SVN"><a href="#2-3、SVN" class="headerlink" title="2.3、SVN"></a>2.3、SVN</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/SVN.png" alt="SVN"></p>
+<h3 id="2-3、SVN"><a href="#2-3、SVN" class="headerlink" title="2.3、SVN"></a>2.3、SVN</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/SVN.png" alt="SVN"></p>
 <h3 id="2-4、Git"><a href="#2-4、Git" class="headerlink" title="2.4、Git"></a>2.4、Git</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Git是分布式的,Git不需要有中心服务器，我们每台电脑拥有的东西都是一样的。我们使用Git并且有个中心服务器，仅仅是为了方便交换大家的修改，但是这个服务器的地位和我们每个人的PC是一样的。我们可以把它当做一个开发者的pc就可以就是为了大家代码容易交流不关机用的。没有它大家一样可以工作，只不过“交换”修改不方便而已。</span><br><span class="line">git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git是Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</span><br><span class="line">同生活中的许多伟大事物一样，Git 诞生于一个极富纷争大举创新的年代。Linux 内核开源项目有着为数众多的参与者。 绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上（1991－2002年间）。 到 2002 年，整个项目组开始启用一个专有的分布式版本控制系统 BitKeeper 来管理和维护代码。</span><br><span class="line">到了 2005 年，开发 BitKeeper 的商业公司同 Linux 内核开源社区的合作关系结束，他们收回了Linux 内核社区免费使用 BitKeeper 的权力。 这就迫使 Linux 开源社区（特别是 Linux 的缔造者Linus Torvalds）基于使用 BitKeeper 时的经验教训，开发出自己的版本系统。 他们对新的系统制订了若干目标：</span><br><span class="line"> 速度</span><br><span class="line"> 简单的设计</span><br><span class="line"> 对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</span><br><span class="line"> 完全分布式</span><br><span class="line"> 有能力高效管理类似 Linux 内核一样的超大规模项目（速度和数据量）</span><br></pre></td></tr></table></figure>
 
 <img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git.png" alt="Git">
@@ -43,7 +43,7 @@
 <img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git下载与安装.png" alt="Git下载与安装">
 
 <p>下载完成后可以得到如下安装文件：</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/Git%E5%AE%89%E8%A3%85%E5%8C%85.png" alt="Git安装包"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git%E5%AE%89%E8%A3%85%E5%8C%85.png" alt="Git安装包"></p>
 <p>双击下载的安装文件来安装Git。安装完成后在电脑桌面（也可以是其他目录)点击右键，如果能够看到如下两个菜单则说明Git安装成功。</p>
 <img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/Git右键菜单.png" alt="Git右键菜单">
 
@@ -163,7 +163,7 @@
 <ul>
 <li><code>git branch -d 分支名</code> 删除分支时，需要做各种检查</li>
 <li><code>git branch -D 分支名</code> 不做任何检查，强制删除</li>
-<li>E.g.<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF.png" alt="删除分支"></li>
+<li>E.g.<br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E5%88%A0%E9%99%A4%E5%88%86%E6%94%AF.png" alt="删除分支"></li>
 </ul>
 <h4 id="3-4-8、解决冲突"><a href="#3-4-8、解决冲突" class="headerlink" title="3.4.8、解决冲突"></a>3.4.8、解决冲突</h4><p>当两个分支上对文件的修改可能会存在冲突，例如同时修改了同一个文件的同一行，这时就需要手动解决冲突，解决冲突步骤如下：</p>
 <ol>
@@ -172,7 +172,7 @@
 <li>提交到仓库(commit)</li>
 </ol>
 <p>冲突部分的内容处理如下所示：</p>
-<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/02/14/Git%E6%95%99%E7%A8%8B/%E5%86%B2%E7%AA%81%E5%A4%84%E7%90%86.png" alt="冲突处理.png"></p>
+<p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/%E5%86%B2%E7%AA%81%E5%A4%84%E7%90%86.png" alt="冲突处理.png"></p>
 <h4 id="3-4-9、开发中分支使用原则与流程"><a href="#3-4-9、开发中分支使用原则与流程" class="headerlink" title="3.4.9、开发中分支使用原则与流程"></a>3.4.9、开发中分支使用原则与流程</h4><p>几乎所有的版本控制系统都以某种形式支持分支。 使用分支意味着你可以把你的工作从开发主线上分离开来进行重大的Bug修改、开发新的功能，以免影响开发主线。</p>
 <p>在开发中，一般有如下分支使用原则与流程：</p>
 <ul>
@@ -495,12 +495,12 @@
 <h2 id="使用hexo-renderer-marked-插件（推荐）"><a href="#使用hexo-renderer-marked-插件（推荐）" class="headerlink" title="使用hexo-renderer-marked&#96;插件（推荐）"></a>使用<a href="https://github.com/hexojs/hexo-renderer-marked"><code>hexo-renderer-marked</code></a>&#96;插件（推荐）</h2><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>用<code>npm install hexo-renderer-marked</code>命令安装（新版hexo已集成，无需安装）</p>
 <h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>在<code>_config.yml</code>中更改配置如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
-<p>第一行在前文已修改，后三行需要自行添加到第一行后。<br>此时在hexo网页中，使用<code>![](image.jpg)</code>的相对路径的方法可成功进行引用。<br>（注意：路径中不能有空格）</p>
-<h1 id="方法完善"><a href="#方法完善" class="headerlink" title="方法完善"></a>方法完善</h1><p>注意到，如果使用<code>![](image.jpg)</code>的相对路径在typora本地无法正确引用图片（typora需要使用<code>![](1/image.jpg)</code>）<br>在文章的front-matter中添加一行<code>typora-root-url: 文章标题</code>。那么在typora中所有的路径前都会加上<code>文章标题/</code>。（<code>image.jpg-&gt;1/image.jpg</code>）<br>进一步可以在<code>scaffolds</code>文件夹中的文章模板中添加<code>typora-root-url: &#123;&#123;title&#125;&#125;</code>这样每次执行<code>hexo new</code>命令新建文章的时候，会在front-matter中自动添加该配置。</p>
+<p>第一行在前文已修改，后三行需要自行添加到第一行后。<br>此时在hexo网页中，使用<code>![](/image.jpg)</code>的相对路径的方法可成功进行引用。<br>（注意：路径中不能有空格）</p>
+<h1 id="方法完善"><a href="#方法完善" class="headerlink" title="方法完善"></a>方法完善</h1><p>注意到，如果使用<code>![](/image.jpg)</code>的相对路径在typora本地无法正确引用图片（typora需要使用<code>![](1/image.jpg)</code>）<br>在文章的front-matter中添加一行<code>typora-root-url: 文章标题</code>。那么在typora中所有的路径前都会加上<code>文章标题/</code>。（<code>image.jpg-&gt;1/image.jpg</code>）<br>进一步可以在<code>scaffolds</code>文件夹中的文章模板中添加<code>typora-root-url: &#123;&#123;title&#125;&#125;</code>这样每次执行<code>hexo new</code>命令新建文章的时候，会在front-matter中自动添加该配置。</p>
 <h1 id="hexo与Typora的进一步联动"><a href="#hexo与Typora的进一步联动" class="headerlink" title="hexo与Typora的进一步联动"></a>hexo与Typora的进一步联动</h1><p>文章资源文件夹中引用图片，<strong>前提是先将图片放入到文章资源文件夹</strong>，如果图片数量众多的话，一张一张的放很影响效率。<br>使用Typora可以在复制图片到文章中时，自动将图片复制到指定文件夹，并修改成对应的路径。</p>
 <h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><p>找到Typora的偏好设置-&gt;图像，进行如下设置</p>
 <p><img src="/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE.png"></p>
-<p><code>./$&#123;filename&#125;</code>设置与hexo的文章资源文件夹设置相对应，<strong>至此写博客时插入图片只需将图片复制（拖动）到文章中，然后调整路径为<code>文件名.png</code>(一般情况只需删除文件名前的‘&#x2F;’)即可。</strong></p>
+<p><code>./$&#123;filename&#125;</code>设置与hexo的文章资源文件夹设置相对应，<strong>至此写博客时插入图片只需将图片复制（拖动）到文章中即可。</strong></p>
 <h1 id="实际工作流"><a href="#实际工作流" class="headerlink" title="实际工作流"></a>实际工作流</h1><p>方法一：使用<code>hexo new &lt;layout&gt; &quot;filename&quot;</code>指令生成md文件（同时生成资源文件夹），然后使用typora打开md文件进行书写。</p>
 <p>方法二：在<code>/source/_posts</code>新建md文件，然后使用typora打开md文件进行书写，在插入图片时会自动生成资源文件夹。</p>
 ]]></content>
@@ -525,17 +525,33 @@
 <li><p>下载光速虚拟机：<a href="https://gsxnj.cn/index/">下载地址</a></p>
 </li>
 <li><p>创建安卓7虚拟环境（初次使用按软件要求进行配置，包括进入开发者模式、无线调试等可自行百度）</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%88%9B%E5%BB%BA%E5%AE%89%E5%8D%937%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83.jpg"></p>
+<img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/创建安卓7虚拟环境.jpg" style="zoom:33%;">
+
+
 </li>
 <li><p>导入fake location和校园跑软件</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%AF%BC%E5%85%A5.jpg"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E9%80%89%E6%8B%A9%E5%AF%BC%E5%85%A5.jpg"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%AF%BC%E5%85%A5%E8%BD%AF%E4%BB%B6.jpg" alt="导入软件"></p>
+<img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入.jpg" style="zoom: 80%;">
+
+
+
+<img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择导入.jpg" style="zoom:33%;">
+
+
+
+<img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入软件.jpg" alt="导入软件" style="zoom: 80%;">
 </li>
 <li><p>选择位置进行位置模拟（以root模式）</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E6%B7%BB%E5%8A%A0%E5%AE%9A%E4%BD%8D.jpg" alt="添加定位"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E9%80%89%E6%8B%A9%E5%AE%9A%E4%BD%8D.jpg" alt="选择位置"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/%E5%BC%80%E5%A7%8B%E6%A8%A1%E6%8B%9F.jpg" alt="开始模拟"></p>
+<img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/添加定位.jpg" alt="添加定位" style="zoom:80%;">
+
+
+
+
+
+<img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择定位.jpg" alt="选择位置" style="zoom:33%;">
+
+
+
+<img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/开始模拟.jpg" alt="开始模拟" style="zoom:33%;">
 </li>
 <li><p>移动摇杆进行移动（非VIP限速1m&#x2F;s）</p>
 </li>
@@ -543,7 +559,7 @@
 <h2 id="本校解决方案（东南大学）"><a href="#本校解决方案（东南大学）" class="headerlink" title="本校解决方案（东南大学）"></a>本校解决方案（<del>东南大学</del>）</h2><p>由于本校采用的是间隔时间进行定位采样，可以在目标线路（操场）上定位多个点，再在历史定位中间依次更换虚拟定位让系统记录。</p>
 <h2 id="通用解决方案（提升体验）"><a href="#通用解决方案（提升体验）" class="headerlink" title="通用解决方案（提升体验）"></a>通用解决方案（提升体验）</h2><p>开VIP🤯</p>
 <p>可获得快速摇杆，路线模拟（自动运行）等。</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/专业版1.jpg" style="zoom:40%;"><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/专业版2.jpg" style="zoom:40%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/专业版1.jpg" style="zoom: 33%;"><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/专业版2.jpg" style="zoom: 33%;"></p>
 <h2 id="常见失败原因"><a href="#常见失败原因" class="headerlink" title="常见失败原因"></a>常见失败原因</h2><ol>
 <li>未以root模式启动</li>
 <li>需要启动基站模拟等增强功能</li>
