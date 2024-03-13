@@ -516,6 +516,46 @@
       </tags>
   </entry>
   <entry>
+    <title>如何快速让个人博客被搜索引擎收录</title>
+    <url>/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们好不容易搭建好自己的个人博客时，在搜索引擎搜索时才发现，无论是搜索网站的标题还是网址都无法搜索到，搜索不到就代表着没有流量、没人看你写的文章，这可咋办。难道辛辛苦苦搭建的网站只有知道网址的人才能访问到吗，如何打破这信息孤岛呢？下面交给你解决办法，把你的网站主动推荐给各大搜索引擎让搜索引擎收录。</p>
+<p>由于各大搜索引擎的本质就是一个爬虫在不断爬取互联网上的内容，也许你的网站在不经意间已经被收录了。</p>
+<p>你可以通过在搜索引擎中输入<code>site:&lt;域名&gt;</code>（e.g. site:xiaobaozi.cn），若可以搜索出你的网站，则说明已经被收录。</p>
+<p>不过你仍可以进行接下来的步骤，在各大搜索引擎的后台添加你的网站并绑定你的账号，之后你就可以在后台看到相关的流量统计和相关增加曝光度的操作。</p>
+<h2 id="百度收录"><a href="#百度收录" class="headerlink" title="百度收录"></a>百度收录</h2><p>若未被收录，可以点击<a href="https://ziyuan.baidu.com/linksubmit/url?sitename">提交网址</a></p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/%E7%99%BE%E5%BA%A6%E6%9C%AA%E6%94%B6%E5%BD%95.png"></p>
+<p>进行连接提交（这是搜索引擎用户对搜索不到的网址进行反馈提交，无法保证收录）</p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001014339.png" alt="image-20240314001014339"></p>
+<p>若要进一步提交网站可以</p>
+<h3 id="添加站点到百度"><a href="#添加站点到百度" class="headerlink" title="添加站点到百度"></a>添加站点到百度</h3><p>我们需要登录<a href="https://ziyuan.baidu.com/">百度搜索资源平台</a>，登录成功之后在上方用户中心→站点管理](<a href="https://ziyuan.baidu.com/site)%E4%B8%AD%E7%82%B9%E5%87%BB%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99%EF%BC%8C%E8%BE%93%E5%85%A5%E5%9F%9F%E5%90%8D%EF%BC%8C%E6%8C%89%E7%85%A7%E6%AD%A5%E9%AA%A4%E8%B5%B0%E3%80%82">https://ziyuan.baidu.com/site)中点击添加网站，输入域名，按照步骤走。</a></p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001927371.png"></p>
+<p>进入第三步验证您对网站的所有权，可以选择文件验证或HTML标签认证。</p>
+<ul>
+<li><strong>文件验证</strong></li>
+</ul>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/%E6%96%87%E4%BB%B6%E9%AA%8C%E8%AF%81.png"></p>
+<ol>
+<li><p>下载验证文件，放到指定目录下。以hexo搭建的博客为例，放到<code>博客目录/public</code>目录下。</p>
+</li>
+<li><p>执行<code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code>命令即可。</p>
+</li>
+<li><p>等待网站更新，在你的网站域名后添加验证文件的文件名（e.g. <code>https://www.xiaobaozi.cn/baidu_verify_codeva-&lt;xxxxx&gt;.html</code>)，若能访问到一串字符串说明成功。（仅出现一串字符串在左上角，其余为空白，无其他内容）</p>
+</li>
+<li><p>成功后点击<code>完成验证</code>即可</p>
+</li>
+</ol>
+<h3 id="向百度推送网站的资源"><a href="#向百度推送网站的资源" class="headerlink" title="向百度推送网站的资源"></a>向百度推送网站的资源</h3><p>经过上面的步骤，百度已经知道有我们网站的存在了，但是百度还不知道我们的网站上有什么内容，所以要向百度推送我们的内容。还是在百度资源搜索平台 </p>
+]]></content>
+      <categories>
+        <category>经验之谈</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>搜索引擎</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>虚拟定位完成校园跑</title>
     <url>/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/</url>
     <content><![CDATA[<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>对于利用定位检测的校园跑软件，使用fake location这个软件实现虚拟定位，进而达到足不出户刷校园跑。</p>
@@ -573,38 +613,6 @@
       </categories>
       <tags>
         <tag>校园跑</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何快速让个人博客被搜索引擎收录</title>
-    <url>/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们好不容易搭建好自己的个人博客时，在搜索引擎搜索时才发现，无论是搜索网站的标题还是网址都无法搜索到，搜索不到就代表着没有流量、没人看你写的文章，这可咋办。难道辛辛苦苦搭建的网站只有知道网址的人才能访问到吗，如何打破这信息孤岛呢？下面交给你解决办法，把你的网站主动推荐给各大搜索引擎让搜索引擎收录。</p>
-<p>由于各大搜索引擎的本质就是一个爬虫在不断爬取互联网上的内容，也许你的网站在不经意间已经被收录了。</p>
-<p>你可以通过在搜索引擎中输入<code>site:&lt;域名&gt;</code>（e.g. site:xiaobaozi.cn），若可以搜索出你的网站，则说明已经被收录。</p>
-<p>不过你仍可以进行接下来的步骤，在各大搜索引擎的后台添加你的网站并绑定你的账号，之后你就可以在后台看到相关的流量统计和相关增加曝光度的操作。</p>
-<h2 id="百度收录"><a href="#百度收录" class="headerlink" title="百度收录"></a>百度收录</h2><p>若未被收录，可以点击<a href="https://ziyuan.baidu.com/linksubmit/url?sitename">提交网址</a></p>
-<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/%E7%99%BE%E5%BA%A6%E6%9C%AA%E6%94%B6%E5%BD%95.png"></p>
-<p>进行连接提交（这是搜索引擎用户对搜索不到的网址进行反馈提交，无法保证收录）</p>
-<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001014339.png" alt="image-20240314001014339"></p>
-<p>若要进一步提交网站可以</p>
-<h3 id="添加站点到百度"><a href="#添加站点到百度" class="headerlink" title="添加站点到百度"></a>添加站点到百度</h3><p>我们需要登录<a href="https://ziyuan.baidu.com/">百度搜索资源平台</a>，登录成功之后在上方用户中心→站点管理](<a href="https://ziyuan.baidu.com/site)%E4%B8%AD%E7%82%B9%E5%87%BB%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99%EF%BC%8C%E8%BE%93%E5%85%A5%E5%9F%9F%E5%90%8D%EF%BC%8C%E6%8C%89%E7%85%A7%E6%AD%A5%E9%AA%A4%E8%B5%B0%E3%80%82">https://ziyuan.baidu.com/site)中点击添加网站，输入域名，按照步骤走。</a></p>
-<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001927371.png"></p>
-<p>进入第三步验证您对网站的所有权，可以选择文件验证或HTML标签认证。</p>
-<ul>
-<li><strong>文件验证</strong></li>
-</ul>
-<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/%E6%96%87%E4%BB%B6%E9%AA%8C%E8%AF%81.png"></p>
-<p>下载验证文件，以hexo搭建的博客为例，放到<code>博客目录→public文件夹</code>中。</p>
-<p>然后执行<code>hexo g &amp;&amp; hexo d</code>命令即可。</p>
-<p>等待网站更新，在你的网站域名后添加验证文件的文件名（e.g. <code>https://www.xiaobaozi.cn/baidu_verify_codeva-&lt;xxxxx&gt;.html</code>)，若能访问到一串字符串说明成功。（仅出现一串字符串，无其他相关）</p>
-]]></content>
-      <categories>
-        <category>经验之谈</category>
-      </categories>
-      <tags>
-        <tag>博客</tag>
-        <tag>hexo</tag>
-        <tag>搜索引擎</tag>
       </tags>
   </entry>
 </search>
