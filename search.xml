@@ -594,7 +594,9 @@
 <li><strong>文件验证</strong></li>
 </ul>
 <p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/%E6%96%87%E4%BB%B6%E9%AA%8C%E8%AF%81.png"></p>
-<p>下载验证文件，以hexo搭建的博客为例，放到<code>博客目录→public文件夹</code>中</p>
+<p>下载验证文件，以hexo搭建的博客为例，放到<code>博客目录→public文件夹</code>中。</p>
+<p>然后执行<code>hexo g &amp;&amp; hexo d</code>命令即可。</p>
+<p>等待网站更新，在你的网站域名后添加验证文件的文件名（e.g. <code>https://www.xiaobaozi.cn/baidu_verify_codeva-&lt;xxxxx&gt;.html</code>)，若能访问到一串字符串说明成功。（仅出现一串字符串，无其他相关）</p>
 ]]></content>
       <categories>
         <category>经验之谈</category>
