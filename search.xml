@@ -357,12 +357,13 @@
 <p>首先，我们将详细介绍Transformer模型的基本结构，包括自注意力机制（self-attention）。这种机制使其能够同时处理输入序列中的各个元素，无论是单词、像素还是其他形式的数据。这个思想的强大之处在于它的通用性，它使Transformer能够在各种领域中取得成功。在NLP领域，Transformer模型已在文本分类、命名实体识别和机器翻译等领域取得了巨大成功。而在计算机视觉领域，Transformer也已经在图像分类和目标检测中崭露头角。</p>
 <p>然而，虽然Transformer模型在不同领域之间的应用非常广泛，但它在每个领域中都有自己的独特挑战和特点。例如，在NLP中，BERT模型通过让模型获得双向输入，掌握上下文信息来改善预训练词嵌入，而在CV中，ViT模型通过对图像的分块处理来应对图像数据的巨大复杂性。通过对这些异同之处的深入研究，我们可以更好地理解Transformer模型的多领域适用性，以及如何将其推向新的高度。</p>
 <h2 id="什么是Transformer"><a href="#什么是Transformer" class="headerlink" title="什么是Transformer"></a>什么是Transformer</h2><p>Transformer是一个基于注意力机制的神经网络模型，Transformer模型由编码器和解码器组成，两者都由多个相同的层组成，每一层有两个子层：多头自注意力机制层和全连接前馈神经网络，Transformer模型利用自注意力机制捕捉输入序列中每个元素与其他元素之间的关系，利用多头机制提高模型的性能。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/transformer%E7%BB%93%E6%9E%84.png" alt="Transformer架构"></p>
+<img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/transformer结构.png" alt="Transformer架构" style="zoom: 67%;">
+
 <p>接下来我将自下而上从输入到输出介绍transformer模型。</p>
 <h3 id="Input-Embedding-and-Output-Embedding（输入嵌入和输出嵌入）"><a href="#Input-Embedding-and-Output-Embedding（输入嵌入和输出嵌入）" class="headerlink" title="Input Embedding and Output Embedding（输入嵌入和输出嵌入）"></a>Input Embedding and Output Embedding（输入嵌入和输出嵌入）</h3><p>Word Embedding（词嵌入）是将离散化的符号序列（如单词、字符）转换为连续的向量表示，以便使神经网络可以有效地处理文本数据。它使得模型能够理解文本数据的语义和上下文信息，并为后续的自注意力层和前馈神经网络提供了输入。</p>
 <h3 id="Positional-Encoding（位置编码）"><a href="#Positional-Encoding（位置编码）" class="headerlink" title="Positional Encoding（位置编码）"></a>Positional Encoding（位置编码）</h3><p>由于 Transformer 不包含处理输入序列的循环或卷积操作，它不能自动地理解单词的顺序信息。因此，我们必须注入一些关于相对或绝对位置的信息序列中的标记。为此，我们引入了“位置编码”来将位置信息嵌入到模型中。位置编码是一个与位置、维度相关的矩阵，它会与输入的词嵌入相加。在原论文中，作者采用了正余弦函数来进行位置编码。</p>
 <h3 id="Attention（注意力机制）"><a href="#Attention（注意力机制）" class="headerlink" title="Attention（注意力机制）"></a>Attention（注意力机制）</h3><p>注意力函数可以描述为将查询（query）和一组键值对（key-value pairs）映射到输出，其中查询(Q)、键(K)、值(V)和输出都是向量。 输出被计算为值的加权和，其中分配给每个值的权重是由查询(Q)与相应键(v)的兼容性函数计算的。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%87%BD%E6%95%B0.png" alt="注意力函数">                </p>
+<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/%E6%B3%A8%E6%84%8F%E5%8A%9B%E5%87%BD%E6%95%B0.png" alt="注意力函数">                </p>
 <h4 id="Scaled-Dot-Product-Attention（缩放点积注意力）"><a href="#Scaled-Dot-Product-Attention（缩放点积注意力）" class="headerlink" title="Scaled Dot-Product Attention（缩放点积注意力）"></a>Scaled Dot-Product Attention（缩放点积注意力）</h4><p>自注意力机制（Self-attention）是 Transformer 模型的关键组成部分，它允许模型在一个序列中的不同位置之间建立权重连接，从而在一个步骤内同时考虑所有位置的信息。自注意力机制的计算分为以下几步：</p>
 <ul>
 <li><p>对于一个输入序列，首先通过三个线性变换分别得到查询(Q)、键(K)和值(V)的向量表示。这些向量用于计算注意力分数和生成权重。</p>
@@ -572,6 +573,36 @@
       </categories>
       <tags>
         <tag>校园跑</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何快速让个人博客被搜索引擎收录</title>
+    <url>/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们好不容易搭建好自己的个人博客时，在搜索引擎搜索时才发现，无论是搜索网站的标题还是网址都无法搜索到，搜索不到就代表着没有流量、没人看你写的文章，这可咋办。难道辛辛苦苦搭建的网站只有知道网址的人才能访问到吗，如何打破这信息孤岛呢？下面交给你解决办法，把你的网站主动推荐给各大搜索引擎让搜索引擎收录。</p>
+<p>由于各大搜索引擎的本质就是一个爬虫在不断爬取互联网上的内容，也许你的网站在不经意间已经被收录了。</p>
+<p>你可以通过在搜索引擎中输入<code>site:&lt;域名&gt;</code>（e.g. site:xiaobaozi.cn），若可以搜索出你的网站，则说明已经被收录。</p>
+<p>不过你仍可以进行接下来的步骤，在各大搜索引擎的后台添加你的网站并绑定你的账号，之后你就可以在后台看到相关的流量统计和相关增加曝光度的操作。</p>
+<h2 id="百度收录"><a href="#百度收录" class="headerlink" title="百度收录"></a>百度收录</h2><p>若未被收录，可以点击<a href="https://ziyuan.baidu.com/linksubmit/url?sitename">提交网址</a></p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/%E7%99%BE%E5%BA%A6%E6%9C%AA%E6%94%B6%E5%BD%95.png"></p>
+<p>进行连接提交（这是搜索引擎用户对搜索不到的网址进行反馈提交，无法保证收录）</p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001014339.png" alt="image-20240314001014339"></p>
+<p>若要进一步提交网站可以</p>
+<h3 id="添加站点到百度"><a href="#添加站点到百度" class="headerlink" title="添加站点到百度"></a>添加站点到百度</h3><p>我们需要登录<a href="https://ziyuan.baidu.com/">百度搜索资源平台</a>，登录成功之后在上方用户中心→站点管理](<a href="https://ziyuan.baidu.com/site)%E4%B8%AD%E7%82%B9%E5%87%BB%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99%EF%BC%8C%E8%BE%93%E5%85%A5%E5%9F%9F%E5%90%8D%EF%BC%8C%E6%8C%89%E7%85%A7%E6%AD%A5%E9%AA%A4%E8%B5%B0%E3%80%82">https://ziyuan.baidu.com/site)中点击添加网站，输入域名，按照步骤走。</a></p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001927371.png"></p>
+<p>进入第三步验证您对网站的所有权，可以选择文件验证或HTML标签认证。</p>
+<ul>
+<li><strong>文件验证</strong></li>
+</ul>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/%E6%96%87%E4%BB%B6%E9%AA%8C%E8%AF%81.png"></p>
+<p>下载验证文件，以hexo搭建的博客为例，放到<code>博客目录→public文件夹</code>中</p>
+]]></content>
+      <categories>
+        <category>经验之谈</category>
+      </categories>
+      <tags>
+        <tag>博客</tag>
+        <tag>hexo</tag>
+        <tag>搜索引擎</tag>
       </tags>
   </entry>
 </search>

@@ -326,19 +326,15 @@ div#archive {
     color: #ffffff;
 }
 
- ������������������������������������������������������������������������������������ 
- ����ҳH1-H6ͼ����ʽЧ�� 
- ���Ʒ糵ת���ٶ� 4s��������Լ����ڿ��� 
-h1::before,
-h2::before,
-h3::before,
-h4::before,
-h5::before,
-h6::before {
+/* ������������������������������������������������������������������������������������ */
+/* ����ҳH1-H6ͼ����ʽЧ�� */
+/* ���Ʒ糵ת���ٶ� 4s��������Լ����ڿ��� */
+h1::before,h2::before,h3::before,h4::before,h5::before,h6::before 
+{
     -webkit-animation: ccc 4s linear infinite;
     animation: ccc 4s linear infinite;
 }
- ���Ʒ糵ת������ -1turn Ϊ��ʱ��ת����1turn Ϊ˳ʱ��ת������ͬ���ֲ��ּǵ�ͳһ�޸� 
+/* ���Ʒ糵ת������ -1turn Ϊ��ʱ��ת����1turn Ϊ˳ʱ��ת������ͬ���ֲ��ּǵ�ͳһ�޸� */
 @-webkit-keyframes ccc {
     0% {
         -webkit-transform: rotate(0deg);
@@ -350,7 +346,6 @@ h6::before {
         transform: rotate(-1turn);
     }
 }
-
 @keyframes ccc {
     0% {
         -webkit-transform: rotate(0deg);
@@ -362,59 +357,39 @@ h6::before {
         transform: rotate(-1turn);
     }
 }
- ���÷糵��ɫ 
+/* ���÷糵��ɫ */
 #content-inner.layout h1::before {
     color: #ef50a8;
     font-size: 1.3rem;
-    margin-top: -0.23rem;
 }
-
 #content-inner.layout h2::before {
     color: #fb7061;
     font-size: 1.1rem;
-    margin-top: -0.12rem;
 }
-
 #content-inner.layout h3::before {
     color: #ffbf00;
     font-size: 0.95rem;
-    margin-top: -0.09rem;
 }
-
 #content-inner.layout h4::before {
     color: #a9e000;
     font-size: 0.8rem;
-    margin-top: -0.09rem;
 }
-
 #content-inner.layout h5::before {
     color: #57c850;
     font-size: 0.7rem;
-    margin-top: 0rem;
 }
-
 #content-inner.layout h6::before {
     color: #5ec1e0;
     font-size: 0.66rem;
-    margin-top: 0rem;
 }
- s���÷糵hover��Ч 6s��������Լ����ڿ���
-#content-inner.layout h1:hover,
-#content-inner.layout h2:hover,
-#content-inner.layout h3:hover,
-#content-inner.layout h4:hover,
-#content-inner.layout h5:hover,
-#content-inner.layout h6:hover {
+/* s���÷糵hover��Ч 6s��������Լ����ڿ��� */
+#content-inner.layout h1:hover,#content-inner.layout h2:hover,#content-inner.layout h3:hover,#content-inner.layout h4:hover,#content-inner.layout h5:hover,#content-inner.layout h6:hover
+{
     color: var(--theme-color);
 }
-
-    #content-inner.layout h1:hover::before,
-    #content-inner.layout h2:hover::before,
-    #content-inner.layout h3:hover::before,
-    #content-inner.layout h4:hover::before,
-    #content-inner.layout h5:hover::before,
-    #content-inner.layout h6:hover::before {
-        color: var(--theme-color);
-        -webkit-animation: ccc 6s linear infinite;
-        animation: ccc 6s linear infinite;
-    }
+#content-inner.layout h1:hover::before,#content-inner.layout h2:hover::before,#content-inner.layout h3:hover::before,#content-inner.layout h4:hover::before,#content-inner.layout h5:hover::before,#content-inner.layout h6:hover::before 
+{
+    color: var(--theme-color);
+    -webkit-animation: ccc 6s linear infinite;
+    animation: ccc 6s linear infinite;
+}
