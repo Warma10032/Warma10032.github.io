@@ -509,10 +509,7 @@
 <h3 id="添加站点到百度"><a href="#添加站点到百度" class="headerlink" title="添加站点到百度"></a>添加站点到百度</h3><p>我们需要登录<a href="https://ziyuan.baidu.com/site">百度搜索资源平台](https://ziyuan.baidu.com/)，登录成功之后在上方用户中心→站点管理</a>中点击添加网站，输入域名，按照步骤走。</p>
 <p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001927371.png" alt></p>
 <p>进入第三步验证您对网站的所有权，可以选择文件验证或HTML标签认证。</p>
-<ul>
-<li><strong>文件验证</strong></li>
-</ul>
-<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/文件验证.png" alt></p>
+<h4 id="文件验证"><a href="#文件验证" class="headerlink" title="文件验证"></a>文件验证</h4><p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/文件验证.png" alt></p>
 <ol>
 <li>下载验证文件，放到指定目录下。以hexo搭建的博客为例，放到 <code>博客目录/public</code>目录下。</li>
 <li>执行 <code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code>命令即可。</li>
@@ -530,14 +527,20 @@
 <li><p><strong>手动提交：</strong>如果您不想通过程序提交，那么可以采用此种方式，手动将链接提交给百度。</p>
 </li>
 </ul>
-<h4 id="API提交"><a href="#API提交" class="headerlink" title="API提交"></a>API提交</h4><p>首先需要安装插件</p>
+<h4 id="API提交"><a href="#API提交" class="headerlink" title="API提交"></a>API提交</h4><p>API提交首先需要安装插件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure>
 <p>然后在 hexo 根目录配置文件<code>_config.yml</code> 中，添加：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主动推送百度，被百度收录</span></span><br><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">10</span> <span class="comment"># 提交最新的10个链接</span></span><br><span class="line">  <span class="attr">host:</span> <span class="comment"># 百度站长平台中注册的域名</span></span><br><span class="line">  <span class="attr">token:</span> <span class="comment"># 密钥，百度站长平台 &gt; 普通收录 &gt; 推送接口 &gt; 接口调用地址中token字段</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidu_urls.txt</span> <span class="comment"># 文本文档的地址， 新链接会保存在此文本文档里，不用改</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/百度.png" alt="百度"></p>
 <p>其次，记得查看 hexo 根目录中<code>_config.yml</code> 文件中<code>url</code> 的值， 必须包含是百度站长平台注册的域名。</p>
 <p>最后，在<code>_config.yml</code> 文件中的 <code>deploy</code> 加入新的 <code>type</code>:</p>
-<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">https://github.com/fenshen000/fenshen000.github.io.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">git@github.com:Warma10032/Warma10032.github.io.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>
+<div class="note warning modern"><p>这里是新建一个 type，一定要注意这段代码里面各行的缩进值</p>
+</div>
+<p>执行 <code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code>命令即可。</p>
+<p>后续慢慢等收录吧，百度收录比较慢。</p>
+<h4 id="Sitemap"><a href="#Sitemap" class="headerlink" title="Sitemap"></a>Sitemap</h4><div class="note danger modern"><p>目前百度正在清理陈旧sitemap文件，并且关闭了个人小站的添加sitemap的入口。对于有域名有备案的网站可以登录百度查看是否可以提交sitemap文件。</p>
+</div>
 <div class="note info modern"><p>Sitemap（站点地图）是一种文件的统称，通常Sitemap（站点地图）可以是txt或者XML格式。通过Sitemap（站点地图）你可以告诉搜索引擎关于你的站点中的网页、视频或者其他文件的相关信息，帮助搜索引擎更好的认识和理解你的站点。格式正确的Sitemap（站点地图）文件会帮助搜索引擎更高效地抓取你的网站。</p>
 </div>
 <p>通过sitemap方式推送我们首先需要生成一个站点地图。</p>
@@ -549,6 +552,29 @@
 <p>然后重新推送到服务器，访问如下 URL:</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://你的域名/sitemap.xml</span><br><span class="line">https://你的域名/baidusitemap.xml</span><br></pre></td></tr></table></figure>
 <p>看看网页中有没有内容，有的话就成功。</p>
+<p>最后将<code>https://你的域名/baidusitemap.xml</code>填入并提交即可。</p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240328125839744.png" alt></p>
+<div class="note primary modern"><p>Google Sitemap提交<code>https://你的域名/sitemap.xml</code>，方法类似，不再赘述。</p>
+</div>
+<h4 id="手动提交"><a href="#手动提交" class="headerlink" title="手动提交"></a>手动提交</h4><p>即手动将你的连接输入并提交。</p>
+<h2 id="谷歌收录"><a href="#谷歌收录" class="headerlink" title="谷歌收录"></a>谷歌收录</h2><p>提交谷歌搜索引擎比较简单，在提交之前，我们依然可以使用 <code>site:域名</code> 查看网站是否被收录。进入 <a href="https://developers.google.com/search#?modal_active=none">Google 搜索中心</a>，登录你的谷歌账号。然后找到<a href="https://search.google.com/search-console/welcome">注册 Search Console</a>(在 “使用入门–&gt;SEO 新手指南” 中可以找到入口)，就直接输入你要收录的网站域名就行。</p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240328131702702.png" alt></p>
+<h3 id="网域"><a href="#网域" class="headerlink" title="网域"></a>网域</h3><p>输入你的域名后进行DNS验证。</p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240328184321578.png" alt></p>
+<p>以腾讯云为例。</p>
+<p>进入域名解析添加解析记录即可。</p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240328184907173.png" alt></p>
+<h3 id="网址前缀"><a href="#网址前缀" class="headerlink" title="网址前缀"></a>网址前缀</h3><p>按示例格式输入你的网址前缀后，Google会收录所有以该前缀开头的网址。</p>
+<p>需要进行网站所有权验证，选HTML文件验证，与百度收录类似。</p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240328191231313.png" alt></p>
+<ol>
+<li>下载验证文件，放到指定目录下。以hexo搭建的博客为例，放到 <code>博客目录/public</code>目录下。</li>
+<li>执行 <code>hexo cl &amp;&amp; hexo g &amp;&amp; hexo d</code>命令即可。</li>
+<li>等待网站更新，在你的网站域名后添加验证文件的文件名（e.g. <code>https://www.xiaobaozi.cn/google&lt;xxxxx&gt;.html</code>)，若能访问到一串字符串说明成功。（仅出现一串字符串在左上角，其余为空白，无其他内容）</li>
+<li>成功后点击 <code>验证</code>即可</li>
+</ol>
+<h3 id="站点地图"><a href="#站点地图" class="headerlink" title="站点地图"></a>站点地图</h3><p>Google收录速度很快，对站点地图也不是刚需。不过也可以在对应页面上传你的站点地图文件，便于Google爬取。</p>
+<h2 id="必应收录"><a href="#必应收录" class="headerlink" title="必应收录"></a>必应收录</h2><p>必应收录也是很简单，点击<a href="https://www.bing.com/webmasters/about">必应站长</a>。先注册登录，必应收录有两种方式，一种使用刚刚谷歌导入过去，第二种是就是自己添加 URL，方法与Google收录类似，不再赘述。</p>
 ]]></content>
       <categories>
         <category>经验之谈</category>
