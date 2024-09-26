@@ -470,6 +470,48 @@
       </tags>
   </entry>
   <entry>
+    <title>虚拟定位完成校园跑</title>
+    <url>/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/</url>
+    <content><![CDATA[<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>对于利用定位检测的校园跑软件，使用fake location这个软件实现虚拟定位，进而达到足不出户刷校园跑。</p>
+<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>fake location软件：<a href="https://github.com/Lerist/FakeLocation/releases/">下载地址</a></p>
+<p>有定位功能的root环境（root可提高成功几率）：可以是本机root/面具、带有root的模拟器、带有root的虚拟机。</p>
+<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p>以安卓光速虚拟机为例（光速虚拟机提供免费root功能）</p>
+<ol>
+<li>下载光速虚拟机：<a href="https://gsxnj.cn/index/">下载地址</a></li>
+<li><p>创建安卓7虚拟环境（初次使用按软件要求进行配置，包括进入开发者模式、无线调试等可自行百度）</p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/创建安卓7虚拟环境.jpg" style="zoom:33%;"></p>
+</li>
+<li><p>导入fake location和校园跑软件</p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入.jpg" style="zoom: 80%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择导入.jpg" style="zoom:33%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入软件.jpg" alt="导入软件" style="zoom: 80%;"></p>
+</li>
+<li><p>选择位置进行位置模拟（以root模式）</p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/添加定位.jpg" alt="添加定位" style="zoom:80%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择定位.jpg" alt="选择位置" style="zoom:33%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/开始模拟.jpg" alt="开始模拟" style="zoom:33%;"></p>
+</li>
+<li>移动摇杆进行移动（非VIP限速1m/s）</li>
+</ol>
+<h2 id="本校解决方案（东南大学）"><a href="#本校解决方案（东南大学）" class="headerlink" title="本校解决方案（东南大学）"></a>本校解决方案（<del>东南大学</del>）</h2><p>由于本校采用的是间隔时间进行定位采样，可以在目标线路（操场）上定位多个点，再在历史定位中间依次更换虚拟定位让系统记录。</p>
+<h2 id="通用解决方案（提升体验）"><a href="#通用解决方案（提升体验）" class="headerlink" title="通用解决方案（提升体验）"></a>通用解决方案（提升体验）</h2><p>开VIP🤯</p>
+<p>可获得快速摇杆，路线模拟（自动运行）等。</p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/专业版1.jpg" style="zoom: 33%;"><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/专业版2.jpg" style="zoom: 33%;"></p>
+<h2 id="常见失败原因"><a href="#常见失败原因" class="headerlink" title="常见失败原因"></a>常见失败原因</h2><ol>
+<li>未以root模式启动</li>
+<li>需要启动基站模拟等增强功能</li>
+<li>未给fake location足够权限</li>
+<li>未给光速虚拟机足够权限</li>
+</ol>
+]]></content>
+      <categories>
+        <category>生活趣闻</category>
+      </categories>
+      <tags>
+        <tag>校园跑</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>如何快速让个人博客被搜索引擎收录</title>
     <url>/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们好不容易搭建好自己的个人博客时，在搜索引擎搜索时才发现，无论是搜索网站的标题还是网址都无法搜索到，搜索不到就代表着没有流量、没人看你写的文章，这可咋办。难道辛辛苦苦搭建的网站只有知道网址的人才能访问到吗，如何打破这信息孤岛呢？下面交给你解决办法，把你的网站主动推荐给各大搜索引擎让搜索引擎收录。</p>
@@ -557,48 +599,6 @@
         <tag>博客</tag>
         <tag>hexo</tag>
         <tag>搜索引擎</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>虚拟定位完成校园跑</title>
-    <url>/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/</url>
-    <content><![CDATA[<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>对于利用定位检测的校园跑软件，使用fake location这个软件实现虚拟定位，进而达到足不出户刷校园跑。</p>
-<h2 id="前期准备"><a href="#前期准备" class="headerlink" title="前期准备"></a>前期准备</h2><p>fake location软件：<a href="https://github.com/Lerist/FakeLocation/releases/">下载地址</a></p>
-<p>有定位功能的root环境（root可提高成功几率）：可以是本机root/面具、带有root的模拟器、带有root的虚拟机。</p>
-<h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p>以安卓光速虚拟机为例（光速虚拟机提供免费root功能）</p>
-<ol>
-<li>下载光速虚拟机：<a href="https://gsxnj.cn/index/">下载地址</a></li>
-<li><p>创建安卓7虚拟环境（初次使用按软件要求进行配置，包括进入开发者模式、无线调试等可自行百度）</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/创建安卓7虚拟环境.jpg" style="zoom:33%;"></p>
-</li>
-<li><p>导入fake location和校园跑软件</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入.jpg" style="zoom: 80%;"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择导入.jpg" style="zoom:33%;"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入软件.jpg" alt="导入软件" style="zoom: 80%;"></p>
-</li>
-<li><p>选择位置进行位置模拟（以root模式）</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/添加定位.jpg" alt="添加定位" style="zoom:80%;"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择定位.jpg" alt="选择位置" style="zoom:33%;"></p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/开始模拟.jpg" alt="开始模拟" style="zoom:33%;"></p>
-</li>
-<li>移动摇杆进行移动（非VIP限速1m/s）</li>
-</ol>
-<h2 id="本校解决方案（东南大学）"><a href="#本校解决方案（东南大学）" class="headerlink" title="本校解决方案（东南大学）"></a>本校解决方案（<del>东南大学</del>）</h2><p>由于本校采用的是间隔时间进行定位采样，可以在目标线路（操场）上定位多个点，再在历史定位中间依次更换虚拟定位让系统记录。</p>
-<h2 id="通用解决方案（提升体验）"><a href="#通用解决方案（提升体验）" class="headerlink" title="通用解决方案（提升体验）"></a>通用解决方案（提升体验）</h2><p>开VIP🤯</p>
-<p>可获得快速摇杆，路线模拟（自动运行）等。</p>
-<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/专业版1.jpg" style="zoom: 33%;"><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/专业版2.jpg" style="zoom: 33%;"></p>
-<h2 id="常见失败原因"><a href="#常见失败原因" class="headerlink" title="常见失败原因"></a>常见失败原因</h2><ol>
-<li>未以root模式启动</li>
-<li>需要启动基站模拟等增强功能</li>
-<li>未给fake location足够权限</li>
-<li>未给光速虚拟机足够权限</li>
-</ol>
-]]></content>
-      <categories>
-        <category>生活趣闻</category>
-      </categories>
-      <tags>
-        <tag>校园跑</tag>
       </tags>
   </entry>
 </search>
