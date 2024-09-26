@@ -11,7 +11,7 @@
 <li>熟悉Git代码托管服务</li>
 <li>能够使用IDEA操作Git</li>
 </ul>
-<h2 id="2、概述"><a href="#2、概述" class="headerlink" title="2、概述"></a>2、概述</h2><h3 id="2-1、开发中的实际场景"><a href="#2-1、开发中的实际场景" class="headerlink" title="2.1、开发中的实际场景"></a>2.1、开发中的实际场景</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">场景一：备份</span><br><span class="line">	小明负责的模块就要完成了，就在即将Release之前的一瞬间，电脑突然蓝屏，硬盘光荣牺牲！几个月来的努力付之东流</span><br><span class="line">	</span><br><span class="line">场景二：代码还原</span><br><span class="line">	这个项目中需要一个很复杂的功能，老王摸索了一个星期终于有眉目了，可是这被改得面目全非的代码已经回不到从前了。什么地方能买到哆啦A梦的时光机啊？</span><br><span class="line">	</span><br><span class="line">场景三：协同开发</span><br><span class="line">	小刚和小强先后从文件服务器上下载了同一个文件：Analysis.java。小刚在Analysis.java文件中的第30行声明了一个方法，叫count()，先保存到了文件服务器上；小强在Analysis.java文件中的第50行声明了一个方法，叫sum()，也随后保存到了文件服务器上，于是，count()方法就只存在于小刚的记忆中了</span><br><span class="line">	</span><br><span class="line">场景四：追溯问题代码的编写人和编写时间！</span><br><span class="line">	老王是另一位项目经理，每次因为项目进度挨骂之后，他都不知道该扣哪个程序员的工资！就拿这次来说吧，有个Bug调试了30多个小时才知道是因为相关属性没有在应用初始化时赋值！可是二胖、王东、刘流和正经牛都不承认是自己干的！</span><br></pre></td></tr></table></figure>
+<h2 id="2、概述"><a href="#2、概述" class="headerlink" title="2、概述"></a>2、概述</h2><h3 id="2-1、开发中的实际场景"><a href="#2-1、开发中的实际场景" class="headerlink" title="2.1、开发中的实际场景"></a>2.1、开发中的实际场景</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">场景一：备份</span><br><span class="line">	小明负责的模块就要完成了，就在即将Release之前的一瞬间，电脑突然蓝屏，硬盘光荣牺牲！几个月来的努力付之东流</span><br><span class="line"></span><br><span class="line">场景二：代码还原</span><br><span class="line">	这个项目中需要一个很复杂的功能，老王摸索了一个星期终于有眉目了，可是这被改得面目全非的代码已经回不到从前了。什么地方能买到哆啦A梦的时光机啊？</span><br><span class="line"></span><br><span class="line">场景三：协同开发</span><br><span class="line">	小刚和小强先后从文件服务器上下载了同一个文件：Analysis.java。小刚在Analysis.java文件中的第30行声明了一个方法，叫count()，先保存到了文件服务器上；小强在Analysis.java文件中的第50行声明了一个方法，叫sum()，也随后保存到了文件服务器上，于是，count()方法就只存在于小刚的记忆中了</span><br><span class="line"></span><br><span class="line">场景四：追溯问题代码的编写人和编写时间！</span><br><span class="line">	老王是另一位项目经理，每次因为项目进度挨骂之后，他都不知道该扣哪个程序员的工资！就拿这次来说吧，有个Bug调试了30多个小时才知道是因为相关属性没有在应用初始化时赋值！可是二胖、王东、刘流和正经牛都不承认是自己干的！</span><br></pre></td></tr></table></figure>
 <h3 id="2-2、版本控制器的方式"><a href="#2-2、版本控制器的方式" class="headerlink" title="2.2、版本控制器的方式"></a>2.2、版本控制器的方式</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">a、集中式版本控制工具</span><br><span class="line">	集中式版本控制工具，版本库是集中存放在中央服务器的，team里每个人work时从中央服务器下载代码，是必须联网才能工作，局域网或互联网。个人修改后然后提交到中央版本库。</span><br><span class="line">	举例：SVN和CVS</span><br><span class="line">b、分布式版本控制工具</span><br><span class="line">	分布式版本控制系统没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样工作的时候，无需要联网了，因为版本库就在你自己的电脑上。多人协作只需要各自的修改推送给对方，就能互相看到对方的修改了。</span><br><span class="line">	举例：Git</span><br></pre></td></tr></table></figure>
 <h3 id="2-3、SVN"><a href="#2-3、SVN" class="headerlink" title="2.3、SVN"></a>2.3、SVN</h3><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/SVN.png" alt="SVN"></p>
 <h3 id="2-4、Git"><a href="#2-4、Git" class="headerlink" title="2.4、Git"></a>2.4、Git</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">Git是分布式的,Git不需要有中心服务器，我们每台电脑拥有的东西都是一样的。我们使用Git并且有个中心服务器，仅仅是为了方便交换大家的修改，但是这个服务器的地位和我们每个人的PC是一样的。我们可以把它当做一个开发者的pc就可以就是为了大家代码容易交流不关机用的。没有它大家一样可以工作，只不过“交换”修改不方便而已。</span><br><span class="line">git是一个开源的分布式版本控制系统，可以有效、高速地处理从很小到非常大的项目版本管理。Git是Linus Torvalds 为了帮助管理 Linux 内核开发而开发的一个开放源码的版本控制软件。</span><br><span class="line">同生活中的许多伟大事物一样，Git 诞生于一个极富纷争大举创新的年代。Linux 内核开源项目有着为数众多的参与者。 绝大多数的 Linux 内核维护工作都花在了提交补丁和保存归档的繁琐事务上（1991－2002年间）。 到 2002 年，整个项目组开始启用一个专有的分布式版本控制系统 BitKeeper 来管理和维护代码。</span><br><span class="line">到了 2005 年，开发 BitKeeper 的商业公司同 Linux 内核开源社区的合作关系结束，他们收回了Linux 内核社区免费使用 BitKeeper 的权力。 这就迫使 Linux 开源社区（特别是 Linux 的缔造者Linus Torvalds）基于使用 BitKeeper 时的经验教训，开发出自己的版本系统。 他们对新的系统制订了若干目标：</span><br><span class="line"> 速度</span><br><span class="line"> 简单的设计</span><br><span class="line"> 对非线性开发模式的强力支持（允许成千上万个并行开发的分支）</span><br><span class="line"> 完全分布式</span><br><span class="line"> 有能力高效管理类似 Linux 内核一样的超大规模项目（速度和数据量）</span><br></pre></td></tr></table></figure>
@@ -51,23 +51,19 @@
 <p>查看配置信息<br><code>git config --global user.name</code><br><code>git config --global user.email</code></p>
 <h4 id="3-1-3-为常用指令配置别名（可选）"><a href="#3-1-3-为常用指令配置别名（可选）" class="headerlink" title="3.1.3 为常用指令配置别名（可选）"></a>3.1.3 为常用指令配置别名（可选）</h4><p>有些常用的指令参数非常多，每次都要输入好多参数，我们可以使用别名。</p>
 <ol>
-<li><p>打开用户目录，创建<code>.bashrc</code>文件<code>touch .bashrc</code><br>部分windows系统不允许用户创建点号开头的文件，可以打开gitBash,执行<code>touch ~/.bashrc</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/创建bashrc.png" alt="创建bashrc"></p>
-</li>
-<li><p>在<code>.bashrc</code>文件中输入如下内容：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于输出git提交日志</span></span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于输出当前目录所有文件及基本信息</span></span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于一次性暂存并提交所有修改和删除的文件</span></span><br><span class="line">alias commit=&#x27;git commit -a&#x27;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>打开gitBash，执行<code>source ~/.bashrc</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/bashrc.png" alt="bashrc"></p>
-</li>
+<li>打开用户目录，创建 <code>.bashrc</code>文件 <code>touch .bashrc</code><br>部分windows系统不允许用户创建点号开头的文件，可以打开gitBash,执行 <code>touch ~/.bashrc</code><br><code>&lt;img src=&quot;创建bashrc.png&quot; alt=&quot;创建bashrc&quot;  /&gt;</code></li>
+<li><p>在 <code>.bashrc</code>文件中输入如下内容：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于输出git提交日志</span></span><br><span class="line">alias git-log=&#x27;git log --pretty=oneline --all --graph --abbrev-commit&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于输出当前目录所有文件及基本信息</span></span><br><span class="line">alias ll=&#x27;ls -al&#x27;</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">用于一次性暂存并提交所有修改和删除的文件</span></span><br><span class="line">alias commit=&#x27;git commit -a&#x27;</span><br></pre></td></tr></table></figure></li>
+<li>打开gitBash，执行 <code>source ~/.bashrc</code><br><code>&lt;img src=&quot;bashrc.png&quot; alt=&quot;bashrc&quot;  /&gt;</code></li>
 </ol>
 <h4 id="3-1-4-解决GitBash乱码问题"><a href="#3-1-4-解决GitBash乱码问题" class="headerlink" title="3.1.4 解决GitBash乱码问题"></a>3.1.4 解决GitBash乱码问题</h4><ol>
 <li><p>打开GitBash执行下面命令</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">git config --global core.quotepath false</span><br></pre></td></tr></table></figure></li>
 <li><p><code>$&#123;git_home&#125;/etc/bash.bashrc</code>文件最后加入下面两行</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">export LANG=&quot;zh_CN.UTF-8&quot;</span><br><span class="line">export LC_ALL=&quot;zh_CN.UTF-8&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h3 id="3-2、获取本地仓库"><a href="#3-2、获取本地仓库" class="headerlink" title="3.2、获取本地仓库"></a>3.2、获取本地仓库</h3><p>要使用Git对我们的代码进行版本控制，首先需要获得本地仓库<br>1）在电脑的任意位置创建一个空目录（例如test）作为我们的本地Git仓库<br>2）进入这个目录中，点击右键打开Git bash窗口<br>3）执行命令<code>git init</code><br>4）如果创建成功后可在文件夹下看到隐藏的.git目录。</p>
+<h3 id="3-2、获取本地仓库"><a href="#3-2、获取本地仓库" class="headerlink" title="3.2、获取本地仓库"></a>3.2、获取本地仓库</h3><p>要使用Git对我们的代码进行版本控制，首先需要获得本地仓库<br>1）在电脑的任意位置创建一个空目录（例如test）作为我们的本地Git仓库<br>2）进入这个目录中，点击右键打开Git bash窗口<br>3）执行命令 <code>git init</code><br>4）如果创建成功后可在文件夹下看到隐藏的.git目录。</p>
 <p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/获取本地仓库.png" alt="获取本地仓库"></p>
 <h3 id="3-3、基础操作指令"><a href="#3-3、基础操作指令" class="headerlink" title="3.3、基础操作指令"></a>3.3、基础操作指令</h3><p>Git工作目录下对于文件的<strong>修改</strong>（增加、删除、更新）会存在几个状态，这些修改的状态会随着我们执行Git的命令而发生变化。</p>
 <p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/基础操作指令.png" alt="基础操作指令"></p>
@@ -94,13 +90,13 @@
 <h4 id="commit"><a href="#commit" class="headerlink" title="commit"></a>commit</h4><ul>
 <li>命令形式：<code>git commit [options]</code><ul>
 <li>options<ul>
-<li><code>-a</code> = <code>--all</code><br>automatically stage files that have been <strong>modified and deleted</strong>.<br>（新创建的文件仍需<code>git add</code>）</li>
+<li><code>-a</code> = <code>--all</code><br>automatically stage files that have been <strong>modified and deleted</strong>.<br>（新创建的文件仍需 <code>git add</code>）</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="3-3-4、-查看提交日志-log"><a href="#3-3-4、-查看提交日志-log" class="headerlink" title="3.3.4、*查看提交日志(log)"></a>3.3.4、*查看提交日志(log)</h4><p><strong>在<a href="#3.1.3 为常用指令配置别名（可选）">3.1.3</a>中配置的别名<code>git-log</code>就包含了这些参数，所以后续可以直接使用指令<code>git-log</code></strong></p>
+<h4 id="3-3-4、-查看提交日志-log"><a href="#3-3-4、-查看提交日志-log" class="headerlink" title="3.3.4、*查看提交日志(log)"></a>3.3.4、*查看提交日志(log)</h4><p><strong>在<a href="#3.1.3 为常用指令配置别名（可选）">3.1.3</a>中配置的别名 <code>git-log</code>就包含了这些参数，所以后续可以直接使用指令 <code>git-log</code></strong></p>
 <ul>
 <li>作用:查看提交记录</li>
 <li>命令形式：<code>git log [option]</code><ul>
@@ -117,7 +113,7 @@
 <h4 id="3-3-5、版本回退"><a href="#3-3-5、版本回退" class="headerlink" title="3.3.5、版本回退"></a>3.3.5、版本回退</h4><ul>
 <li>作用：版本切换</li>
 <li>命令形式：<code>git reset --hard commitID</code><ul>
-<li>commitID 可以使用<code>git-log</code>或<code>git log</code>指令查看</li>
+<li>commitID 可以使用 <code>git-log</code>或 <code>git log</code>指令查看</li>
 </ul>
 </li>
 <li>如何查看已经删除的记录？<ul>
@@ -126,7 +122,7 @@
 </ul>
 </li>
 </ul>
-<h4 id="3-3-6、添加文件至忽略列表"><a href="#3-3-6、添加文件至忽略列表" class="headerlink" title="3.3.6、添加文件至忽略列表"></a>3.3.6、添加文件至忽略列表</h4><p>一般我们总会有些文件无需纳入Git 的管理，也不希望它们总出现在未跟踪文件列表。 通常都是些自动生成的文件，比如日志文件，或者编译过程中创建的临时文件等。 在这种情况下，我们可以在工作目录中创建一个名为<code>.gitignore</code>的文件（文件名称固定），列出要忽略的文件模式。下面是一个示例：</p>
+<h4 id="3-3-6、添加文件至忽略列表"><a href="#3-3-6、添加文件至忽略列表" class="headerlink" title="3.3.6、添加文件至忽略列表"></a>3.3.6、添加文件至忽略列表</h4><p>一般我们总会有些文件无需纳入Git 的管理，也不希望它们总出现在未跟踪文件列表。 通常都是些自动生成的文件，比如日志文件，或者编译过程中创建的临时文件等。 在这种情况下，我们可以在工作目录中创建一个名为 <code>.gitignore</code>的文件（文件名称固定），列出要忽略的文件模式。下面是一个示例：</p>
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">no .a files</span></span><br><span class="line">*.a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">but <span class="keyword">do</span> track lib.a, even though you<span class="string">&#x27;re ignoring .a files above</span></span></span><br><span class="line">!lib.a</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">only ignore the &#x27;</span>TODO<span class="string">&#x27; file in the current directory, not subdir/TODO</span></span></span><br><span class="line">/TODO</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">ignore all files in the &#x27;</span>build/<span class="string">&#x27; directory</span></span></span><br><span class="line">build/</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">ignore doc/notes.txt, but not doc/server/arch.txt</span></span></span><br><span class="line">doc/*.txt</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="string">ignore all .pdf files in the doc/ directory</span></span></span><br><span class="line">doc/**/*.pdf</span><br></pre></td></tr></table></figure>
 <h4 id="练习-基础操作"><a href="#练习-基础操作" class="headerlink" title="练习:基础操作"></a>练习:基础操作</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">####################仓库初始化######################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">创建目录（git_test01）并在目录下打开gitbash</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">初始化git仓库</span></span><br><span class="line">git init</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">####################创建文件并提交#####################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">目录下创建文件 file01.txt</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将修改加入暂存区</span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将修改提交到本地仓库，提交记录内容为：commit 001</span></span><br><span class="line">git commit -m &#x27;commit 001&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志</span></span><br><span class="line">git log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">###################修改文件并提交######################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改file01的内容为：count=1</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">将修改加入暂存区</span></span><br><span class="line">git add .</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash"><span class="comment"># 将修改提交到本地仓库，提交记录内容为：update file01</span></span></span><br><span class="line">git commit -m &#x27;update file01&#x27;</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看日志</span></span><br><span class="line">git log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">以精简的方式显示提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash"><span class="comment">###################将最后一次修改还原##################</span></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">查看提交记录</span></span><br><span class="line">git-log</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">找到倒数第2次提交的commitID</span></span><br><span class="line">略</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">版本回退</span></span><br><span class="line">git reset commitID --hard</span><br></pre></td></tr></table></figure>
 <h3 id="3-4、分支"><a href="#3-4、分支" class="headerlink" title="3.4、分支"></a>3.4、分支</h3><p>几乎所有的版本控制系统都以某种形式支持分支。 使用分支意味着你可以把你的工作从开发主线上分离开来进行重大的Bug修改、开发新的功能，以免影响开发主线。</p>
@@ -206,12 +202,12 @@
 <li>命令： <code>git remote add &lt;远端名称&gt; &lt;仓库路径&gt;</code><ul>
 <li>远端名称，默认是origin，取决于远端服务器设置</li>
 <li>仓库路径，从远端服务器获取此URL</li>
-<li>例如：<br><code>git remote add origin git@gitee.com:czbk_zhang_meng/git_test.git</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/添加远程仓库.png" alt="添加远程仓库"></li>
+<li>例如：<br><code>git remote add origin git@gitee.com:czbk_zhang_meng/git_test.git</code><br><code>&lt;img src=&quot;添加远程仓库.png&quot; alt=&quot;添加远程仓库&quot;  /&gt;</code></li>
 </ul>
 </li>
 </ul>
 <h4 id="4-5-2、查看远程仓库"><a href="#4-5-2、查看远程仓库" class="headerlink" title="4.5.2、查看远程仓库"></a>4.5.2、查看远程仓库</h4><ul>
-<li>命令：<code>git remote</code><br><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/查看远程仓库.png" alt="/查看远程仓库"></li>
+<li>命令：<code>git remote</code><br><code>&lt;img src=&quot;查看远程仓库.png&quot; alt=&quot;/查看远程仓库&quot;  /&gt;</code></li>
 </ul>
 <h4 id="4-5-3、推送到远程仓库"><a href="#4-5-3、推送到远程仓库" class="headerlink" title="4.5.3、推送到远程仓库"></a>4.5.3、推送到远程仓库</h4><ul>
 <li>命令：<code>git push[ -f][ --set-upstream][ 远端名称[ 本地分支名[:远端分支名]]]</code><ul>
@@ -318,7 +314,7 @@
 <h3 id="2-windows下无法创建-ignore-bashrc文件"><a href="#2-windows下无法创建-ignore-bashrc文件" class="headerlink" title="2. windows下无法创建.ignore|.bashrc文件"></a>2. windows下无法创建.ignore|.bashrc文件</h3><p>这里以创建.ignore 文件为例：</p>
 <ul>
 <li>在git目录下打开gitbash</li>
-<li>执行指令<code>touch .gitignore</code></li>
+<li>执行指令 <code>touch .gitignore</code></li>
 </ul>
 <p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/windows下创建.ignore、.bashrc文件.png" alt="windows下创建.ignore、.bashrc文件"></p>
 <h2 id="附：IDEA集成GitBash作为Terminal"><a href="#附：IDEA集成GitBash作为Terminal" class="headerlink" title="附：IDEA集成GitBash作为Terminal"></a>附：IDEA集成GitBash作为Terminal</h2><p><img src="/2024/02/14/Git%E6%95%99%E7%A8%8B/IDEA集成GitBash作为Terminal.png" alt="IDEA集成GitBash作为Terminal"></p>
@@ -345,17 +341,13 @@
 <h3 id="Input-Embedding-and-Output-Embedding（输入嵌入和输出嵌入）"><a href="#Input-Embedding-and-Output-Embedding（输入嵌入和输出嵌入）" class="headerlink" title="Input Embedding and Output Embedding（输入嵌入和输出嵌入）"></a>Input Embedding and Output Embedding（输入嵌入和输出嵌入）</h3><p>Word Embedding（词嵌入）是将离散化的符号序列（如单词、字符）转换为连续的向量表示，以便使神经网络可以有效地处理文本数据。它使得模型能够理解文本数据的语义和上下文信息，并为后续的自注意力层和前馈神经网络提供了输入。</p>
 <h3 id="Positional-Encoding（位置编码）"><a href="#Positional-Encoding（位置编码）" class="headerlink" title="Positional Encoding（位置编码）"></a>Positional Encoding（位置编码）</h3><p>由于 Transformer 不包含处理输入序列的循环或卷积操作，它不能自动地理解单词的顺序信息。因此，我们必须注入一些关于相对或绝对位置的信息序列中的标记。为此，我们引入了“位置编码”来将位置信息嵌入到模型中。位置编码是一个与位置、维度相关的矩阵，它会与输入的词嵌入相加。在原论文中，作者采用了正余弦函数来进行位置编码。</p>
 <h3 id="Attention（注意力机制）"><a href="#Attention（注意力机制）" class="headerlink" title="Attention（注意力机制）"></a>Attention（注意力机制）</h3><p>注意力函数可以描述为将查询（query）和一组键值对（key-value pairs）映射到输出，其中查询(Q)、键(K)、值(V)和输出都是向量。 输出被计算为值的加权和，其中分配给每个值的权重是由查询(Q)与相应键(v)的兼容性函数计算的。</p>
-<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/注意力函数.png" alt="注意力函数">                </p>
+<p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/注意力函数.png" alt="注意力函数"></p>
 <h4 id="Scaled-Dot-Product-Attention（缩放点积注意力）"><a href="#Scaled-Dot-Product-Attention（缩放点积注意力）" class="headerlink" title="Scaled Dot-Product Attention（缩放点积注意力）"></a>Scaled Dot-Product Attention（缩放点积注意力）</h4><p>自注意力机制（Self-attention）是 Transformer 模型的关键组成部分，它允许模型在一个序列中的不同位置之间建立权重连接，从而在一个步骤内同时考虑所有位置的信息。自注意力机制的计算分为以下几步：</p>
 <ul>
-<li><p>对于一个输入序列，首先通过三个线性变换分别得到查询(Q)、键(K)和值(V)的向量表示。这些向量用于计算注意力分数和生成权重。</p>
-</li>
-<li><p>计算注意力分数：为了衡量每个位置与其他位置的关联程度，通过计算查询和键之间的点积，然后进行缩放（通常使用缩放因子，如$\sqrt{d_k}$），得到注意力分数（Attention Scores）。</p>
-</li>
-<li><p>注意力分数的归一化（Normalization）：应用 Softmax 函数将注意力分数转化为概率分布，使得每个位置对其他位置的贡献权重为1，形成归一化的注意力权重。</p>
-</li>
-<li><p>加权求和：将注意力权重应用于值的向量，然后将所有加权的值进行加和，得到最终的输出。这个输出包含了所有位置的信息，但每个位置的贡献由其与其他位置的关联程度决定。</p>
-</li>
+<li>对于一个输入序列，首先通过三个线性变换分别得到查询(Q)、键(K)和值(V)的向量表示。这些向量用于计算注意力分数和生成权重。</li>
+<li>计算注意力分数：为了衡量每个位置与其他位置的关联程度，通过计算查询和键之间的点积，然后进行缩放（通常使用缩放因子，如$\sqrt{d_k}$），得到注意力分数（Attention Scores）。</li>
+<li>注意力分数的归一化（Normalization）：应用 Softmax 函数将注意力分数转化为概率分布，使得每个位置对其他位置的贡献权重为1，形成归一化的注意力权重。</li>
+<li>加权求和：将注意力权重应用于值的向量，然后将所有加权的值进行加和，得到最终的输出。这个输出包含了所有位置的信息，但每个位置的贡献由其与其他位置的关联程度决定。</li>
 </ul>
 <p>自注意力机制允许模型动态地分配不同位置的权重，从而在不同任务中灵活捕获上下文信息。这是 Transformer 模型在各种自然语言处理任务中表现出色的关键之一。</p>
 <p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/自注意力机制.png" alt="自注意力机制"></p>
@@ -365,12 +357,9 @@
 <h4 id="Feed-Forward-Neural-Network（前馈神经网络）"><a href="#Feed-Forward-Neural-Network（前馈神经网络）" class="headerlink" title="Feed-Forward Neural Network（前馈神经网络）"></a>Feed-Forward Neural Network（前馈神经网络）</h4><p>Transformer的每个编码器和解码器层都包括一个前馈神经网络。它将自注意力层的输出映射到一个更高维度的空间，然后再映射回原始维度。这个过程包括两个线性变换和一个非线性激活函数，通常是ReLU。其作用是通过线性变换，先将数据映射到高纬度的空间再映射到低纬度的空间，提取了更深层次的特征。并且加入一定非线性变换，提高模型学习能力。</p>
 <h4 id="Masked-Multi-Head-Attention（带掩码的多头注意力机制）"><a href="#Masked-Multi-Head-Attention（带掩码的多头注意力机制）" class="headerlink" title="Masked Multi-Head Attention（带掩码的多头注意力机制）"></a>Masked Multi-Head Attention（带掩码的多头注意力机制）</h4><p>Masked Multi-Head Attention是一种用于处理可变长度序列的重要技术。它的主要作用是在自注意力计算中，确保模型只关注当前位置之前的信息，而不会泄露未来位置的信息。在处理序列数据时，尤其是在解码器中，我们会用到掩码机制来确保生成的每个位置的信息只取决于当前位置及其之前的信息。这是因为在生成输出序列时，未来的信息是不可见的。具体来说，掩码机制会创建一个掩码矩阵，该矩阵与注意力分数相乘，将未来位置的分数置为负无穷大（或经过 softmax 后为零），从而在注意力计算中消除了未来位置的影响。这使得模型只能关注于当前位置以及之前的信息，而不关注当前位置之后的信息。</p>
 <h3 id="Transformer的优势"><a href="#Transformer的优势" class="headerlink" title="Transformer的优势"></a>Transformer的优势</h3><ul>
-<li><p>与RNN和CNN相比，Transformer具有更好的并行性：Transformer中的自注意力机制可以并行计算，而RNN和CNN中的循环结构和卷积结构需要依次计算，难以并行化。例如RNN需要从循环结构中获取序列的时间依赖关系，而CNN需要从小区域到大区域依次扩大感受野。</p>
-</li>
-<li><p>更好的长距离依赖建模能力：Transformer中的自注意力机制可以捕捉输入序列中任意两个位置之间的关系，而RNN只能捕捉相邻位置之间的关系，CNN只能捕捉局部区域内的关系。</p>
-</li>
-<li><p>更好的全局特征获取能力：Transformer中的自注意力机制可以对输入序列中每个位置进行注意力计算，从而获取全局上下文信息，而RNN和CNN只能获取局部上下文信息。鉴于Transformer相较于之前的模型有这么多优点，它很快被用在了NLP，CV等领域上。</p>
-</li>
+<li>与RNN和CNN相比，Transformer具有更好的并行性：Transformer中的自注意力机制可以并行计算，而RNN和CNN中的循环结构和卷积结构需要依次计算，难以并行化。例如RNN需要从循环结构中获取序列的时间依赖关系，而CNN需要从小区域到大区域依次扩大感受野。</li>
+<li>更好的长距离依赖建模能力：Transformer中的自注意力机制可以捕捉输入序列中任意两个位置之间的关系，而RNN只能捕捉相邻位置之间的关系，CNN只能捕捉局部区域内的关系。</li>
+<li>更好的全局特征获取能力：Transformer中的自注意力机制可以对输入序列中每个位置进行注意力计算，从而获取全局上下文信息，而RNN和CNN只能获取局部上下文信息。鉴于Transformer相较于之前的模型有这么多优点，它很快被用在了NLP，CV等领域上。</li>
 </ul>
 <h2 id="Transformer-in-NLP"><a href="#Transformer-in-NLP" class="headerlink" title="Transformer in NLP"></a>Transformer in NLP</h2><p>Transformer被提出时，是被用在机器翻译上的。它帮助改善了RNN在并行性和长文本处理上的缺陷，使得机器翻译模型的准确率提高了几个百分点。当人们意识到transformer和attention在NLP上具有很多优势，便想把transformer扩展应用文本分类、语义分析、语言生成等领域。他们将transformer 与预训练结合，训练出一个模型，再通过微调去适应不同的任务。这样可以减少模型在特定任务上的训练时间和数据量，并且降低过拟合的发生模型更加准确和可靠。于是在NLP中，预训练transformer开始大行其道。</p>
 <h3 id="Bert-Bidirectional-Encoder-Representation-from-Transformers"><a href="#Bert-Bidirectional-Encoder-Representation-from-Transformers" class="headerlink" title="Bert: :Bidirectional Encoder Representation from Transformers"></a>Bert: :Bidirectional Encoder Representation from Transformers</h3><p><img src="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/bert架构.png" alt="Bert架构"></p>
@@ -399,43 +388,27 @@
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在阅读了大量的关于transformer论文后，我们不难发现transformer在广度上不断扩展，从提出之时的机器翻译到NLP整个领域再到CV等其他深度学习的领域，transformer被应用在各种不同的任务中，或与传统RNN和CNN结合，或直接开辟一条新的方法，为不同领域不同任务的解决提供了更多的选择。而在深度上，从时间线上来看，transformer模型也在不断的改善和调整来适应不同的任务。包括在数据量和模型参数量上的不断扩大，将预训练和微调的思想加入transformer，这些研究都在不断的提高transformer模型的学习能力和泛化能力。</p>
 <p>下面我列举一下transformer模型目前在哪些领域已取得了比较大的成功</p>
 <ul>
-<li><p>自然语言处理： Transformer 及其变体已在 NLP 任务中得到广泛探索和应用，例如机器翻译、语言建模和命名实体识别。大量的努力致力于在大规模文本语料库上预训练 Transformer 模型，这是 Transformer 在 NLP 中广泛应用的主要原因之一。</p>
-</li>
-<li><p>计算机视觉： Transformer 还适用于各种视觉任务，例如图像分类、物体检测、图像生成和视频处理。</p>
-</li>
-<li><p>音频应用： Transformer 还可以扩展到与音频相关的应用，例如语音识别，语音合成，语音增强和音乐生成 。</p>
-</li>
-<li><p>多模态应用：由于其灵活的架构，Transformer 还被应用于各种多模态场景，例如视觉问答、视觉常识推理、字幕生成、语音到文本翻译和文本到图像生成。</p>
-</li>
+<li>自然语言处理： Transformer 及其变体已在 NLP 任务中得到广泛探索和应用，例如机器翻译、语言建模和命名实体识别。大量的努力致力于在大规模文本语料库上预训练 Transformer 模型，这是 Transformer 在 NLP 中广泛应用的主要原因之一。</li>
+<li>计算机视觉： Transformer 还适用于各种视觉任务，例如图像分类、物体检测、图像生成和视频处理。</li>
+<li>音频应用： Transformer 还可以扩展到与音频相关的应用，例如语音识别，语音合成，语音增强和音乐生成 。</li>
+<li>多模态应用：由于其灵活的架构，Transformer 还被应用于各种多模态场景，例如视觉问答、视觉常识推理、字幕生成、语音到文本翻译和文本到图像生成。</li>
 </ul>
 <h3 id="个人思考"><a href="#个人思考" class="headerlink" title="个人思考"></a>个人思考</h3><p>目前关于transformer的研究的应用仍在不断发展。例如在CV领域的swim transformer模型基于ViT模型进行改进，它的主要特点是使用滑动窗口机制，将图像分成多个小块，然后在每个小块内进行自注意力计算，这样可以降低计算复杂度，同时也保留了局部信息。除此之外，Transformer打破NLP和CV研究的鸿沟，为多模态的应用带来了希望。如今我们已经可以用上很多基于Transformer的多模态的应用，例如通过语言描述生成代码、图片、视频、音乐等等，这些应用极大的促进了AIGC，AGI的发展。</p>
 <p>因此在未来的研究中，我们可以进一步改进Transformer，如对Transformer优秀的性能进行理论分析；对Transformer的学习和生成过程进行解释，减少黑箱性；对Transformer的模内和跨模态注意力的设计进行改进。</p>
 <p>相信在众多的研究者的努力下，Transformer的能力可以得到进一步的发展，Transformer可以被运用到更多的领域上，更好的改善我们的生活。</p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li><p>[1] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin,  “Attention is all you need,” <em>Advances in neural information processing systems</em>, vol.30, 2017.</p>
-</li>
-<li><p>[2] J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, “Bert: Pre-training of deep bidirectional transformers for language understanding,” <em>arXiv preprint arXiv:1810.04805</em>, 2018.</p>
-</li>
-<li><p>[3] A. Dosovitskiy, L. Beyer, A. Kolesnikov, D. Weissenborn, X. Zhai, T. Unterthiner, M. Dehghani, M. Minderer, G. Heigold, S. Gelly <em>et al.</em>, “An image is worth 16x16 words: Transformers for image recognition at scale,” <em>arXiv preprint arXiv:2010.11929</em>, 2020.</p>
-</li>
-<li><p>[4] A. Radford, K. Narasimhan, T. Salimans, I. Sutskever <em>et al.</em>, “Improving language understanding by generative pre-training,” 2018.</p>
-</li>
-<li><p>[5] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, I. Sutskever <em>et al.</em>, “Language models are unsupervised multitask learners,” <em>OpenAI blog</em>, vol.1, no.8, p.9, 2019.</p>
-</li>
-<li><p>[6] T. Brown, B. Mann, N. Ryder, M. Subbiah, J. D. Kaplan, P. Dhariwal, A. Neelakantan, P. Shyam, G. Sastry, A. Askell <em>et al.</em>, “Language models are few-shot learners,” <em>Advances in neural information processing systems</em>, vol.33, pp.1877–1901, 2020.</p>
-</li>
-<li><p>[7] B. McCann, N. S. Keskar, C. Xiong, and R. Socher, “The natural language decathlon: Multitask learning as question answering,” <em>arXiv preprint arXiv:1806.08730</em>, 2018.</p>
-</li>
-<li><p>[8] N. Parmar, A. Vaswani, J. Uszkoreit, L. Kaiser, N. Shazeer, A. Ku, and D. Tran, “Image transformer,”  <em>International conference on machine learning</em>. PMLR, pp.4055–4064, 2018.</p>
-</li>
-<li><p>[9] T. Lin, Y. Wang, X. Liu, and X. Qiu, “A survey of transformers,” <em>AI Open</em>,2022.</p>
-</li>
-<li><p>[10] Z. Liu, Y. Lin, Y. Cao, H. Hu, Y. Wei, Z. Zhang, S. Lin, and B. Guo, “Swin transformer: Hierarchical vision transformer using shifted windows,” <em>Proceedings of the IEEE/CVF international conference on computer vision</em>, 2021, pp.10012–10022.</p>
-</li>
-<li><p>[11] A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal, G. Sastry, A. Askell, P. Mishkin, J. Clark <em>et al.</em>, “Learning transferable visual models from natural language supervision,” <em>International conference on machine learning</em>. PMLR, pp. 8748–8763, 2021.</p>
-</li>
-<li><p>[12] H. Chefer, S. Gur, and L. Wolf, “Transformer interpretability beyond attention visualization,” <em>Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</em>, pp.782–791, 2021.</p>
-</li>
+<li>[1] A. Vaswani, N. Shazeer, N. Parmar, J. Uszkoreit, L. Jones, A. N. Gomez, Ł. Kaiser, and I. Polosukhin,  “Attention is all you need,” <em>Advances in neural information processing systems</em>, vol.30, 2017.</li>
+<li>[2] J. Devlin, M.-W. Chang, K. Lee, and K. Toutanova, “Bert: Pre-training of deep bidirectional transformers for language understanding,” <em>arXiv preprint arXiv:1810.04805</em>, 2018.</li>
+<li>[3] A. Dosovitskiy, L. Beyer, A. Kolesnikov, D. Weissenborn, X. Zhai, T. Unterthiner, M. Dehghani, M. Minderer, G. Heigold, S. Gelly <em>et al.</em>, “An image is worth 16x16 words: Transformers for image recognition at scale,” <em>arXiv preprint arXiv:2010.11929</em>, 2020.</li>
+<li>[4] A. Radford, K. Narasimhan, T. Salimans, I. Sutskever <em>et al.</em>, “Improving language understanding by generative pre-training,” 2018.</li>
+<li>[5] A. Radford, J. Wu, R. Child, D. Luan, D. Amodei, I. Sutskever <em>et al.</em>, “Language models are unsupervised multitask learners,” <em>OpenAI blog</em>, vol.1, no.8, p.9, 2019.</li>
+<li>[6] T. Brown, B. Mann, N. Ryder, M. Subbiah, J. D. Kaplan, P. Dhariwal, A. Neelakantan, P. Shyam, G. Sastry, A. Askell <em>et al.</em>, “Language models are few-shot learners,” <em>Advances in neural information processing systems</em>, vol.33, pp.1877–1901, 2020.</li>
+<li>[7] B. McCann, N. S. Keskar, C. Xiong, and R. Socher, “The natural language decathlon: Multitask learning as question answering,” <em>arXiv preprint arXiv:1806.08730</em>, 2018.</li>
+<li>[8] N. Parmar, A. Vaswani, J. Uszkoreit, L. Kaiser, N. Shazeer, A. Ku, and D. Tran, “Image transformer,”  <em>International conference on machine learning</em>. PMLR, pp.4055–4064, 2018.</li>
+<li>[9] T. Lin, Y. Wang, X. Liu, and X. Qiu, “A survey of transformers,” <em>AI Open</em>,2022.</li>
+<li>[10] Z. Liu, Y. Lin, Y. Cao, H. Hu, Y. Wei, Z. Zhang, S. Lin, and B. Guo, “Swin transformer: Hierarchical vision transformer using shifted windows,” <em>Proceedings of the IEEE/CVF international conference on computer vision</em>, 2021, pp.10012–10022.</li>
+<li>[11] A. Radford, J. W. Kim, C. Hallacy, A. Ramesh, G. Goh, S. Agarwal, G. Sastry, A. Askell, P. Mishkin, J. Clark <em>et al.</em>, “Learning transferable visual models from natural language supervision,” <em>International conference on machine learning</em>. PMLR, pp. 8748–8763, 2021.</li>
+<li>[12] H. Chefer, S. Gur, and L. Wolf, “Transformer interpretability beyond attention visualization,” <em>Proceedings of the IEEE/CVF conference on computer vision and pattern recognition</em>, pp.782–791, 2021.</li>
 </ul>
 ]]></content>
       <categories>
@@ -452,7 +425,7 @@
   <entry>
     <title>hexo与Typora插入图片的解决方法</title>
     <url>/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/</url>
-    <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>众所周知，在md文件中插入图片的语法为<code>![]()</code>。</p>
+    <content><![CDATA[<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>众所周知，在md文件中插入图片的语法为 <code>![]()</code>。</p>
 <p>其中<strong>方括号</strong>是图片描述，<strong>圆括号</strong>是图片路径。</p>
 <p>一般来说有三种图片路径，分别是<strong>相对路径，绝对路径和网络路径</strong>。</p>
 <h2 id="网络路径（图床）"><a href="#网络路径（图床）" class="headerlink" title="网络路径（图床）"></a>网络路径（图床）</h2><p>所谓的网络路径就是直接引用网上的图片，直接复制图片的网络地址，放在圆括号中就完事了。</p>
@@ -467,22 +440,24 @@
 <p>当采用相对路径时，如果你的Hexo项目中只有少量图片，那最简单的方法就是将它们放在 <code>/source/images</code> 文件夹中。然后通过类似于 <code>![图片描述](/images/image.jpg)</code> 的方法访问它们。</p>
 <p>对于那些想要更有规律地提供图片和其他资源以及想要将他们的资源分布在各个文章上的人来说，Hexo也提供了更组织化的方式来管理资源。你需要将 <code>_config.yml</code> 文件中的 <code>post_asset_folder</code> 选项设为 <code>true</code> 来打开<strong>文章资源文件夹</strong>。</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br></pre></td></tr></table></figure>
-<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹在<code>/source/_posts</code>文件夹中。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
-<p>例如新建一个博客名为<code>1.md</code>，相应的会生成一个<code>1</code>文件夹，在该文件夹中存放图片<code>image.jpg</code>。<br>在Typora编辑器中打开<code>1.md</code>，使用<code>![](1/image.jpg)</code>能在编辑器中正常引用该图片。<br>在hexo网页中，却无法使用<code>![]()</code>的相对路径的方法进行引用，本人尝试了很多种相对路径的写法都无法实现。<br>原因可能是<code>_posts</code>文件夹中的文件在构建html时，其中的图片地址会发生改变，如果图片放在<code>/source/其他文件夹</code>中，图片正常显示。</p>
+<p>当资源文件管理功能打开后，Hexo将会在你每一次通过 <code>hexo new [layout] &lt;title&gt;</code> 命令创建新文章时自动创建一个文件夹在 <code>/source/_posts</code>文件夹中。这个资源文件夹将会有与这个文章文件一样的名字。将所有与你的文章有关的资源放在这个关联文件夹中之后，你可以通过相对路径来引用它们，这样你就得到了一个更简单而且方便得多的工作流。</p>
+<p>例如新建一个博客名为 <code>1.md</code>，相应的会生成一个 <code>1</code>文件夹，在该文件夹中存放图片 <code>image.jpg</code>。<br>在Typora编辑器中打开 <code>1.md</code>，使用 <code>![](1/image.jpg)</code>能在编辑器中正常引用该图片。<br>在hexo网页中，却无法使用 <code>![]()</code>的相对路径的方法进行引用，本人尝试了很多种相对路径的写法都无法实现。<br>原因可能是 <code>_posts</code>文件夹中的文件在构建html时，其中的图片地址会发生改变，如果图片放在 <code>/source/其他文件夹</code>中，图片正常显示。</p>
 <h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>此时如果要插入该图片，可以用以下几种方法：</p>
 <h2 id="使用相对路径引用的标签插件"><a href="#使用相对路径引用的标签插件" class="headerlink" title="使用相对路径引用的标签插件"></a>使用相对路径引用的标签插件</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;% asset_path slug %&#125;</span><br><span class="line">&#123;% asset_img slug [title] %&#125;</span><br><span class="line">&#123;% asset_link slug [title] %&#125;</span><br></pre></td></tr></table></figure>
 <p>正确的引用该图片方式是使用下列的标签插件：</p>
 <p><code>&#123;% asset_img image.jpg This is an image %&#125;</code></p>
-<h2 id="使用hexo-asset-image-hexo-asset-img插件"><a href="#使用hexo-asset-image-hexo-asset-img插件" class="headerlink" title="使用hexo-asset-image/hexo-asset-img插件"></a>使用<code>hexo-asset-image</code>/<code>hexo-asset-img</code>插件</h2><p>（较为复杂，本人尝试未成功，可自行搜索）</p>
-<h2 id="使用hexo-renderer-marked-插件（推荐）"><a href="#使用hexo-renderer-marked-插件（推荐）" class="headerlink" title="使用hexo-renderer-marked`插件（推荐）"></a>使用<a href="https://github.com/hexojs/hexo-renderer-marked"><code>hexo-renderer-marked</code></a>`插件（推荐）</h2><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>用<code>npm install hexo-renderer-marked</code>命令安装（新版hexo已集成，无需安装）</p>
-<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>在<code>_config.yml</code>中更改配置如下：<br><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure><br>第一行在前文已修改，后三行需要自行添加到第一行后。<br>此时在hexo网页中，使用<code>![](/image.jpg)</code>的相对路径的方法可成功进行引用。<br>（注意：路径中不能有空格）</p>
-<h1 id="方法完善"><a href="#方法完善" class="headerlink" title="方法完善"></a>方法完善</h1><p>注意到，如果使用<code>![](/image.jpg)</code>的相对路径在typora本地无法正确引用图片（typora需要使用<code>![](1/image.jpg)</code>）<br>在文章的front-matter中添加一行<code>typora-root-url: 文章标题</code>。那么在typora中所有的路径前都会加上<code>文章标题/</code>。（<code>image.jpg-&gt;1/image.jpg</code>）<br>进一步可以在<code>scaffolds</code>文件夹中的文章模板中添加<code>typora-root-url: &#123;&#123;title&#125;&#125;</code>这样每次执行<code>hexo new</code>命令新建文章的时候，会在front-matter中自动添加该配置。</p>
+<h2 id="使用-hexo-asset-image-hexo-asset-img插件"><a href="#使用-hexo-asset-image-hexo-asset-img插件" class="headerlink" title="使用 hexo-asset-image/hexo-asset-img插件"></a>使用 <code>hexo-asset-image</code>/<code>hexo-asset-img</code>插件</h2><p>（较为复杂，本人尝试未成功，可自行搜索）</p>
+<h2 id="使用hexo-renderer-marked插件（推荐）"><a href="#使用hexo-renderer-marked插件（推荐）" class="headerlink" title="使用hexo-renderer-marked插件（推荐）"></a>使用<a href="https://github.com/hexojs/hexo-renderer-marked"><code>hexo-renderer-marked</code></a>插件（推荐）</h2><h3 id="安装方法"><a href="#安装方法" class="headerlink" title="安装方法"></a>安装方法</h3><p>用 <code>npm install hexo-renderer-marked</code>命令安装（新版hexo已集成，无需安装）</p>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><p>在 <code>_config.yml</code>中更改配置如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">post_asset_folder: true</span><br><span class="line">marked:</span><br><span class="line">  prependRoot: true</span><br><span class="line">  postAsset: true</span><br></pre></td></tr></table></figure>
+<p>第一行在前文已修改，后三行需要自行添加到第一行后。<br>此时在hexo网页中，使用 <code>![](/image.jpg)</code>的相对路径的方法可成功进行引用。<br>（注意：路径中不能有空格）</p>
+<h1 id="方法完善"><a href="#方法完善" class="headerlink" title="方法完善"></a>方法完善</h1><p>注意到，如果使用 <code>![](/image.jpg)</code>的相对路径在typora本地无法正确引用图片（typora需要使用 <code>![](1/image.jpg)</code>）<br>在文章的front-matter中添加一行 <code>typora-root-url: 文章标题</code>。那么在typora中所有的路径前都会加上 <code>文章标题/</code>。（<code>image.jpg-&gt;1/image.jpg</code>）<br>进一步可以在 <code>scaffolds</code>文件夹中的文章模板中添加 <code>typora-root-url: &#123;&#123;title&#125;&#125;</code>这样每次执行 <code>hexo new</code>命令新建文章的时候，会在front-matter中自动添加该配置。</p>
 <h1 id="hexo与Typora的进一步联动"><a href="#hexo与Typora的进一步联动" class="headerlink" title="hexo与Typora的进一步联动"></a>hexo与Typora的进一步联动</h1><p>文章资源文件夹中引用图片，<strong>前提是先将图片放入到文章资源文件夹</strong>，如果图片数量众多的话，一张一张的放很影响效率。<br>使用Typora可以在复制图片到文章中时，自动将图片复制到指定文件夹，并修改成对应的路径。</p>
 <h2 id="设置方法"><a href="#设置方法" class="headerlink" title="设置方法"></a>设置方法</h2><p>找到Typora的偏好设置-&gt;图像，进行如下设置</p>
 <p><img src="/2024/02/14/hexo%E4%B8%8ETypora%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%E7%9A%84%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95/屏幕截图.png" alt></p>
 <p><code>./$&#123;filename&#125;</code>设置与hexo的文章资源文件夹设置相对应，<strong>至此写博客时插入图片只需将图片复制（拖动）到文章中即可。</strong></p>
-<h1 id="实际工作流"><a href="#实际工作流" class="headerlink" title="实际工作流"></a>实际工作流</h1><p>方法一：使用<code>hexo new &lt;layout&gt; &quot;filename&quot;</code>指令生成md文件（同时生成资源文件夹），然后使用typora打开md文件进行书写。</p>
-<p>方法二：在<code>/source/_posts</code>新建md文件，然后使用typora打开md文件进行书写，在插入图片时会自动生成资源文件夹。</p>
+<h1 id="实际工作流"><a href="#实际工作流" class="headerlink" title="实际工作流"></a>实际工作流</h1><p>方法一：使用 <code>hexo new &lt;layout&gt; &quot;filename&quot;</code>指令生成md文件（同时生成资源文件夹），然后使用typora打开md文件进行书写。</p>
+<p>方法二：在 <code>/source/_posts</code>新建md文件，然后使用typora打开md文件进行书写，在插入图片时会自动生成资源文件夹。</p>
 ]]></content>
       <categories>
         <category>经验之谈</category>
@@ -499,14 +474,16 @@
     <url>/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>当我们好不容易搭建好自己的个人博客时，在搜索引擎搜索时才发现，无论是搜索网站的标题还是网址都无法搜索到，搜索不到就代表着没有流量、没人看你写的文章，这可咋办。难道辛辛苦苦搭建的网站只有知道网址的人才能访问到吗，如何打破这信息孤岛呢？下面交给你解决办法，把你的网站主动推荐给各大搜索引擎让搜索引擎收录。</p>
 <p>由于各大搜索引擎的本质就是一个爬虫在不断爬取互联网上的内容，也许你的网站在不经意间已经被收录了。</p>
-<p>你可以通过在搜索引擎中输入<br><figure class="highlight text"><table><tr><td class="code"><pre><span class="line">site:&lt;域名&gt; （e.g. site:xiaobaozi.cn）</span><br></pre></td></tr></table></figure><br>若可以搜索出你的网站，则说明已经被收录。</p>
+<p>你可以通过在搜索引擎中输入</p>
+<figure class="highlight text"><table><tr><td class="code"><pre><span class="line">site:&lt;域名&gt; （e.g. site:xiaobaozi.cn）</span><br></pre></td></tr></table></figure>
+<p>若可以搜索出你的网站，则说明已经被收录。</p>
 <p>不过你仍可以进行接下来的步骤，在各大搜索引擎的后台添加你的网站并绑定你的账号，之后你就可以在后台看到相关的流量统计和相关增加曝光度的操作。</p>
 <h2 id="百度收录"><a href="#百度收录" class="headerlink" title="百度收录"></a>百度收录</h2><p>若未被收录，可以点击<a href="https://ziyuan.baidu.com/linksubmit/url?sitename">提交网址</a></p>
 <p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/百度未收录.png" alt></p>
 <p>进行连接提交（这是搜索引擎用户对搜索不到的网址进行反馈提交，无法保证收录）</p>
-<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001014339.png" alt="image-20240314001014339"></p>
+<p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001014339.png" alt></p>
 <p>若要进一步提交网站可以选择</p>
-<h3 id="添加站点到百度"><a href="#添加站点到百度" class="headerlink" title="添加站点到百度"></a>添加站点到百度</h3><p>我们需要登录<a href="https://ziyuan.baidu.com/site">百度搜索资源平台](https://ziyuan.baidu.com/)，登录成功之后在上方用户中心→站点管理</a>中点击添加网站，输入域名，按照步骤走。</p>
+<h3 id="添加站点到百度"><a href="#添加站点到百度" class="headerlink" title="添加站点到百度"></a>添加站点到百度</h3><p>我们需要登录<a href="https://ziyuan.baidu.com/">百度搜索资源平台</a>，登录成功之后在上方用户中心→<a href="https://ziyuan.baidu.com/site">站点管理</a>中点击添加网站，输入域名，按照步骤走。</p>
 <p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240314001927371.png" alt></p>
 <p>进入第三步验证您对网站的所有权，可以选择文件验证或HTML标签认证。</p>
 <h4 id="文件验证"><a href="#文件验证" class="headerlink" title="文件验证"></a>文件验证</h4><p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/文件验证.png" alt></p>
@@ -520,20 +497,17 @@
 <p>资源提交的方式有多种</p>
 <p><a href="https://ziyuan.baidu.com/college/courseinfo?id=267&amp;page=3#h2_article_title8">如何选择普通收录方式</a></p>
 <ul>
-<li><p><strong>API推送：</strong>最为快速的提交方式，建议您将站点当天新产出链接立即通过此方式推送给百度，以保证新链接可以及时被百度收录。</p>
-</li>
-<li><p><strong>sitemap：</strong>您可以定期将网站链接放到Sitemap中，然后将Sitemap提交给百度。百度会周期性的抓取检查您提交的Sitemap，对其中的链接进行处理，但收录速度慢于API推送。</p>
-</li>
-<li><p><strong>手动提交：</strong>如果您不想通过程序提交，那么可以采用此种方式，手动将链接提交给百度。</p>
-</li>
+<li><strong>API推送：</strong>最为快速的提交方式，建议您将站点当天新产出链接立即通过此方式推送给百度，以保证新链接可以及时被百度收录。</li>
+<li><strong>sitemap：</strong>您可以定期将网站链接放到Sitemap中，然后将Sitemap提交给百度。百度会周期性的抓取检查您提交的Sitemap，对其中的链接进行处理，但收录速度慢于API推送。</li>
+<li><strong>手动提交：</strong>如果您不想通过程序提交，那么可以采用此种方式，手动将链接提交给百度。</li>
 </ul>
 <h4 id="API提交"><a href="#API提交" class="headerlink" title="API提交"></a>API提交</h4><p>API提交首先需要安装插件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure>
-<p>然后在 hexo 根目录配置文件<code>_config.yml</code> 中，添加：</p>
+<p>然后在 hexo 根目录配置文件 <code>_config.yml</code> 中，添加：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 主动推送百度，被百度收录</span></span><br><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">10</span> <span class="comment"># 提交最新的10个链接</span></span><br><span class="line">  <span class="attr">host:</span> <span class="comment"># 百度站长平台中注册的域名</span></span><br><span class="line">  <span class="attr">token:</span> <span class="comment"># 密钥，百度站长平台 &gt; 普通收录 &gt; 推送接口 &gt; 接口调用地址中token字段</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidu_urls.txt</span> <span class="comment"># 文本文档的地址， 新链接会保存在此文本文档里，不用改</span></span><br></pre></td></tr></table></figure>
 <p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/百度.png" alt="百度"></p>
-<p>其次，记得查看 hexo 根目录中<code>_config.yml</code> 文件中<code>url</code> 的值， 必须包含是百度站长平台注册的域名。</p>
-<p>最后，在<code>_config.yml</code> 文件中的 <code>deploy</code> 加入新的 <code>type</code>:</p>
+<p>其次，记得查看 hexo 根目录中 <code>_config.yml</code> 文件中 <code>url</code> 的值， 必须包含是百度站长平台注册的域名。</p>
+<p>最后，在 <code>_config.yml</code> 文件中的 <code>deploy</code> 加入新的 <code>type</code>:</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repository:</span> <span class="string">git@github.com:Warma10032/Warma10032.github.io.git</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">main</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>
 <div class="note warning modern"><p>这里是新建一个 type，一定要注意这段代码里面各行的缩进值</p>
 </div>
@@ -548,13 +522,13 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save </span><br><span class="line">npm install hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
 <p>然后来到 hexo 根目录配置文件 <code>_config.yml</code>，在下面添加：</p>
 <figure class="highlight yaml"><table><tr><td class="code"><pre><span class="line"><span class="comment"># 站点地图</span></span><br><span class="line"><span class="attr">sitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">sitemap.xml</span></span><br><span class="line"><span class="attr">baidusitemap:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidusitemap.xml</span></span><br></pre></td></tr></table></figure>
-<p>安装完成后我们执行<code>hexo cl &amp;&amp; hexo g</code>命令后我们会发现在<code>public</code>目录下面多了<code>baidusitemap.xml</code>和<code>sitemap.xml</code>文件。 我们打开文件可以看到生成的其实就是我们每篇文章的url。</p>
+<p>安装完成后我们执行 <code>hexo cl &amp;&amp; hexo g</code>命令后我们会发现在 <code>public</code>目录下面多了 <code>baidusitemap.xml</code>和 <code>sitemap.xml</code>文件。 我们打开文件可以看到生成的其实就是我们每篇文章的url。</p>
 <p>然后重新推送到服务器，访问如下 URL:</p>
 <figure class="highlight text"><table><tr><td class="code"><pre><span class="line">https://你的域名/sitemap.xml</span><br><span class="line">https://你的域名/baidusitemap.xml</span><br></pre></td></tr></table></figure>
 <p>看看网页中有没有内容，有的话就成功。</p>
-<p>最后将<code>https://你的域名/baidusitemap.xml</code>填入并提交即可。</p>
+<p>最后将 <code>https://你的域名/baidusitemap.xml</code>填入并提交即可。</p>
 <p><img src="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/image-20240328125839744.png" alt></p>
-<div class="note primary modern"><p>Google Sitemap提交<code>https://你的域名/sitemap.xml</code>，方法类似，不再赘述。</p>
+<div class="note primary modern"><p>Google Sitemap提交 <code>https://你的域名/sitemap.xml</code>，方法类似，不再赘述。</p>
 </div>
 <h4 id="手动提交"><a href="#手动提交" class="headerlink" title="手动提交"></a>手动提交</h4><p>即手动将你的连接输入并提交。</p>
 <h2 id="谷歌收录"><a href="#谷歌收录" class="headerlink" title="谷歌收录"></a>谷歌收录</h2><p>提交谷歌搜索引擎比较简单，在提交之前，我们依然可以使用 <code>site:域名</code> 查看网站是否被收录。进入 <a href="https://developers.google.com/search#?modal_active=none">Google 搜索中心</a>，登录你的谷歌账号。然后找到<a href="https://search.google.com/search-console/welcome">注册 Search Console</a>(在 “使用入门–&gt;SEO 新手指南” 中可以找到入口)，就直接输入你要收录的网站域名就行。</p>
@@ -593,27 +567,20 @@
 <p>有定位功能的root环境（root可提高成功几率）：可以是本机root/面具、带有root的模拟器、带有root的虚拟机。</p>
 <h2 id="演示"><a href="#演示" class="headerlink" title="演示"></a>演示</h2><p>以安卓光速虚拟机为例（光速虚拟机提供免费root功能）</p>
 <ol>
-<li><p>下载光速虚拟机：<a href="https://gsxnj.cn/index/">下载地址</a></p>
-</li>
+<li>下载光速虚拟机：<a href="https://gsxnj.cn/index/">下载地址</a></li>
 <li><p>创建安卓7虚拟环境（初次使用按软件要求进行配置，包括进入开发者模式、无线调试等可自行百度）</p>
 <p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/创建安卓7虚拟环境.jpg" style="zoom:33%;"></p>
 </li>
-</ol>
-<ol>
 <li><p>导入fake location和校园跑软件</p>
 <p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入.jpg" style="zoom: 80%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择导入.jpg" style="zoom:33%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入软件.jpg" alt="导入软件" style="zoom: 80%;"></p>
 </li>
-</ol>
-<p>   <img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择导入.jpg" style="zoom:33%;"></p>
-<p>   <img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/导入软件.jpg" alt="导入软件" style="zoom: 80%;"></p>
-<ol>
 <li><p>选择位置进行位置模拟（以root模式）</p>
 <p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/添加定位.jpg" alt="添加定位" style="zoom:80%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择定位.jpg" alt="选择位置" style="zoom:33%;"></p>
+<p><img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/开始模拟.jpg" alt="开始模拟" style="zoom:33%;"></p>
 </li>
-</ol>
-<p>   <img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/选择定位.jpg" alt="选择位置" style="zoom:33%;"></p>
-<p>   <img src="/2024/03/07/%E8%99%9A%E6%8B%9F%E5%AE%9A%E4%BD%8D%E5%AE%8C%E6%88%90%E6%A0%A1%E5%9B%AD%E8%B7%91/开始模拟.jpg" alt="开始模拟" style="zoom:33%;"></p>
-<ol>
 <li>移动摇杆进行移动（非VIP限速1m/s）</li>
 </ol>
 <h2 id="本校解决方案（东南大学）"><a href="#本校解决方案（东南大学）" class="headerlink" title="本校解决方案（东南大学）"></a>本校解决方案（<del>东南大学</del>）</h2><p>由于本校采用的是间隔时间进行定位采样，可以在目标线路（操场）上定位多个点，再在历史定位中间依次更换虚拟定位让系统记录。</p>
