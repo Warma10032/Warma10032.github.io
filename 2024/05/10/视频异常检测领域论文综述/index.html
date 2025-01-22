@@ -1,0 +1,643 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>视频异常检测领域论文综述 | 小包子的博客</title><meta name="keywords" content="人工智能,综述,计算机视觉,视频异常检测"><meta name="author" content="小包子"><meta name="copyright" content="小包子"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="视频异常检测领域论文综述"><meta name="application-name" content="视频异常检测领域论文综述"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="视频异常检测领域论文综述"><meta property="og:url" content="https://www.xiaobaozi.cn/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/index.html"><meta property="og:site_name" content="小包子的博客"><meta property="og:description" content="2024年视频异常检测领域的最新进展，探讨在视频异常检测领域中引入事件相机的可能性。"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://www.xiaobaozi.cn/img/post_cover/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0_cover.png"><meta property="article:author" content="小包子"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://www.xiaobaozi.cn/img/post_cover/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0_cover.png"><meta name="description" content="2024年视频异常检测领域的最新进展，探讨在视频异常检测领域中引入事件相机的可能性。"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://www.xiaobaozi.cn/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-site-verification" content="xxx"/><meta name="baidu_verify_codeva-dHKjzsVjyZ" content="9e663bca9286f205b7933ea159ecbcaf"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?be37a168cf98e469600721b1aba67c18";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-NFRB00T5VL"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NFRB00T5VL');
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "pxp3ewsmkw");</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: {"enable":true,"img":"https://upload-bbs.miyoushe.com/upload/2024/07/27/125766904/ba62475f396df9de3316a08ed9e65d86_5680958632268053399..png"},
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://twikoo-seven-gamma-22.vercel.app/',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":530},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 小包子","link":"链接: ","source":"来源: 小包子的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小包子的博客',
+  title: '视频异常检测领域论文综述',
+  postAI: '',
+  pageFillDescription: 'Abstract, 摘要, 引言, 事件相机简介, 常用于视频异常检测的方法, 监督学习, 无监督学习, 亟待解决的问题, 最新解决方法, 事件相机对视频异常检测的帮助, 事件相机与RGB相机的模态融合方法, 总结, 参考文献摘要视频异常检测作为计算机视觉的一个重要研究方向广泛应用于公共安全交通管理医疗健康等多个领域随着事件相机的快速发展其高动态范围低延迟和低功耗等特点使其在异常检测任务中具有巨大的应用潜力本文首先介绍了事件相机的工作原理及其在视频异常检测领域的优势然后详细分析了现有视频异常检测的主要方法和思路包括监督学习和无监督学习在无监督学习中又分为重建和预测两大方向接着我探讨了当前领域面临的挑战如场景依赖性异常行为的多样性数据稀疏性等并介绍了近年来的前沿研究成果最后我对事件相机与相机的模态融合方法进行了总结并提出了未来的研究方向和改进建议旨在为视频异常检测任务的进一步发展提供思路关键词计算机视觉异常检测事件相机无监督学习模态融合引言视频异常检测是计算机视觉领域中的一个核心研究方向其主要目的是从视频数据中识别出异常事件随着现代社会对安全与监控需求的日益增加视频监控系统已被广泛应用于各种场景中成为确保公共安全和财产安全的重要手段例如在城市交通管理中视频监控不仅用于监控车辆流量还用于检测交通事故违法行为等异常事件在工业制造中视频监控被用于发现生产过程中的故障和危险操作在医疗健康领域视频监控可用于监测患者的行为和状态及时发现潜在的紧急情况因此如何通过视频数据自动检测这些异常行为成为一个至关重要的问题传统的基于帧捕捉的相机虽能完成视频监控的任务但在处理复杂动态场景时存在一些不足尤其是在面对快速变化的场景和环境时常规相机的帧率限制可能导致信息丢失或延迟随着技术的发展事件相机作为一种新型视觉传感器逐渐进入了视频异常检测的研究视野与传统相机不同事件相机并不依赖固定的帧率进行图像捕捉而是仅记录像素亮度的变化事件这种事件驱动的捕捉方式使其具备了高动态范围低延迟以及低功耗的特点使得事件相机在处理高速动态变化的场景时表现尤为出色事件相机的这些特点使其特别适合用于视频异常检测任务与传统相机相比事件相机不仅可以更加高效地捕捉快速发生的异常事件还能够在低光照强对比等极端环境下保持较高的检测精度这对于那些需要在实时监控中快速做出反应的应用场景如安防系统自动驾驶工业机器人监控等具有极大的潜在价值因此基于事件相机的视频异常检测技术正在迅速崛起成为该领域研究的一个重要方向随着事件相机技术的不断发展它为视频异常检测任务提供了新的思路和解决方案事件相机不仅克服了传统相机的局限性还显著提高了检测的效率和准确性因此越来越多的研究者开始关注如何将事件相机应用于视频异常检测并探索其在各种复杂动态场景中的应用潜力事件相机简介事件相机与传统相机的主要区别在于其工作原理传统相机以固定的帧率捕捉整个场景的图像而事件相机仅记录像素亮度的变化即事件这种工作方式使得事件相机具有低延迟高动态范围和低功耗的特点极大地提高了对动态场景捕捉的效率和准确性常用于视频异常检测的方法目前常用于视频异常检测的方法分为监督学习和无监督学习两大类监督学习在监督学习方法中模型的训练依赖于预先标注的数据集即每个视频片段或帧都被明确地标注为正常或异常这种方法的发展基于分类和回归两种主要思路基于分类的方法通过将所有数据样本映射到不同的类别标签中即模型根据输入的视频特征对其进行分类判断是否属于异常行为基于回归的方法则是将每个数据样本映射到一个连续的异常分数空间模型会根据输入特征计算出一个异常分数分数越高意味着该样本越可能是异常尽管监督学习方法在一些特定应用场景中表现出色但它的一个主要问题在于对大规模精确标注数据的依赖由于视频异常检测通常涉及多个领域异常事件的类型和表现形式差异很大因此一个能够涵盖所有异常情况的完整数据集难以构建更为复杂的是标注数据的成本非常高特别是在长时间的视频监控场景中人工标注每个异常事件几乎不可能实现此外粗粒度的标签也会影响模型的表现因为它们无法提供足够细致的异常信息这可能导致模型误分类或漏检无监督学习与监督学习方法不同无监督学习方法不依赖于预先标注的数据而是试图通过从未标注数据中自动发现异常模式在无监督学习中主要分为基于重建和基于预测两大类方法基于重建的方法假设模型在训练过程中通过学习正常行为特征能够对正常数据进行较为准确的重建但对于异常数据的重建则会产生较大的误差因此模型可以通过在测试阶段计算重建误差来判断是否为异常数据当重建误差超过一定阈值时数据被判定为异常这种方法不依赖标签且在正常数据较为丰富的情况下效果较好基于预测的方法认为正常视频中的帧与帧之间存在某种规律性的上下文关系模型可以通过学习这种关系来预测未来帧当模型无法准确预测未来帧或者预测误差较大时意味着该段视频可能包含异常行为预测模型通常会基于过去的视频帧来推测未来帧的特征异常帧因为违背了正常帧之间的依赖关系导致模型难以做出准确预测从而使得预测误差增大无监督学习方法的一个显著优势是其对数据标签的依赖较小因此在标签匮乏或无法准确标注的情况下表现良好然而这类方法也存在一些缺陷例如当模型的泛化能力过强时可能会过度拟合正常和异常数据导致异常数据也被准确重建或预测进而降低检测准确率此外某些正常但较为少见的数据样本可能因其独特性而被模型误判为异常因此尽管无监督学习方法在当前视频异常检测研究中占据主流地位但仍然面临着挑战需要进一步提升模型的鲁棒性和准确性亟待解决的问题尽管已有无数研究者投身于视频异常检测领域的研究该领域目前仍然面临一系列挑战场景性视频中的异常事件通常不是孤立的而是与特定场景环境或真实情境相关联这意味着异常的定义和判断需要考虑视频所处的具体场景例如在某场景正常的行为在另一场景就为异常解决异常的场景依赖问题是提高模型泛化能力的关键模糊性异常检测被广泛认为是检测在特定情况下预期不会出现的事件的过程然而在现实世界中正常和异常之间的边界没有明确划分例如一些正常样本也会表现出异常事件所具有的奇怪特征这阻碍了模型的检测精度多样性现实世界中的异常行为多种多样无法完全说明有时甚至可能尚未发生因此在一个数据集中考虑所有可能的异常类型是不切实际的那么如何让模型在将众多未见的或正常或异常的行为区分开来是视频异常检测领域的一大难题稀疏性由于行为的种类繁多视频异常检测领域的数据集通常有单个行为的数据过少异常样本明显少于正常样本的不平衡等问题噪声在视频异常检测中监控画面常作为数据集但这种数据集中的信息密度过低而且对于长时间视频的标签标注是一个十分耗时的过程对于一个粗粒度的标签模型还很有可能错误的学习到了噪声与标签的关系数据中的高噪声无疑影响着任务的性能隐私性监控等视频数据具有隐私性这限制了视频异常检测在某些领域的数据获取最新解决方法解决场景相关问题等人要解决的关键问题是视频异常检测中的场景性问题即如何提高场景感知能力以便检测出场景相关的异常事件并应对正常的多样性让模型学习到不同的正常现象解决思想是利用预训练的视频解析网络提取前景对象和背景场景的高层语义特征然后利用场景感知的自编码器和层次语义对比学习来学习其中的特征和之间的关系在测试时根据输入视频的语义类别检索高相关的正常特征进行重建重建误差较高的片段被检测为异常实现方法视频解析利用预训练的视频解析模型将前景对象和背景场景的特征分为不同的语义类别具体使用和检测和跟踪对象使用和提取对象的外观和动作特征使用生成背景场景的分割图并使用进行场景聚类层次语义对比将每个对象的外观或运动特征与对应的场景特征结合起来形成场景外观或场景运动特征然后用自编码器进行编码和重建在编码过程中引入层次语义对比学习使得编码后的潜在特征在同一语义类别内紧凑在不同语义类别间分离语义特征重建在测试时从外部记忆库中检索和加权正常特征来重建测试视频中的对象特征并根据重建误差来判断异常重建误差越大异常得分越高动作增强为了处理稀有但正常的活动设计了一个基于骨架的增强方法通过空间变换和时间裁剪来生成更多的正常和异常样本进一步训练一个二分类器来提升性能研究贡献是提出了一种层次语义对比方法有效地利用了预训练网络提供的高层语义信息让计算机更好地理解和表示正常视频中出现的场景和对象以及它们之间的关系提高了正常模式的表示和判别能力设计了一种场景感知的自编码器结构结合了背景场景和前景对象的信息同时减少了重建过程中的背景噪声和设计了一种基于骨架的动作增强方法增加了稀有活动的样本数量帮助处理正常模式的不平衡问题不足之处在于模型中的某些模块也可以用其他更先进的模块替换例如使用另一种更好的背景解析模型来代替简单的分割图以区分背景的方法等人想要解决的关键问题是半监督视频异常检测和异常预测特别是场景依赖的异常给出了另一种解决场景性的方案解决思想是利用前向和后向帧预测模型来估计当前和未来帧的异常分数同时利用场景条件的变分自编码器来处理场景依赖的异常实现方法是设计了一个前向后向场景条件自编码器包括一个前向网络和一个后向网络分别用于前向和后向帧预测每个网络都是一个三层包含了条件变分自编码器将场景图像作为输入条件引导输入帧的特征与场景相关处理与场景有关的异常在训练阶段使用均方误差损失损失和散度损失来优化模型在推理阶段使用前向预测误差作为视频异常检测的分数使用前向后向预测误差的最大值作为视频异常预测的分数研究贡献是提出了一个新的大规模数据集它是目前最大的半监督视频异常检测基准也是唯一考虑场景依赖异常和视频异常预测的数据集提出了一个新的视频异常预测任务旨在提前预测异常事件的发生这对于异常事件的预警具有重要意义不足之处在于对于长期的异常预测还有待改进以及对于低分辨率的数据集表现不佳生成虚拟异常增强数据集等人想要解决的关键问题是提高模型对于异常判断的泛化能力由于异常事件的稀疏性和多样性目前的模型往往难以泛化到未见过的异常类型解决思想是提出一种基于提示的特征映射框架通过在特征层面进行正常特征到异常特征的映射来生成数据集中未见过的异常类型同时引入了一个异常提示来指导映射的方向使得生成的异常具有无界的多样性此外还设计了一个映射适应分支通过异常分类器和域分类器来缩小场景差距使得生成的异常具有场景特异性和一致性实现方法是包含三个部分即特征提取器基于提示的特征映射网络和映射适应分支特征提取器用于将输入的视频实例转换为对应的特征映射网络用于在同一域内将正常特征映射到异常特征空间异常提示用于从一个变分自编码器中采样作为映射网络的额外输入映射适应分支用于对生成的异常特征进行场景适应包括一个异常分类器和两个域分类器的训练过程是统一的包括特征映射损失异常分类损失域分类损失和重构损失的推理过程是完全监督的给定一个未见过的视频实例通过特征提取器和异常分类器得到实例级别的异常分数然后通过最大值得到帧级别的异常分数的优点是能够利用虚拟数据集来生成无界的异常类型提高了的泛化能力同时能够通过映射适应分支来缩小虚拟和真实场景之间的差距提高了的鲁棒性的缺点是需要依赖于检测器来提取人物的边界框这可能会引入一些误差生成伪标签增强数据集等人想要解决的关键问题是在弱监督视频异常检测中如果数据只有视频级别的标签如何预测出准确的帧级别的标签并使用生成出的帧级别的伪标签用于自训练增强训练效果解决思想是利用完整性和不确定性两个属性来提高伪标签的质量从而提高异常检测的性能实现方法完整性设计一个伪标签生成器包含多头分类器并引入多样性损失这样每个头往往会发现不同的异常事件从而使伪标签生成器覆盖尽可能多的异常事件不确定性设计一个迭代的不确定性感知的伪标签精炼策略利用来估计伪标签的不确定性并根据不确定性选择可靠的样本来训练最终的分类器迭代使用可靠的样本和可靠的伪标签来训练一个新的帧分类器用新的帧分类器更新伪标签并重复上述步骤直到模型收敛模型优点是能够有效地利用视频中的完整性和不确定性信息生成高质量的伪标签从而提高异常检测的准确性和鲁棒性缺点是需要进行多次迭代和不确定性估计计算开销较大等人想要解决的关键问题是如何在不使用训练数据的情况下实现图像恢复和图像重定向的任务即从单张图像中学习有效的图像特征并生成不同尺寸或比例的目标图像解决这个问题可以提高基于重建的视频异常检测任务的性能解决思想是利用深度网络结构作为隐含的图像先验结合内部学习和上下文特征学习的方法构建一个通用的框架通过最小化源图像和目标图像在不同特征表示下的差异来实现图像恢复和图像重定向实现方法是提出了深度上下文内部学习框架包括以下几个模块网络构建模块使用一个编码器解码器结构的生成器网络和一个多尺度补丁判别器网络根据不同的任务设置网络层跳跃连接级联输入和残差块等组件损失函数模块使用三种损失函数来优化生成器网络分别是上下文损失对抗损失和重建损失上下文损失用于增强生成图像的上下文特征对抗损失用于匹配源图像和生成图像的补丁分布重建损失用于保留源图像的全局特征应用模块根据不同的应用场景如去噪超分辨率超分辨率和图像重定向设置不同的缩放因子网络参数和损失函数权重来实现从单张图像中生成不同尺寸或比例的目标图像框架的优点是不需要任何训练数据只利用单张图像中的内部信息来学习图像特征避免了训练数据集的限制和偏差并且框架可以适应多种图像恢复和图像重定向的任务只需要调整网络结构和损失函数的设置就可以实现不同的目标论文还将网络结构和损失函数进行了模块化设计便于调整框架的缺点是依赖于单张图像中的自相似性作为先验信息当源图像中存在高度噪声或低相关性时可能无法学习到有效的图像特征并导致生成质量下降等人想要解决的关键问题是弱监督视频异常检测即利用只有视频级别的二元异常标签正常或异常来训练一个片段级别的异常检测器需要克服多实例学习中的假警报和上下文偏差问题视频级分类正确但帧级分类错误解决思想是提出一个无偏差的多实例学习框架通过寻求不同上下文偏差的片段之间的不变性来学习无偏差的异常特征实现方法划分片段根据当前的异常检测器将视频片段分为两个集合可信片段集和模糊片段集中的片段是明显正常或异常的中的片段是不确定的聚类模糊片段利用一个无监督的聚类头将中的片段特征分为两个簇以区分正常和异常片段通过最小化预测相似度的二元交叉熵损失来训练利用进行无监督的二元分类分类后的信息会作为第三步的监督训练异常检测器在和上同时训练异常检测器使其能够预测中的二元标签以及分离中的两个簇由第二步生成这样可以消除中的上下文偏置并学习无偏置的异常特征的优点是能够利用模糊片段来消除可信片段中的上下文偏差提高的性能和鲁棒性能够将特征表示微调和异常检测器学习整合到一个端到端的训练方式中得到一个更适合的特征表示并且采用了一种细粒度的视频划分策略将每个视频划分为长度为一秒的片段而不是使用每个粗粒度片段的平均特征作为分类器的输入保留了视频片段中微妙的异常信息的缺点是依赖于无监督聚类来区分模糊片段其性能受到聚类算法和参数选择的影响需要预先训练一个模型来初始化异常检测器并且需要追踪每个片段的预测历史来划分可信和模糊片段增加了计算开销等人想要解决的关键问题是如何将视频中更高层次的视觉特征和综合的时空关系用于视频异常检测任务中解决思想是提出一种全新不同于帧重建帧预测等的视频异常检测方法基于关键帧恢复视频事件的方法该方法鼓励根据包含隐含的外观和运动关系的视频关键帧来推断缺失的多帧从而恢复视频事件这可以更有效地激励挖掘和学习视频中潜在的高层次视觉特征和综合时空变化关系实现方法是提出了一种新颖的形网络其中引入了一个交叉注意力和一个时域上采样残差跳跃连接来进一步辅助恢复视频中复杂的静态和动态运动对象特征此外还提出了一种简单有效的相邻帧差分损失来约束视频序列的运动一致性模型优点是能够更好地捕捉视频中长距离的时空依赖关系提高对异常事件的敏感性和区分度不足之处是需要更多的计算资源和训练时间以及对不同场景和运动模式的泛化能力还有待提高数据中的特征提取工具等人想要解决的关键问题是如何利用网络来提取事件相机数据中的空间时间和极性信息从而提高事件视觉任务的性能解决思想是提出一种新的事件表示方法称为将异步事件根据时间戳和极性进行分组并设计一个新的网络称为在上进行有效的特征提取和整合实现方法包括三个主要模块和将事件流转换为在空间和时间极性维度上进行局部自注意力操作并建立双重残差连接提取事件相机数据的空间和时间极性特征利用重叠分组卷积来实现两个维度的信息整合和解耦的优点是能够充分利用事件数据的特性提高事件视觉任务的性能同时具有较低的计算成本和模型大小的缺点是需要根据不同的数据集和任务来调整的生成参数以达到最佳效果事件相机对视频异常检测的帮助利用事件相机的低数据率低能耗的优点降低异常检测的模型训练成本和应用的成本事件相机能大大减少视频中的隐私信息解决异常检测的数据和应用中存在的隐私方面的问题利用事件相机的高动态范围的优点可以提高模型在低高亮度等画面下的健壮性由于事件相机对变化的敏感性可以借助对变化敏感事件相机数据对异常检测进行辅助等人就利用了事件相机来辅助交通领域的物体检测并且发现事件相机在动态物体检测贡献较大事件相机与相机的模态融合方法等人提出了一个用于事件引导视频重建的多模态学习框架为了更好地利用两种视觉信号模态对同一场景的了解该文提出一种学习共享潜在空间的多模态表示对齐策略以及针对不同区域不同动态范围对两类信号进行互补的融合模块并且利用时间相关性来抑制重建的视频中的闪烁效果实现方法是将事件相机与相机的数据投影到共享表示空间上使得两种模态的数据对齐再使用置信度引导的多模态融合模块分步执行模态间重建和模态内重建最后将两个编码器和解码器联合训练等人基于预训练的框架鼓励弥合两种模式之间的巨大分布差距实现全面的跨模式信息交互从而增强其能力实现方法是提出一种掩码建模策略该策略随机屏蔽某些的特定模态以强制来自不同模态的主动交互还提出了一个正交高秩损失来正则化注意力矩阵用于抑制跨模态掩码引起的图像闪烁同时放大其积极作用总结在完成了对视频异常检测领域的深入探讨与研究后我们可以看到尽管在这一领域已经取得了显著进展但仍有许多挑战和未解决的问题等待着科研工作者们的攻克我们认为在视频异常检测任务中加入事件相机是一个新颖的创新点由于其独特的特点在提高视频异常检测准确性和效率上都将发挥很大的作用通过广泛阅读论文明确了视频异常检测领域的常用方法和亟待解决的问题后我们开始思考如何在现有的研究上加入事件相机为此我们进一步的翻阅了相关论文总结目前的模态融合方法寻找适合两种模态的编解码器着手于模型搭建和进一步的实验设计于验证在未来的工作中我们希望能够找到更为有效的解决方案以应对视频异常检测领域所面临的挑战最终我们相信通过不断的努力和探索视频异常检测的研究将为我们带来更安全更智能的生活环境参考文献',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-10-10 18:40:27',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 24
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/avatar.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://www.xiaobaozi.cn/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://app.xiaobaozi.cn/" title="哈基米加密器"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main//blog/hajimi-favicon.jpg" alt="哈基米加密器"/><span class="back-menu-item-text">哈基米加密器</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Warma10032/cyber-doctor/" title="赛博华佗"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main//blog/cyber-doctor-favicon.jpg" alt="赛博华佗"/><span class="back-menu-item-text">赛博华佗</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小包子的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="wxp://f2f0qmD-azcMjUchBpvloUNM9N8fhas7e-9Z3J33K6KHXl4" target="_blank"><img class="post-qr-code-img" alt="微信" src="/img/QRcode/wechatpay.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://qr.alipay.com/fkx18907f4py3f3e7s8dm5d" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="/img/QRcode/alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>1</sup></a><a href="/tags/Github/" style="font-size: 1.05rem;">Github<sup>1</sup></a><a href="/tags/SEO/" style="font-size: 1.05rem;">SEO<sup>1</sup></a><a href="/tags/Transformer/" style="font-size: 1.05rem;">Transformer<sup>1</sup></a><a href="/tags/Typora/" style="font-size: 1.05rem;">Typora<sup>1</sup></a><a href="/tags/hexo/" style="font-size: 1.05rem;">hexo<sup>2</sup></a><a href="/tags/markdown/" style="font-size: 1.05rem;">markdown<sup>1</sup></a><a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.05rem;">人工智能<sup>2</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.05rem;">博客<sup>2</sup></a><a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 1.05rem;">搜索引擎<sup>1</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.05rem;">教程<sup>1</sup></a><a href="/tags/%E6%A0%A1%E5%9B%AD%E8%B7%91/" style="font-size: 1.05rem;">校园跑<sup>1</sup></a><a href="/tags/%E7%BB%BC%E8%BF%B0/" style="font-size: 1.05rem;">综述<sup>2</sup></a><a href="/tags/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.05rem;">视频异常检测<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 1.05rem;">计算机视觉<sup>1</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A7%91%E7%A0%94%E6%97%A5%E8%AE%B0/" itemprop="url">科研日记</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>人工智能</span></a><a class="article-meta__tags" href="/tags/%E7%BB%BC%E8%BF%B0/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>综述</span></a><a class="article-meta__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>计算机视觉</span></a><a class="article-meta__tags" href="/tags/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>视频异常检测</span></a></span></div></div><h1 class="post-title" itemprop="name headline">视频异常检测领域论文综述</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2024-05-10T02:26:52.000Z" title="发表于 2024-05-10 10:26:52">2024-05-10</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2024-10-10T10:40:27.707Z" title="更新于 2024-10-10 18:40:27">2024-10-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">8.3k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>26分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="视频异常检测领域论文综述"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/post_cover/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0_cover.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://www.xiaobaozi.cn/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/"><header><a class="post-meta-categories" href="/categories/%E7%A7%91%E7%A0%94%E6%97%A5%E8%AE%B0/" itemprop="url">科研日记</a><a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" tabindex="-1" itemprop="url">人工智能</a><a href="/tags/%E7%BB%BC%E8%BF%B0/" tabindex="-1" itemprop="url">综述</a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" tabindex="-1" itemprop="url">计算机视觉</a><a href="/tags/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" tabindex="-1" itemprop="url">视频异常检测</a><h1 id="CrawlerTitle" itemprop="name headline">视频异常检测领域论文综述</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小包子</span><time itemprop="dateCreated datePublished" datetime="2024-05-10T02:26:52.000Z" title="发表于 2024-05-10 10:26:52">2024-05-10</time><time itemprop="dateCreated datePublished" datetime="2024-10-10T10:40:27.707Z" title="更新于 2024-10-10 18:40:27">2024-10-10</time></header><h2 id="Abstract"><a href="#Abstract" class="headerlink" title="Abstract"></a>Abstract</h2><p>Video anomaly detection is an important research area in computer vision, with widespread applications in public safety, traffic management, healthcare, and other sectors. With the rapid development of event cameras, their high dynamic range, low latency, and low power consumption make them highly promising for anomaly detection tasks. This paper first introduces the working principles of event cameras and their advantages in the field of video anomaly detection. It then provides a detailed analysis of the main methods and approaches for video anomaly detection, including supervised and unsupervised learning, with the latter divided into reconstruction and prediction-based approaches. I also discuss the challenges faced in the current field, such as scene dependency, the diversity of abnormal behaviors, and data sparsity, and introduce recent advancements in research. Finally, I summarize the methods of modality fusion between event cameras and RGB cameras and propose future research directions and recommendations for improvement, aiming to provide insights for the further development of video anomaly detection tasks.</p>
+<p><strong>Keywords</strong>: Computer Vision, Anomaly Detection, Event Cameras, Unsupervised Learning, Modality Fusion</p>
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>视频异常检测作为计算机视觉的一个重要研究方向，广泛应用于公共安全、交通管理、医疗健康等多个领域。随着事件相机的快速发展，其高动态范围、低延迟和低功耗等特点使其在异常检测任务中具有巨大的应用潜力。本文首先介绍了事件相机的工作原理及其在视频异常检测领域的优势。然后详细分析了现有视频异常检测的主要方法和思路，包括监督学习和无监督学习，在无监督学习中又分为重建和预测两大方向。接着，我探讨了当前领域面临的挑战，如场景依赖性、异常行为的多样性、数据稀疏性等，并介绍了近年来的前沿研究成果。最后，我对事件相机与RGB相机的模态融合方法进行了总结，并提出了未来的研究方向和改进建议，旨在为视频异常检测任务的进一步发展提供思路。</p>
+<p><strong>关键词</strong>：计算机视觉、异常检测、事件相机、无监督学习、模态融合</p>
+<h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>视频异常检测是计算机视觉领域中的一个核心研究方向，其主要目的是从视频数据中识别出异常事件。随着现代社会对安全与监控需求的日益增加，视频监控系统已被广泛应用于各种场景中，成为确保公共安全和财产安全的重要手段。例如，在城市交通管理中，视频监控不仅用于监控车辆流量，还用于检测交通事故、违法行为等异常事件；在工业制造中，视频监控被用于发现生产过程中的故障和危险操作；在医疗健康领域，视频监控可用于监测患者的行为和状态，及时发现潜在的紧急情况。因此，如何通过视频数据自动检测这些异常行为成为一个至关重要的问题。</p>
+<p>传统的基于帧捕捉的相机虽能完成视频监控的任务，但在处理复杂动态场景时存在一些不足，尤其是在面对快速变化的场景和环境时，常规相机的帧率限制可能导致信息丢失或延迟。随着技术的发展，事件相机作为一种新型视觉传感器，逐渐进入了视频异常检测的研究视野。与传统相机不同，事件相机并不依赖固定的帧率进行图像捕捉，而是仅记录像素亮度的变化事件。这种“事件驱动”的捕捉方式使其具备了高动态范围、低延迟以及低功耗的特点，使得事件相机在处理高速动态变化的场景时表现尤为出色。</p>
+<p>事件相机的这些特点，使其特别适合用于视频异常检测任务。与传统相机相比，事件相机不仅可以更加高效地捕捉快速发生的异常事件，还能够在低光照、强对比等极端环境下保持较高的检测精度。这对于那些需要在实时监控中快速做出反应的应用场景，如安防系统、自动驾驶、工业机器人监控等，具有极大的潜在价值。因此，基于事件相机的视频异常检测技术正在迅速崛起，成为该领域研究的一个重要方向。</p>
+<p>随着事件相机技术的不断发展，它为视频异常检测任务提供了新的思路和解决方案。事件相机不仅克服了传统相机的局限性，还显著提高了检测的效率和准确性。因此，越来越多的研究者开始关注如何将事件相机应用于视频异常检测，并探索其在各种复杂动态场景中的应用潜力。</p>
+<h2 id="事件相机简介"><a href="#事件相机简介" class="headerlink" title="事件相机简介"></a>事件相机简介</h2><p>事件相机与传统相机的主要区别在于其工作原理。传统相机以固定的帧率捕捉整个场景的图像，而事件相机仅记录像素亮度的变化，即“事件”。这种工作方式使得事件相机具有低延迟、高动态范围和低功耗的特点，极大地提高了对动态场景捕捉的效率和准确性。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA.jpg" alt="使用V2E对ShanghaiTech数据集进行事件化示例"></p>
+<h2 id="常用于视频异常检测的方法"><a href="#常用于视频异常检测的方法" class="headerlink" title="常用于视频异常检测的方法"></a>常用于视频异常检测的方法</h2><p>目前常用于视频异常检测的方法分为监督学习和无监督学习两大类。</p>
+<h3 id="监督学习"><a href="#监督学习" class="headerlink" title="监督学习"></a><strong>监督学习</strong></h3><p>在监督学习方法中，模型的训练依赖于预先标注的数据集，即每个视频片段或帧都被明确地标注为“正常”或“异常”。这种方法的发展基于分类和回归两种主要思路。基于分类的方法通过将所有数据样本映射到不同的类别标签中，即模型根据输入的视频特征对其进行分类，判断是否属于异常行为。基于回归的方法则是将每个数据样本映射到一个连续的异常分数空间，模型会根据输入特征计算出一个异常分数，分数越高意味着该样本越可能是异常。</p>
+<p>尽管监督学习方法在一些特定应用场景中表现出色，但它的一个主要问题在于对大规模、精确标注数据的依赖。由于视频异常检测通常涉及多个领域，异常事件的类型和表现形式差异很大，因此一个能够涵盖所有异常情况的完整数据集难以构建。更为复杂的是，标注数据的成本非常高，特别是在长时间的视频监控场景中，人工标注每个异常事件几乎不可能实现。此外，粗粒度的标签也会影响模型的表现，因为它们无法提供足够细致的异常信息，这可能导致模型误分类或漏检。</p>
+<h3 id="无监督学习"><a href="#无监督学习" class="headerlink" title="无监督学习"></a><strong>无监督学习</strong></h3><p>与监督学习方法不同，无监督学习方法不依赖于预先标注的数据，而是试图通过从未标注数据中自动发现异常模式。在无监督学习中，主要分为基于重建和基于预测两大类方法。</p>
+<p>基于<strong>重建</strong>的方法假设模型在训练过程中通过学习正常行为特征，能够对正常数据进行较为准确的重建，但对于异常数据的重建则会产生较大的误差。因此，模型可以通过在测试阶段计算重建误差来判断是否为异常数据。当重建误差超过一定阈值时，数据被判定为异常。这种方法不依赖标签，且在正常数据较为丰富的情况下效果较好。</p>
+<p>基于<strong>预测</strong>的方法认为，正常视频中的帧与帧之间存在某种规律性的上下文关系，模型可以通过学习这种关系来预测未来帧。当模型无法准确预测未来帧，或者预测误差较大时，意味着该段视频可能包含异常行为。预测模型通常会基于过去的视频帧来推测未来帧的特征，异常帧因为违背了正常帧之间的依赖关系，导致模型难以做出准确预测，从而使得预测误差增大。</p>
+<p>无监督学习方法的一个显著优势是其对数据标签的依赖较小，因此在标签匮乏或无法准确标注的情况下表现良好。然而，这类方法也存在一些缺陷。例如，当模型的泛化能力过强时，可能会过度拟合正常和异常数据，导致异常数据也被准确重建或预测，进而降低检测准确率。此外，某些正常但较为少见的数据样本，可能因其独特性而被模型误判为异常。因此，尽管无监督学习方法在当前视频异常检测研究中占据主流地位，但仍然面临着挑战，需要进一步提升模型的鲁棒性和准确性。</p>
+<h2 id="亟待解决的问题"><a href="#亟待解决的问题" class="headerlink" title="亟待解决的问题"></a>亟待解决的问题</h2><p>尽管已有无数研究者投身于视频异常检测领域的研究，该领域目前仍然面临一系列挑战</p>
+<p><strong>1. 场景性</strong>：视频中的异常事件通常不是孤立的，而是与特定场景、环境或真实情境相关联。这意味着异常的定义和判断需要考虑视频所处的具体场景。例如，在某场景正常的行为，在另一场景就为异常，解决异常的场景依赖问题是提高模型泛化能力的关键。</p>
+<p><strong>2. 模糊性</strong>：异常检测被广泛认为是检测在特定情况下预期不会出现的事件的过程。然而，在现实世界中，正常和异常之间的边界没有明确划分。例如，一些正常样本也会表现出异常事件所具有的奇怪特征，这阻碍了模型的检测精度。</p>
+<p><strong>3. 多样性</strong>：现实世界中的异常行为多种多样，无法完全说明，有时甚至可能尚未发生。因此，在一个数据集中考虑所有可能的异常类型是不切实际的。那么如何让模型在将众多未见的或正常或异常的行为区分开来是视频异常检测领域的一大难题。</p>
+<p><strong>4. 稀疏性</strong>：由于行为的种类繁多，视频异常检测领域的数据集通常有单个行为的数据过少，异常样本明显少于正常样本的不平衡等问题。</p>
+<p><strong>5. 噪声</strong>：在视频异常检测中，监控画面常作为数据集，但这种数据集中的信息密度过低，而且对于长时间视频的标签标注是一个十分耗时的过程。对于一个粗粒度的标签，模型还很有可能错误的学习到了噪声与标签的关系，数据中的高噪声无疑影响着任务的性能。</p>
+<p><strong>6. 隐私性</strong>：监控等视频数据具有隐私性，这限制了视频异常检测在某些领域的数据获取。</p>
+<h2 id="最新解决方法"><a href="#最新解决方法" class="headerlink" title="最新解决方法"></a>最新解决方法</h2><p>解决场景相关问题：</p>
+<p><strong>Sun, S.</strong><a href="#1">[1]</a>等人要解决的关键问题是视频异常检测中的场景性问题即<strong>如何提高场景感知能力，以便检测出场景相关的异常事件</strong>。并应对正常的多样性，让模型学习到不同的正常现象。</p>
+<p>解决思想是利用预训练的视频解析网络提取前景对象和背景场景的高层语义特征，然后利用场景感知的自编码器和层次语义对比学习来学习其中的特征和之间的关系。在测试时，根据输入视频的语义类别，检索高相关的正常特征进行重建，重建误差较高的片段被检测为异常。</p>
+<p>实现方法：</p>
+<ul>
+<li><p>视频解析：利用预训练的视频解析模型，将前景对象和背景场景的特征分为不同的语义类别。具体使用YOLOv3和FairMOT检测和跟踪对象，使用ViT和PoseConv3D提取对象的外观和动作特征，使用DeepLabV3+生成背景场景的分割图，并使用DBSCAN进行场景聚类。</p>
+</li>
+<li><p>层次语义对比：将每个对象的外观或运动特征与对应的场景特征结合起来，形成场景—外观或场景-运动特征，然后用自编码器进行编码和重建。在编码过程中，引入层次语义对比学习，使得编码后的潜在特征在同一语义类别内紧凑，在不同语义类别间分离。<br><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/image-20241010153155488.png" alt="外貌和运动特征在场景中进行对比学习"></p>
+</li>
+<li><p>语义特征重建：在测试时，从外部记忆库中检索和加权正常特征来重建测试视频中的对象特征，并根据重建误差来判断异常。重建误差越大，异常得分越高。</p>
+</li>
+<li><p>动作增强：为了处理稀有但正常的活动，设计了一个基于骨架的增强方法，通过空间变换和时间裁剪来生成更多的正常和异常样本，进一步训练一个二分类器来提升性能。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/image-20241010153613993.png" alt="基于骨骼的运动增强，包括空间变换和时间切割"></p>
+</li>
+</ul>
+<p>研究贡献是提出了一种层次语义对比方法，有效地利用了预训练网络提供的高层语义信息，让计算机更好地理解和表示正常视频中出现的场景和对象，以及它们之间的关系，提高了正常模式的表示和判别能力。设计了一种场景感知的自编码器结构，结合了背景场景和前景对象的信息，同时减少了重建过程中的背景噪声。和设计了一种基于骨架的动作增强方法，增加了稀有活动的样本数量，帮助处理正常模式的不平衡问题。不足之处在于模型中的某些模块也可以用其他更先进的模块替换，例如使用另一种更好的背景解析模型来代替简单的分割图以区分背景的方法。</p>
+<p><strong>Cao, C.</strong><a href="#2">[2]</a>等人想要解决的关键问题是<strong>半监督视频异常检测和异常预测，特别是场景依赖的异常</strong>，给出了另一种解决场景性的方案。</p>
+<p>解决思想是利用前向和后向帧预测模型来估计当前和未来帧的异常分数，同时利用场景条件的变分自编码器来处理场景依赖的异常。</p>
+<p>实现方法是设计了一个前向-后向场景条件自编码器（FBSCAE），包括一个前向网络和一个后向网络，分别用于前向和后向帧预测。每个网络都是一个三层U-Net，包含了条件变分自编码器（CVAE），将场景图像作为输入条件，引导输入帧的特征与场景相关（处理与场景有关的异常）。在训练阶段，使用均方误差损失、L1损失和KL散度损失来优化模型。在推理阶段，使用前向预测误差作为视频异常检测（VAD）的分数，使用前向-后向预测误差的最大值作为视频异常预测（VAA）的分数。</p>
+<p>研究贡献是提出了一个新的大规模数据集NWPU Campus，它是目前最大的半监督视频异常检测基准，也是唯一考虑场景依赖异常和视频异常预测的数据集。提出了一个新的视频异常预测任务，旨在提前预测异常事件的发生，这对于异常事件的预警具有重要意义。不足之处在于对于长期的异常预测还有待改进，以及对于低分辨率的数据集表现不佳。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/image-20241010161712530.png" alt="NWPU Campus dataset"></p>
+<p>生成虚拟异常增强数据集：</p>
+<p><strong>Liu, Z.</strong><a href="#3">[3]</a>等人想要解决的关键问题是<strong>提高模型对于异常判断的泛化能力</strong>。由于异常事件的稀疏性和多样性，目前的模型往往难以泛化到未见过的异常类型。</p>
+<p>解决思想是提出一种基于提示的特征映射框架（PFMF），通过在特征层面进行正常特征到异常特征的映射，来生成数据集中未见过的异常类型。同时，引入了一个异常提示来指导映射的方向，使得生成的异常具有无界的多样性。此外，还设计了一个映射适应分支，通过异常分类器和域分类器来缩小场景差距，使得生成的异常具有场景特异性和一致性。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/image-20241010162250537.png" alt="PFMF框架"></p>
+<p>实现方法是PFMF包含三个部分，即特征提取器、基于提示的特征映射网络和映射适应分支。特征提取器用于将输入的视频实例转换为对应的特征，映射网络用于在同一域内将正常特征映射到异常特征空间，异常提示用于从一个变分自编码器（VAE）中采样，作为映射网络的额外输入，映射适应分支用于对生成的异常特征进行场景适应，包括一个异常分类器和两个域分类器。PFMF的训练过程是统一的，包括特征映射损失、异常分类损失、域分类损失和VAE重构损失。PFMF的推理过程是完全监督的，给定一个未见过的视频实例，通过特征提取器和异常分类器得到实例级别的异常分数，然后通过最大值得到帧级别的异常分数。</p>
+<p>PFMF的优点是能够利用虚拟数据集来生成无界的异常类型，提高了VAD的泛化能力；同时能够通过映射适应分支来缩小虚拟和真实场景之间的差距，提高了VAD的鲁棒性。PFMF的缺点是需要依赖于YOLOv3检测器来提取人物的边界框，这可能会引入一些误差。</p>
+<p>生成伪标签增强数据集：</p>
+<p><strong>Zhang, C.</strong><a href="#4">[4]</a>等人想要解决的关键问题是在弱监督视频异常检测中，<strong>如果数据只有视频级别的标签，如何预测出准确的帧级别的标签。并使用生成出的帧级别的伪标签用于自训练，增强训练效果。</strong></p>
+<p>解决思想是利用完整性和不确定性两个属性来提高伪标签的质量，从而提高异常检测的性能。</p>
+<p>实现方法：</p>
+<ul>
+<li>完整性：设计一个伪标签生成器包含多头分类器，并引入多样性损失， 这样每个头往往会发现不同的异常事件，从而使伪标签生成器覆盖尽可能多的异常事件。</li>
+<li>不确定性：设计一个迭代的不确定性感知的伪标签精炼策略：利用MC Dropout来估计伪标签的不确定性，并根据不确定性选择可靠的样本来训练最终的分类器。</li>
+<li>迭代：使用可靠的样本和可靠的伪标签来训练一个新的帧分类器。用新的帧分类器更新伪标签，并重复上述步骤，直到模型收敛。</li>
+</ul>
+<p>模型优点是能够有效地利用视频中的完整性和不确定性信息，生成高质量的伪标签，从而提高异常检测的准确性和鲁棒性。缺点是需要进行多次迭代和不确定性估计，计算开销较大。</p>
+<p><strong>Mastan, I. D.</strong><a href="#5">[5]</a>等人想要解决的关键问题是<strong>如何在不使用训练数据的情况下，实现图像恢复和图像重定向的任务</strong>，即从单张图像中学习有效的图像特征，并生成不同尺寸或比例的目标图像。解决这个问题可以提高基于重建的视频异常检测任务的性能。</p>
+<p>解决思想是利用深度网络结构作为隐含的图像先验，结合内部学习和上下文特征学习的方法，构建一个通用的框架，通过最小化源图像和目标图像在不同特征表示下的差异，来实现图像恢复和图像重定向。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/image-20241010164645927.png" alt="DCIL框架"></p>
+<p>实现方法是提出了深度上下文内部学习（DCIL）框架，包括以下几个模块：</p>
+<ul>
+<li>网络构建模块：使用一个编码器-解码器结构的生成器网络和一个多尺度补丁判别器网络，根据不同的任务设置网络层、跳跃连接、级联输入和残差块等组件。</li>
+<li>损失函数模块：使用三种损失函数来优化生成器网络，分别是上下文损失（LCL）、对抗损失（LGAN）和重建损失（LR）。上下文损失用于增强生成图像的上下文特征，对抗损失用于匹配源图像和生成图像的补丁分布，重建损失用于保留源图像的全局特征。</li>
+<li>应用模块：根据不同的应用场景，如去噪超分辨率（DSR）、超分辨率（SR）和图像重定向（IR），设置不同的缩放因子、网络参数和损失函数权重，来实现从单张图像中生成不同尺寸或比例的目标图像。</li>
+</ul>
+<p>DCIL框架的优点是不需要任何训练数据，只利用单张图像中的内部信息来学习图像特征，避免了训练数据集的限制和偏差。并且DCIL框架可以适应多种图像恢复和图像重定向的任务，只需要调整网络结构和损失函数的设置，就可以实现不同的目标。论文还将网络结构和损失函数进行了模块化设计，便于调整。DCIL框架的缺点是依赖于单张图像中的自相似性作为先验信息，当源图像中存在高度噪声或低相关性时，可能无法学习到有效的图像特征，并导致生成质量下降。</p>
+<p><strong>Lv, H.</strong><a href="#6">[6]</a>等人想要解决的关键问题是<strong>弱监督视频异常检测</strong>（WSVAD），即利用只有视频级别的二元异常标签（正常或异常）来训练一个片段级别的异常检测器。<strong>需要克服多实例学习（MIL）中的假警报和上下文偏差问题（视频级分类正确但帧级分类错误）</strong>。</p>
+<p>解决思想是提出一个无偏差的多实例学习（UMIL）框架，通过寻求不同上下文偏差的片段之间的不变性来学习无偏差的异常特征。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/image-20241010163506908.png" alt="UMIL框架"></p>
+<p>实现方法：</p>
+<ul>
+<li>划分片段：根据当前的异常检测器f，将视频片段分为两个集合：可信片段集C和模糊片段集A。C中的片段是明显正常或异常的，A中的片段是不确定的。</li>
+<li>聚类模糊片段：利用一个无监督的聚类头g，将A中的片段特征分为两个簇，以区分正常和异常片段。g通过最小化预测相似度的二元交叉熵损失来训练。（利用dot-product进行无监督的二元分类，分类后的信息会作为第三步的监督）</li>
+<li>训练异常检测器：在C和A上同时训练异常检测器f，使其能够预测C中的二元标签，以及分离A中的两个簇（由第二步生成）。这样可以消除C中的上下文偏置，并学习无偏置的异常特征。</li>
+</ul>
+<p>UMIL的优点是能够利用模糊片段来消除可信片段中的上下文偏差，提高WSVAD的性能和鲁棒性。能够将特征表示微调和异常检测器学习整合到一个端到端的训练方式中，得到一个更适合VAD的特征表示。并且采用了一种细粒度的视频划分策略（将每个视频划分为长度为一秒的片段，而不是使用每个粗粒度片段的平均特征作为分类器的输入），保留了视频片段中微妙的异常信息。UMIL的缺点是依赖于无监督聚类来区分模糊片段，其性能受到聚类算法和参数选择的影响。需要预先训练一个MIL模型来初始化异常检测器，并且需要追踪每个片段的预测历史来划分可信和模糊片段，增加了计算开销。</p>
+<p><strong>Yang, Z.</strong><a href="#7">[7]</a>等人想要解决的关键问题是<strong>如何将视频中更高层次的视觉特征和综合的时空关系用于视频异常检测任务中</strong>。</p>
+<p>解决思想是提出一种全新（不同于帧重建、帧预测等）的视频异常检测方法：基于关键帧恢复视频事件的方法。该方法鼓励DNN根据包含隐含的外观和运动关系的视频关键帧来推断缺失的多帧，从而恢复视频事件，这可以更有效地激励DNN挖掘和学习视频中潜在的高层次视觉特征和综合时空变化关系。</p>
+<p>实现方法是提出了一种新颖的U形Swin Transformer网络（USTN-DSC），其中引入了一个交叉注意力和一个时域上采样残差跳跃连接来进一步辅助恢复视频中复杂的静态和动态运动对象特征。此外，还提出了一种简单有效的相邻帧差分损失来约束视频序列的运动一致性。</p>
+<p>模型优点是能够更好地捕捉视频中长距离的时空依赖关系，提高对异常事件的敏感性和区分度。不足之处是需要更多的计算资源和训练时间，以及对不同场景和运动模式的泛化能力还有待提高。</p>
+<p>Event数据中的特征提取工具：</p>
+<p><strong>Peng, Y.</strong><a href="#8">[8]</a>等人想要解决的关键问题是如何<strong>利用Transformer网络来提取事件相机数据中的空间、时间和极性信息</strong>，从而提高事件视觉任务的性能。</p>
+<p>解决思想是提出一种新的事件表示方法，称为Group Token，将异步事件根据时间戳和极性进行分组，并设计一个新的Transformer网络，称为Group Event Transformer (GET)，在Group Token上进行有效的特征提取和整合。</p>
+<p>实现方法：GET包括三个主要模块：Group Token Embedding (GTE)、Event Dual Self-Attention (EDSA) block和Group Token Aggregation (GTA) module。GTE将事件流转换为Group Token，EDSA block在空间和时间—极性维度上进行局部自注意力操作，并建立双重残差连接，提取事件相机数据的空间和时间—极性特征，GTA module利用重叠分组卷积来实现两个维度的信息整合和解耦。</p>
+<p>GET的优点是能够充分利用事件数据的特性，提高事件视觉任务的性能，同时具有较低的计算成本和模型大小。GET的缺点是需要根据不同的数据集和任务来调整Group Token的生成参数，以达到最佳效果。</p>
+<h2 id="事件相机对视频异常检测的帮助"><a href="#事件相机对视频异常检测的帮助" class="headerlink" title="事件相机对视频异常检测的帮助"></a>事件相机对视频异常检测的帮助</h2><ol>
+<li>利用事件相机的低数据率、低能耗的优点降低异常检测的模型训练成本和应用的成本。</li>
+<li>事件相机能大大减少视频中的隐私信息，解决异常检测的数据和应用中存在的隐私方面的问题。</li>
+<li>利用事件相机的高动态范围的优点可以提高模型在低&#x2F;高亮度等画面下的健壮性。</li>
+<li>由于事件相机对变化的敏感性，可以借助对变化敏感事件相机数据对异常检测进行辅助。<strong>Liu, Z.</strong><a href="#9">[9]</a>等人就利用了事件相机来辅助交通领域的物体检测，并且发现事件相机在动态物体检测贡献较大。</li>
+</ol>
+<h2 id="事件相机与RGB相机的模态融合方法"><a href="#事件相机与RGB相机的模态融合方法" class="headerlink" title="事件相机与RGB相机的模态融合方法"></a>事件相机与RGB相机的模态融合方法</h2><p><strong>Yang, Y.</strong><a href="#10">[10]</a>等人提出了一个用于事件引导HDR视频重建的多模态学习框架。为了更好地利用两种视觉信号模态对同一场景的了解，该文提出一种学习共享潜在空间的多模态表示对齐策略，以及针对不同区域不同动态范围对两类信号进行互补的融合模块。并且利用时间相关性来抑制重建的HDR视频中的闪烁效果。</p>
+<p>实现方法是将事件相机与RGB相机的数据投影到共享表示空间上，使得两种模态的数据对齐。再使用置信度引导的多模态融合模块，分步执行模态间重建和模态内重建，最后将两个编码器和 HDR 解码器联合训练。</p>
+<p><strong>Zhu, Z.</strong><a href="#11">[11]</a>等人基于预训练的ViT框架，鼓励ViT弥合两种模式之间的巨大分布差距，实现全面的跨模式信息交互，从而增强其能力。</p>
+<p>实现方法是提出一种掩码建模策略，该策略随机屏蔽某些token的特定模态，以强制来自不同模态的token主动交互。还提出了一个正交高秩损失来正则化注意力矩阵，用于抑制跨模态掩码引起的图像闪烁，同时放大其积极作用。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>在完成了对视频异常检测领域的深入探讨与研究后，我们可以看到，尽管在这一领域已经取得了显著进展，但仍有许多挑战和未解决的问题等待着科研工作者们的攻克。我们认为在视频异常检测任务中，加入事件相机是一个新颖的创新点。由于其独特的特点，在提高视频异常检测准确性和效率上都将发挥很大的作用。</p>
+<p>通过广泛阅读论文，明确了视频异常检测领域的常用方法和亟待解决的问题后，我们开始思考如何在现有的研究上加入事件相机。为此我们进一步的翻阅了相关论文，总结目前的模态融合方法，寻找适合两种模态的编解码器，着手于模型搭建和进一步的实验设计于验证。</p>
+<p>在未来的工作中，我们希望能够找到更为有效的解决方案，以应对视频异常检测领域所面临的挑战。最终，我们相信，通过不断的努力和探索，视频异常检测的研究将为我们带来更安全、更智能的生活环境。</p>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a><strong>参考文献</strong></h2><p><a id="1">[1]</a> Sun, S., &amp; Gong, X. (2023). Hierarchical Semantic Contrast for Scene-Aware Video Anomaly Detection. Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 22846–22856.</p>
+<p><a id="2">[2]</a> Cao, C., Lu, Y., Wang, P., &amp; Zhang, Y. (2023). A New Comprehensive Benchmark for Semi-Supervised Video Anomaly Detection and Anticipation. Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 20392–20401.</p>
+<p><a id="3">[3]</a>Liu, Z., Wu, X., Zheng, D., Lin, K., &amp; Zheng, W. (2023). Generating Anomalies for Video Anomaly Detection With Prompt-Based Feature Mapping. Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 24500–24510.</p>
+<p><a id="4">[4]</a> Zhang, C., Li, G., Qi, Y., et al. (2023). Exploiting Completeness and Uncertainty of Pseudo Labels for Weakly Supervised Video Anomaly Detection. Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 16271–16280.</p>
+<p><a id="5">[5]</a> Mastan, I. D., &amp; Raman, S. (2020). DCIL: Deep Contextual Internal Learning for Image Restoration and Image Retargeting. Proceedings of the IEEE&#x2F;CVF Winter Conference on Applications of Computer Vision (WACV), pp. 2366–2375.</p>
+<p><a id="6">[6]</a> Lv, H., Yue, Z., Sun, Q., et al. (2023). Unbiased Multiple Instance Learning for Weakly Supervised Video Anomaly Detection. Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 8022–8031.</p>
+<p><a id="7">[7]</a> Yang, Z., Liu, J., Wu, Z., et al. (2023). Video Event Restoration Based on Keyframes for Video Anomaly Detection. Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 14592–14601.</p>
+<p><a id="8">[8]</a> Peng, Y., Zhang, Y., Xiong, Z., et al. (2023). GET: Group Event Transformer for Event-Based Vision. Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 6038–6048.</p>
+<p><a id="9">[9]</a> Liu, Z., Yang, N., Wang, Y., Li, Y., Zhao, X., &amp; Wang, F. (2023). Enhancing Traffic Object Detection in Variable Illumination with RGB-Event Fusion. ArXiv, abs&#x2F;2311.00436.</p>
+<p><a id="10">[10]</a> Yang, Y., Han, J., Liang, J., et al. (2023). Learning Event Guided High Dynamic Range Video Reconstruction. Proceedings of the IEEE&#x2F;CVF Conference on Computer Vision and Pattern Recognition (CVPR), pp. 13924–13934.</p>
+<p><a id="11">[11]</a> Zhu, Z., Hou, J., &amp; Wu, D. O. (2023). Cross-Modal Orthogonal High-Rank Augmentation for RGB-Event Transformer-Trackers. Proceedings of the IEEE&#x2F;CVF International Conference on Computer Vision (ICCV), pp. 22045–22055</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main//blog/%E5%A4%B4%E5%83%8F.jpg" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main//blog/%E5%A4%B4%E5%83%8F.jpg" title="头像" alt="头像"></a><div class="post-copyright__author_name">小包子</div><div class="post-copyright__author_desc">是一只小包子哦</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://www.xiaobaozi.cn/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://www.xiaobaozi.cn/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/')">视频异常检测领域论文综述</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="wxp://f2f0qmD-azcMjUchBpvloUNM9N8fhas7e-9Z3J33K6KHXl4" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/QRcode/wechatpay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://qr.alipay.com/fkx18907f4py3f3e7s8dm5d" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/QRcode/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://www.xiaobaozi.cn/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=视频异常检测领域论文综述&amp;url=https://www.xiaobaozi.cn/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/&amp;pic=/img/post_cover/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0_cover.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.xiaobaozi.cn" target="_blank">小包子的博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>人工智能<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/%E7%BB%BC%E8%BF%B0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>综述<span class="tagsPageCount">2</span></a><a class="post-meta__box__tags" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>计算机视觉<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>视频异常检测<span class="tagsPageCount">1</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/img/post_cover/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0_cover.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2024/03/13/%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E8%AE%A9%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E8%A2%AB%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/post_cover/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E%E6%94%B6%E5%BD%95_cover.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">如何快速让个人博客被搜索引擎收录</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/" title="Transformer经典论文阅读后综述"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/post_cover/Transformer%E7%BB%BC%E8%BF%B0_cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-02-24</div><div class="title">Transformer经典论文阅读后综述</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main//blog/%E5%A4%B4%E5%83%8F.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description"><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">这有关于<b style="color:#fff">产品、设计、开发</b>相关的问题和看法，还有<b style="color:#fff">文章翻译</b>和<b style="color:#fff">分享</b>。</div><div style="line-height:1.38;margin:0.6rem 0;text-align:justify;color:rgba(255, 255, 255, 0.8);">相信你可以在这里找到对你有用的<b style="color:#fff">知识</b>和<b style="color:#fff">教程</b>。</div></div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">小包子</h1><div class="author-info__desc">是一只小包子哦</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Warma10032" target="_blank" title="Github"><i class="fab fa-github faa-tada"></i></a><a class="social-icon faa-parent animated-hover" href="mailto:Warma10032@qq.com" target="_blank" title="Email"><i class="fas fa-envelope faa-tada"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/397711814" target="_blank" title="BiliBili"><i class="fa-brands fa-bilibili faa-tada"></i></a></div></div></div></div><div class="card-widget anzhiyu-right-widget" id="card-wechat" onclick="null"><div id="flip-wrapper"><div id="flip-content"><div class="face" style="background: url(https://bu.dusays.com/2023/01/13/63c02edf44033.png) center center / 100% no-repeat"></div><div class="back face" style="background: url(https://bu.dusays.com/2023/05/13/645fa415e8694.png) center center / 100% no-repeat"></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Abstract"><span class="toc-number">1.</span> <span class="toc-text">Abstract</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">3.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E7%AE%80%E4%BB%8B"><span class="toc-number">4.</span> <span class="toc-text">事件相机简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E4%BA%8E%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">常用于视频异常检测的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">5.1.</span> <span class="toc-text">监督学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%A0%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">5.2.</span> <span class="toc-text">无监督学习</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%9F%E5%BE%85%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-number">6.</span> <span class="toc-text">亟待解决的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%80%E6%96%B0%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">最新解决方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E5%AF%B9%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%9A%84%E5%B8%AE%E5%8A%A9"><span class="toc-number">8.</span> <span class="toc-text">事件相机对视频异常检测的帮助</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%9B%B8%E6%9C%BA%E4%B8%8ERGB%E7%9B%B8%E6%9C%BA%E7%9A%84%E6%A8%A1%E6%80%81%E8%9E%8D%E5%90%88%E6%96%B9%E6%B3%95"><span class="toc-number">9.</span> <span class="toc-text">事件相机与RGB相机的模态融合方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">10.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">11.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="workboard"><img class="workSituationImg boardsign" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/svg/小包子-上课摸鱼中-white.svg" alt="这个学能不能不上了啊~" title="这个学能不能不上了啊~"/><div id="runtimeTextTip"></div></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo" title="博客框架为Hexo"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/svg/Frame-Hexo-blue.svg" alt="博客框架为Hexo"/></a><a class="github-badge" target="_blank" href="https://blog.anheyu.com/" style="margin-inline:5px" data-title="本站使用AnZhiYu主题" title="本站使用AnZhiYu主题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/svg/Theme-AnZhiYu-2E67D3.svg" alt="本站使用AnZhiYu主题"/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站部署于Vercel" title="本站部署于Vercel"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/svg/Hosted-Vercel-brightgreen.svg" alt="本站部署于Vercel"/></a><a class="github-badge" target="_blank" href="https://github.com/warma10032/warma10032.github.io/" style="margin-inline:5px" data-title="本站托管于Github" title="本站托管于Github"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/svg/Source-Github-pink.svg" alt="本站托管于Github"/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/svg/Copyright-BY--NC--SA 4.svg" alt="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议"/></a></p></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 - 2025 By <a class="footer-bar-link" href="/" title="小包子" target="_blank">小包子</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://app.xiaobaozi.cn" title="哈基米加密器">哈基米加密器</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">6</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">15</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">4</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://www.xiaobaozi.cn/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="/img/favicon.ico" alt="博客"/><span class="back-menu-item-text">博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://app.xiaobaozi.cn/" title="哈基米加密器"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main//blog/hajimi-favicon.jpg" alt="哈基米加密器"/><span class="back-menu-item-text">哈基米加密器</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Warma10032/cyber-doctor/" title="赛博华佗"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/404.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main//blog/cyber-doctor-favicon.jpg" alt="赛博华佗"/><span class="back-menu-item-text">赛博华佗</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/fcircle/"><i class="anzhiyufont anzhiyu-icon-artstation faa-tada" style="font-size: 0.9em;"></i><span> 朋友圈</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 关于</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/about/"><i class="anzhiyufont anzhiyu-icon-paper-plane faa-tada" style="font-size: 0.9em;"></i><span> 关于本人</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/essay/"><i class="anzhiyufont anzhiyu-icon-lightbulb faa-tada" style="font-size: 0.9em;"></i><span> 闲言碎语</span></a></li><li><a class="site-page child faa-parent animated-hover" href="javascript:toRandomPost()"><i class="anzhiyufont anzhiyu-icon-shoe-prints1 faa-tada" style="font-size: 0.9em;"></i><span> 随便逛逛</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>1</sup></a><a href="/tags/Github/" style="font-size: 0.88rem;">Github<sup>1</sup></a><a href="/tags/SEO/" style="font-size: 0.88rem;">SEO<sup>1</sup></a><a href="/tags/Transformer/" style="font-size: 0.88rem;">Transformer<sup>1</sup></a><a href="/tags/Typora/" style="font-size: 0.88rem;">Typora<sup>1</sup></a><a href="/tags/hexo/" style="font-size: 0.88rem;">hexo<sup>2</sup></a><a href="/tags/markdown/" style="font-size: 0.88rem;">markdown<sup>1</sup></a><a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 0.88rem;">人工智能<sup>2</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.88rem;">博客<sup>2</sup></a><a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 0.88rem;">搜索引擎<sup>1</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 0.88rem;">教程<sup>1</sup></a><a href="/tags/%E6%A0%A1%E5%9B%AD%E8%B7%91/" style="font-size: 0.88rem;">校园跑<sup>1</sup></a><a href="/tags/%E7%BB%BC%E8%BF%B0/" style="font-size: 0.88rem;">综述<sup>2</sup></a><a href="/tags/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 0.88rem;">视频异常检测<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 0.88rem;">计算机视觉<sup>1</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="8152976493" server="netease" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/8802438608&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.cbd.int/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("04/01/2024 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "/img/svg/小包子-下课休息中-white.svg";
+        img.title = "下课了就该开开心心的玩，嘿嘿~";
+        img.alt = "下课了就该开开心心的玩，嘿嘿~";
+      }
+
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-NFRB00T5VL', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
