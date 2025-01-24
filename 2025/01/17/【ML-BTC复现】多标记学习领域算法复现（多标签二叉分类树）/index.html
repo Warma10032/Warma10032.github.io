@@ -1,0 +1,1074 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><title>【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树） | 小包子的博客</title><meta name="keywords" content="人工智能,机器学习,多标记学习,复现"><meta name="author" content="小包子"><meta name="copyright" content="小包子"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#f7f9fe"><meta name="mobile-web-app-capable" content="yes"><meta name="apple-touch-fullscreen" content="yes"><meta name="apple-mobile-web-app-title" content="【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）"><meta name="application-name" content="【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="#f7f9fe"><meta property="og:type" content="article"><meta property="og:title" content="【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）"><meta property="og:url" content="https://www.xiaobaozi.cn/2025/01/17/%E3%80%90ML-BTC%E5%A4%8D%E7%8E%B0%E3%80%91%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0%EF%BC%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%BA%8C%E5%8F%89%E5%88%86%E7%B1%BB%E6%A0%91%EF%BC%89/index.html"><meta property="og:site_name" content="小包子的博客"><meta property="og:description" content="复现代码在https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;Warma10032&amp;#x2F;ML-BTC 任务简介 领域背景 多标签分类（multi-label classification ）指的是一个输入的样本可以同时拥有几个类别标签，比如一首歌的标签可以是流行、轻快，一部电影的标签可以是动作、喜剧、搞笑，一本书的标"><meta property="og:locale" content="zh-CN"><meta property="og:image" content="https://www.xiaobaozi.cn/img/post_cover/ML-BTC_cover.png"><meta property="article:author" content="小包子"><meta property="article:tag"><meta name="twitter:card" content="summary"><meta name="twitter:image" content="https://www.xiaobaozi.cn/img/post_cover/ML-BTC_cover.png"><meta name="description" content="复现代码在https:&amp;#x2F;&amp;#x2F;github.com&amp;#x2F;Warma10032&amp;#x2F;ML-BTC 任务简介 领域背景 多标签分类（multi-label classification ）指的是一个输入的样本可以同时拥有几个类别标签，比如一首歌的标签可以是流行、轻快，一部电影的标签可以是动作、喜剧、搞笑，一本书的标"><link rel="shortcut icon" href="/img/favicon.svg"><link rel="canonical" href="https://www.xiaobaozi.cn/2025/01/17/%E3%80%90ML-BTC%E5%A4%8D%E7%8E%B0%E3%80%91%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0%EF%BC%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%BA%8C%E5%8F%89%E5%88%86%E7%B1%BB%E6%A0%91%EF%BC%89/"><link rel="preconnect" href="//cdn.cbd.int"/><link rel="preconnect" href="//www.google-analytics.com" crossorigin=""/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//www.clarity.ms"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="baidu-site-verification" content="codeva-dMx0PWlvIH"/><meta name="google-site-verification" content="xxx"/><meta name="msvalidate.01" content="xxx"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.cbd.int/@fortawesome/fontawesome-free@6.4.0/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?be37a168cf98e469600721b1aba67c18";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script async="async" src="https://www.googletagmanager.com/gtag/js?id=G-NFRB00T5VL"></script><script>window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-NFRB00T5VL');
+</script><script>(function(c,l,a,r,i,t,y){
+    c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+    t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+    y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+})(window, document, "clarity", "script", "pxp3ewsmkw");</script><script>const GLOBAL_CONFIG = {
+  linkPageTop: undefined,
+  peoplecanvas: undefined,
+  postHeadAiDescription: {"enable":true,"gptName":"AnZhiYu","mode":"local","switchBtn":false,"btnLink":"https://afdian.net/item/886a79d4db6711eda42a52540025c377","randomNum":3,"basicWordCount":1000,"key":"xxxx","Referer":"https://xx.xx/"},
+  diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
+  LA51: undefined,
+  greetingBox: undefined,
+  twikooEnvId: 'https://twikoo-seven-gamma-22.vercel.app/',
+  commentBarrageConfig:undefined,
+  music_page_default: "nav_music",
+  root: '/',
+  preloader: {"source":3},
+  friends_vue_info: undefined,
+  navMusic: true,
+  mainTone: undefined,
+  authorStatus: undefined,
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"简","rightMenuMsgToTraditionalChinese":"转为繁体","rightMenuMsgToSimplifiedChinese":"转为简体"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":530},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    simplehomepage: true,
+    post: false
+  },
+  runtime: '天',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"copy":true,"copyrightEbable":false,"limitCount":50,"languages":{"author":"作者: 小包子","link":"链接: ","source":"来源: 小包子的博客","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。","copySuccess":"复制成功，复制和转载请标注本文地址"}},
+  lightbox: 'fancybox',
+  Snackbar: {"chs_to_cht":"你已切换为繁体","cht_to_chs":"你已切换为简体","day_to_night":"你已切换为深色模式","night_to_day":"你已切换为浅色模式","bgLight":"#425AEF","bgDark":"#1f1f1f","position":"top-center"},
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.min.js',
+      css: 'https://cdn.cbd.int/flickr-justified-gallery@2.1.2/dist/fjGallery.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false,
+  shortcutKey: undefined,
+  autoDarkmode: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  configTitle: '小包子的博客',
+  title: '【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）',
+  postAI: '',
+  pageFillDescription: '任务简介, 算法介绍, 算法复现, 数据集, 实验设置, 复现代码说明, 复现结果与分析, 复现结果, 结果分析, 参考文献复现代码在任务简介领域背景多标签分类指的是一个输入的样本可以同时拥有几个类别标签比如一首歌的标签可以是流行轻快一部电影的标签可以是动作喜剧搞笑一本书的标签可以是经典文学等这都是多标签分类的情况多标签分类的一个重要特点是样本的所有标签是不具有排他性的处理多标签数据时复杂的决策空间是面临的最主要的问题与单标签分类不同多标签分类需学习更复杂决策边界现有多标签分类技术存在许多不足典型算法复杂单分类器通过一个复杂的单一分类器来处理多标签分类任务分类器需要学习所有标签的决策边界优点可以一次性考虑所有标签的关系适用于特定规模的数据缺点训练复杂且耗时尤其在标签数量或数据量很大的情况下对模型复杂度提出要求集成分类器使用多个分类器的组合来处理多标签问题优点灵活可扩展易于实现可以利用现有的单标签分类器缺点往往忽略了标签间的相关性如集成一对多分类器或需要显式编码标签间关系如分类器链增加了复杂度论文的算法论文中提出的多标签二叉树分类器是一个基于决策树的分层多标签分类器利用标签相关性将数据按类标签分割用于训练多个小分类器采取的是一种层次聚类的方法它将训练集根据标签集的汉明距离进行层次二分聚类从而将大数据集分为多个小的分类任务同时考虑了标签相关性根据每次分类的数据特点模型会选择对应的分裂策略和分类器用合适的分类器解决不同问题可以有效缓解数据分布不平衡的影响同时早停策略可以避免过拟合的设计目标是通过一种层次化结构化的方法来解决标签相关性类别不平衡决策空间复杂性等多标签分类中的核心挑战同时减少训练和推理的计算成本这种方法在多种规模的数据集上都表现出了较好的分类效果尤其在处理类别不平衡和高维数据方面具有显著优势算法介绍多标签二叉树分类器是一种基于树结构的多标签分类算法该算法通过递归地将标签空间划分为两个子集构建一个二叉树结构来处理多标签分类问题在每个内部节点算法使用基于汉明距离的二分聚类将当前节点的标签集分为两个子集选择汉明距离最大的两个标签作为聚类中心点其余标签根据到这两个中心点的汉明距离进行分配在训练过程中对于每个内部节点算法会训练一个二元分类器来预测样本应该被分到左子树还是右子树这种分层的方式不仅考虑了标签之间的相关性还通过树结构降低了问题的复杂度对于每个叶子节点会根据叶子节点中的标签树选择是否再训练一个分类器和选择训练何种分类器在预测阶段测试样本从根节点开始根据每个内部节点的分类器决策结果逐步向下传递直到达到叶节点在叶子节点中获得完整的标签预测结果该算法的主要优势在于通过树结构将复杂的多标签分类问题分解为一系列更简单的二分类问题考虑了标签之间的相关性特别是通过汉明距离来度量标签的相似度用标签的相似度来进行分裂模型会选择对应的分裂策略和分类器用合适的分类器可以有效缓解数据分布不平衡的影响模型的早停策略不强求分裂叶子节点直到其中只剩一个类别这种方法避免模型过于复杂减轻了过拟合风险降低了计算量其中的分别指的是节点中的多标签熵和样本基数分别表示的是节点中样本标签的多样性和样本个数具体解释训练流程阈值且阈值子集之间大小不平衡使用分类器处理此节点子集之间大小相对平衡使用分类器处理此节点阈值在该节点训练一个多层感知机分类器适合处理相对集中的样本能够有效学习不同类别之间的决策边界阈值在该节点使用分类器能够在小样本条件下有效分类并保留多标签的决策能力表示该节点中仅有一个标签将它分配给抵达的节点即可具体解释推理流程根节点未知样本从根节点出发使用根节点中训练好的二分类器被分类到其中一个子节点中中间节点每个中间节点包含一个二分类器样本经过每个中间节点会被分配到左或右子节点叶子节点根据叶子节点中的标签类别或分类器确定最终的类别算法复现数据集本次实验的数据集从下载数据集中所有属性都已经进行了数值化所以在这个网址下载的数据集存储大小都很小我们选取了论文中相同的几个数据集进行复现按论文中的大小分类三类都进行了复现数据类型样本条数属性个数标签维度实验设置实验评估设置实验评估策略折交叉验证实验评估指标预测标记集与真实标记集的不匹配率计算每个样本预测标记集与真实标记集的对称差集大小再除以标记集总数最后取平均完全匹配的准确率只有预测标记集与真实标记集完全相同才算正确先对每个标记计算值然后取平均对所有类别的处理权重相同不考虑样本分布不均衡将所有标记的预测结果混在一起计算整体的值考虑了样本分布更关注高频标记的表现基于样本级别的度量对每个样本计算预测标记集与真实标记集的值然后取平均预测正确的标记占总标记数的比例计算预测标记集与真实标记集的交集大小除以标记集总数计算每个标记正类和负类的召回率计算两个召回率的几何平均这种计算方式特别关注模型在正类和负类上的平衡性能能够有效处理类别不平衡问题模型与参数设置和的阈值设置在实际代码中我们使用的是根节点初始训练集的多标签熵和样本总数的来作为叶子节点不进行分裂的阈值复现代码说明树是怎么递归构建的函数通过对节点判断是否进行分裂如果进行分裂执行二分数据集代码并选择合适的分类器构建分类器树检查停止条件划分数据如果无法划分创建叶节点选择并训练分类器递归构建子树树的二分裂中数据聚类算法是怎样实现的函数计算所有标签对之间的汉明距离找到汉明距离最大的两个标签作为中心点其他标签根据到两个中心点的距离进行分配计算两个标签向量之间的汉明距离基于最大汉明距离的标签空间划分特征矩阵标签矩阵划分结果和表示两个子集计算所有标签对之间的汉明距离找到距离最大的两个标签索引将其他标签分配到最近的中心点第二个中心点标记为对每个样本计算到两个中心点的距离分配到较近的中心点跳过中心点打印一些信息以便调试如何选择分类器的函数根据聚类形成的两个子集决定如果两个子集之间不平衡或者样本个数较少就使用反之使用根据数据特征选择合适的分类器检查类别不平衡情况复现结果与分析复现结果使用我们复现的结果与论文在同数据集上进行对比以下是对比的结果数据集论文复现数据集论文复现数据集论文复现数据集论文复现数据集论文复现数据集论文复现数据集论文复现数据集论文复现结果分析在以上评估指标中论文和复现进行对比可以看出和普遍比原论文更好在某些数据集的会明显低于原论文例如数据集这些数据集都是典型的属性维度大于标签维度如的属性维度为标签维度却有要实现即完全预测准确我觉得这是很难的一件事但是原始论文还是取得了的得分不清楚原始论文是否运用了额外的属性来进行预测因为数据集其实是有多种属性等我们使用的是基础的属性的验证可能有问题按理说应该和加和为不清楚原始论文是如何计算的较原论文波动较大参考文献',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-01-24 20:24:31',
+  postMainColor: '',
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#18171d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#f7f9fe')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+          const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+          const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+          if (t === undefined) {
+            if (isLightMode) activateLightMode()
+            else if (isDarkMode) activateDarkMode()
+            else if (isNotSpecified || hasNoSupport) {
+              const now = new Date()
+              const hour = now.getHours()
+              const isNight = hour <= 6 || hour >= 24
+              isNight ? activateDarkMode() : activateLightMode()
+            }
+            window.matchMedia('(prefers-color-scheme: dark)').addListener(e => {
+              if (saveToLocal.get('theme') === undefined) {
+                e.matches ? activateDarkMode() : activateLightMode()
+              }
+            })
+          } else if (t === 'light') activateLightMode()
+          else activateDarkMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.3.0"></head><body data-type="anzhiyu"><div id="web_bg"></div><div id="an_music_bg"></div><div id="loading-box" onclick="document.getElementById(&quot;loading-box&quot;).classList.add(&quot;loaded&quot;)"><div class="loading-bg"><img class="loading-img nolazyload" alt="加载头像" src="/img/avatar.png"/><div class="loading-image-dot"></div></div></div><script>const preloader = {
+  endLoading: () => {
+    document.getElementById('loading-box').classList.add("loaded");
+  },
+  initLoading: () => {
+    document.getElementById('loading-box').classList.remove("loaded")
+  }
+}
+window.addEventListener('load',()=> { preloader.endLoading() })
+setTimeout(function(){preloader.endLoading();},10000)
+
+if (true) {
+  document.addEventListener('pjax:send', () => { preloader.initLoading() })
+  document.addEventListener('pjax:complete', () => { preloader.endLoading() })
+}</script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.10/progress_bar/progress_bar.css"/><script async="async" src="https://cdn.cbd.int/pace-js@1.2.4/pace.min.js" data-pace-options="{ &quot;restartOnRequestAfter&quot;:false,&quot;eventLag&quot;:false}"></script><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><div id="nav-group"><span id="blog_name"><div class="back-home-button"><i class="anzhiyufont anzhiyu-icon-grip-vertical"></i><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://www.xiaobaozi.cn/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/favicon.svg" alt="博客"/><span class="back-menu-item-text">博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://app.xiaobaozi.cn/" title="哈基米加密器"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main/blog/hajimi-favicon.jpg" alt="哈基米加密器"/><span class="back-menu-item-text">哈基米加密器</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Warma10032/cyber-doctor/" title="赛博华佗"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main/blog/cyber-doctor-favicon.jpg" alt="赛博华佗"/><span class="back-menu-item-text">赛博华佗</span></a></div></div></div></div><a id="site-name" href="/" accesskey="h"><div class="title">小包子的博客</div><i class="anzhiyufont anzhiyu-icon-house-chimney"></i></a><div id="he-plugin-simple"></div><script>var WIDGET = {
+  "CONFIG": {
+    "modules": "0124",
+    "background": "2",
+    "tmpColor": "FFFFFF",
+    "tmpSize": "16",
+    "cityColor": "FFFFFF",
+    "citySize": "16",
+    "aqiColor": "E8D87B",
+    "aqiSize": "16",
+    "weatherIconSize": "24",
+    "alertIconSize": "18",
+    "padding": "10px 10px 10px 10px",
+    "shadow": "0",
+    "language": "auto",
+    "borderRadius": "20",
+    "fixed": "true",
+    "vertical": "top",
+    "horizontal": "left",
+    "left": "20",
+    "top": "7.1",
+    "key": "df245676fb434a0691ead1c63341cd94"
+  }
+}
+</script><link rel="stylesheet" href="https://widget.qweather.net/simple/static/css/he-simple.css?v=1.4.0"/><script src="https://widget.qweather.net/simple/static/js/he-simple.js?v=1.4.0"></script></span><div class="mask-name-container"><div id="name-container"><a id="page-name" href="javascript:anzhiyu.scrollToDest(0, 500)">PAGE_NAME</a></div></div><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=3220227522&amp;server=tencent"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div></div></div><div id="nav-right"><div class="nav-button only-home" id="travellings_button" title="随机前往一个开往项目网站"><a class="site-page" onclick="anzhiyu.totraveling()" title="随机前往一个开往项目网站" href="javascript:void(0);" rel="external nofollow" data-pjax-state="external"><i class="anzhiyufont anzhiyu-icon-train"></i></a></div><div class="nav-button" id="randomPost_button"><a class="site-page" onclick="toRandomPost()" title="随机前往一个文章" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-dice"></i></a></div><div class="nav-button" id="search-button"><a class="site-page social-icon search" href="javascript:void(0);" title="搜索🔍" accesskey="s"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span> 搜索</span></a></div><input id="center-console" type="checkbox"/><label class="widget" for="center-console" title="中控台" onclick="anzhiyu.switchConsole();"><i class="left"></i><i class="widget center"></i><i class="widget right"></i></label><div id="console"><div class="console-card-group-reward"><ul class="reward-all console-card"><li class="reward-item"><a href="wxp://f2f0qmD-azcMjUchBpvloUNM9N8fhas7e-9Z3J33K6KHXl4" target="_blank"><img class="post-qr-code-img" alt="微信" src="/img/QRcode/wechatpay.png"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://qr.alipay.com/fkx18907f4py3f3e7s8dm5d" target="_blank"><img class="post-qr-code-img" alt="支付宝" src="/img/QRcode/alipay.png"/></a><div class="post-qr-code-desc">支付宝</div></li></ul></div><div class="console-card-group"><div class="console-card-group-left"><div class="console-card" id="card-newest-comments"><div class="card-content"><div class="author-content-item-tips">互动</div><span class="author-content-item-title"> 最新评论</span></div><div class="aside-list"><span>正在加载中...</span></div></div></div><div class="console-card-group-right"><div class="console-card tags"><div class="card-content"><div class="author-content-item-tips">兴趣点</div><span class="author-content-item-title">寻找你感兴趣的领域</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 1.05rem;">Git<sup>1</sup></a><a href="/tags/Github/" style="font-size: 1.05rem;">Github<sup>1</sup></a><a href="/tags/OS/" style="font-size: 1.05rem;">OS<sup>3</sup></a><a href="/tags/SEO/" style="font-size: 1.05rem;">SEO<sup>1</sup></a><a href="/tags/Transformer/" style="font-size: 1.05rem;">Transformer<sup>1</sup></a><a href="/tags/Typora/" style="font-size: 1.05rem;">Typora<sup>1</sup></a><a href="/tags/hexo/" style="font-size: 1.05rem;">hexo<sup>2</sup></a><a href="/tags/markdown/" style="font-size: 1.05rem;">markdown<sup>1</sup></a><a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 1.05rem;">人工智能<sup>4</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 1.05rem;">博客<sup>2</sup></a><a href="/tags/%E5%A4%8D%E7%8E%B0/" style="font-size: 1.05rem;">复现<sup>2</sup></a><a href="/tags/%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">多标记学习<sup>1</sup></a><a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 1.05rem;">实验报告<sup>3</sup></a><a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 1.05rem;">搜索引擎<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 1.05rem;">操作系统<sup>3</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 1.05rem;">教程<sup>1</sup></a><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 1.05rem;">机器学习<sup>1</sup></a><a href="/tags/%E6%A0%A1%E5%9B%AD%E8%B7%91/" style="font-size: 1.05rem;">校园跑<sup>1</sup></a><a href="/tags/%E7%BB%BC%E8%BF%B0/" style="font-size: 1.05rem;">综述<sup>2</sup></a><a href="/tags/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 1.05rem;">视频异常检测<sup>1</sup></a><a href="/tags/%E8%A7%86%E9%A2%91%E6%8F%8F%E8%BF%B0/" style="font-size: 1.05rem;">视频描述<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" style="font-size: 1.05rem;">计算机图形学<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 1.05rem;">计算机视觉<sup>2</sup></a></div></div><hr/></div></div><div class="console-card history"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-box-archiv"></i><span>文章</span></div><div class="card-archives"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-archive"></i><span>归档</span></div><ul class="card-archive-list"><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2025/01/"><span class="card-archive-list-date">一月 2025</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">6</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/05/"><span class="card-archive-list-date">五月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">1</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/03/"><span class="card-archive-list-date">三月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">2</span><span>篇</span></div></a></li><li class="card-archive-list-item"><a class="card-archive-list-link" href="/archives/2024/02/"><span class="card-archive-list-date">二月 2024</span><div class="card-archive-list-count-group"><span class="card-archive-list-count">3</span><span>篇</span></div></a></li></ul></div><hr/></div></div></div><div class="button-group"><div class="console-btn-item"><a class="darkmode_switchbutton" title="显示模式切换" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-moon"></i></a></div><div class="console-btn-item" id="consoleHideAside" onclick="anzhiyu.hideAsideBtn()" title="边栏显示控制"><a class="asideSwitch"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></a></div><div class="console-btn-item" id="consoleMusic" onclick="anzhiyu.musicToggle()" title="音乐开关"><a class="music-switch"><i class="anzhiyufont anzhiyu-icon-music"></i></a></div></div><div class="console-mask" onclick="anzhiyu.hideConsole()" href="javascript:void(0);"></div></div><div class="nav-button" id="nav-totop"><a class="totopbtn" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i><span id="percent" onclick="anzhiyu.scrollToDest(0,500)">0</span></a></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);" title="切换"><i class="anzhiyufont anzhiyu-icon-bars"></i></a></div></div></div></nav><div id="post-info"><div id="post-firstinfo"><div class="meta-firstline"><a class="post-meta-original">原创</a><span class="post-meta-categories"><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-inbox post-meta-icon"></i><a class="post-meta-categories" href="/categories/%E7%A7%91%E7%A0%94%E6%97%A5%E8%AE%B0/" itemprop="url">科研日记</a></span><span class="article-meta tags"><a class="article-meta__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>人工智能</span></a><a class="article-meta__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>机器学习</span></a><a class="article-meta__tags" href="/tags/%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>多标记学习</span></a><a class="article-meta__tags" href="/tags/%E5%A4%8D%E7%8E%B0/" tabindex="-1" itemprop="url"> <span> <i class="anzhiyufont anzhiyu-icon-hashtag"></i>复现</span></a></span></div></div><h1 class="post-title" itemprop="name headline">【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="anzhiyufont anzhiyu-icon-calendar-days post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" itemprop="dateCreated datePublished" datetime="2025-01-17T09:27:25.000Z" title="发表于 2025-01-17 17:27:25">2025-01-17</time><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-history post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" itemprop="dateCreated datePublished" datetime="2025-01-24T12:24:31.160Z" title="更新于 2025-01-24 20:24:31">2025-01-24</time></span></div><div class="meta-secondline"><span class="post-meta-separator"></span><span class="post-meta-wordcount"><i class="anzhiyufont anzhiyu-icon-file-word post-meta-icon" title="文章字数"></i><span class="post-meta-label" title="文章字数">字数总计:</span><span class="word-count" title="文章字数">3.5k</span><span class="post-meta-separator"></span><i class="anzhiyufont anzhiyu-icon-clock post-meta-icon" title="阅读时长"></i><span class="post-meta-label" title="阅读时长">阅读时长:</span><span>13分钟</span></span><span class="post-meta-separator"></span><span class="post-meta-pv-cv" id="" data-flag-title="【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）"><i class="anzhiyufont anzhiyu-icon-fw-eye post-meta-icon"></i><span class="post-meta-label" title="阅读量">阅读量:</span><span id="busuanzi_value_page_pv"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></span><span class="post-meta-separator">       </span><span class="post-meta-position" title="作者IP属地为长沙"><i class="anzhiyufont anzhiyu-icon-location-dot"></i>长沙</span><span class="post-meta-separator"></span><span class="post-meta-commentcount"><i class="anzhiyufont anzhiyu-icon-comments post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2025/01/17/%E3%80%90ML-BTC%E5%A4%8D%E7%8E%B0%E3%80%91%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0%EF%BC%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%BA%8C%E5%8F%89%E5%88%86%E7%B1%BB%E6%A0%91%EF%BC%89/#post-comment" tabindex="-1"><span id="twikoo-count"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-spin"></i></span></a></span></div></div></div><section class="main-hero-waves-area waves-area"><svg class="waves-svg" xmlns="http://www.w3.org/2000/svg" xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto"><defs><path id="gentle-wave" d="M -160 44 c 30 0 58 -18 88 -18 s 58 18 88 18 s 58 -18 88 -18 s 58 18 88 18 v 44 h -352 Z"></path></defs><g class="parallax"><use href="#gentle-wave" x="48" y="0"></use><use href="#gentle-wave" x="48" y="3"></use><use href="#gentle-wave" x="48" y="5"></use><use href="#gentle-wave" x="48" y="7"></use></g></svg></section><div id="post-top-cover"><img class="nolazyload" id="post-top-bg" src="/img/post_cover/ML-BTC_cover.png"></div></header><main id="blog-container"><div class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container" itemscope itemtype="https://www.xiaobaozi.cn/2025/01/17/%E3%80%90ML-BTC%E5%A4%8D%E7%8E%B0%E3%80%91%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0%EF%BC%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%BA%8C%E5%8F%89%E5%88%86%E7%B1%BB%E6%A0%91%EF%BC%89/"><header><a class="post-meta-categories" href="/categories/%E7%A7%91%E7%A0%94%E6%97%A5%E8%AE%B0/" itemprop="url">科研日记</a><a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" tabindex="-1" itemprop="url">人工智能</a><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url">机器学习</a><a href="/tags/%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/" tabindex="-1" itemprop="url">多标记学习</a><a href="/tags/%E5%A4%8D%E7%8E%B0/" tabindex="-1" itemprop="url">复现</a><h1 id="CrawlerTitle" itemprop="name headline">【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）</h1><span itemprop="author" itemscope itemtype="http://schema.org/Person">小包子</span><time itemprop="dateCreated datePublished" datetime="2025-01-17T09:27:25.000Z" title="发表于 2025-01-17 17:27:25">2025-01-17</time><time itemprop="dateCreated datePublished" datetime="2025-01-24T12:24:31.160Z" title="更新于 2025-01-24 20:24:31">2025-01-24</time></header><p>复现代码在<a target="_blank" rel="noopener" href="https://github.com/Warma10032/ML-BTC">https://github.com/Warma10032/ML-BTC</a></p>
+<h2 id="任务简介"><a href="#任务简介" class="headerlink" title="任务简介"></a>任务简介</h2><ol>
+<li><p>领域背景</p>
+<p>多标签分类（multi-label classification ）指的是一个输入的样本可以同时拥有几个类别标签，比如一首歌的标签可以是流行、轻快，一部电影的标签可以是动作、喜剧、搞笑，一本书的标签可以是经典、文学等，这都是多标签分类的情况。多标签分类的一个重要特点是样本的所有标签是不具有排他性的。  </p>
+<p>处理多标签数据时，复杂的决策空间是面临的最主要的问题。与单标签分类不同，多标签分类需学习更复杂决策边界，现有多标签分类技术存在许多不足。</p>
+</li>
+<li><p>典型算法</p>
+<ol>
+<li><p>复杂单分类器</p>
+<p>通过一个复杂的单一分类器来处理多标签分类任务。分类器需要学习所有标签的决策边界。</p>
+<ul>
+<li>优点：可以一次性考虑所有标签的关系，适用于特定规模的数据。</li>
+<li>缺点：训练复杂且耗时，尤其在标签数量或数据量很大的情况下。对模型复杂度提出要求。</li>
+</ul>
+</li>
+<li><p>集成分类器</p>
+<p> 使用多个分类器的组合来处理多标签问题。</p>
+<ul>
+<li>优点：灵活，可扩展，易于实现。可以利用现有的单标签分类器。</li>
+<li>缺点：往往忽略了标签间的相关性（如集成一对多分类器），或需要显式编码标签间关系（如分类器链），增加了复杂度。</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>论文的算法</p>
+<p>论文中提出的<strong>多标签二叉树分类器</strong><a href="#reference1">[1]</a>，是一个基于决策树的分层多标签分类器，利用标签相关性，将数据按类标签分割，用于训练多个小分类器。ML-BTC采取的是一种层次聚类的方法，它将训练集根据标签集的汉明距离进行层次二分聚类，从而将大数据集分为多个小的分类任务；同时考虑了标签相关性。根据每次分类的数据特点，模型会选择对应的分裂策略和分类器。用合适的分类器，解决不同问题；可以有效缓解数据分布不平衡的影响，同时早停策略可以避免过拟合</p>
+<p>ML-BTC 的设计目标是通过一种层次化、结构化的方法来解决标签相关性、类别不平衡、决策空间复杂性等多标签分类中的核心挑战，同时减少训练和推理的计算成本。这种方法在多种规模的数据集上都表现出了较好的分类效果，尤其在处理类别不平衡和高维数据方面具有显著优势。</p>
+</li>
+</ol>
+<h2 id="算法介绍"><a href="#算法介绍" class="headerlink" title="算法介绍"></a><strong>算法介绍</strong></h2><p><strong>多标签二叉树分类器</strong>（Multi-Label Binary Tree Classifier, MLBTC）是一种基于树结构的多标签分类算法。该算法通过递归地将标签空间划分为两个子集，构建一个二叉树结构来处理多标签分类问题。在每个内部节点，算法使用基于汉明距离的二分聚类——将当前节点的标签集分为两个子集，选择汉明距离最大的两个标签作为聚类中心点，其余标签根据到这两个中心点的汉明距离进行分配。</p>
+<p>在训练过程中，对于每个内部节点，算法会训练一个二元分类器来预测样本应该被分到左子树还是右子树。这种分层的方式不仅考虑了标签之间的相关性，还通过树结构降低了问题的复杂度。对于每个叶子节点，会根据叶子节点中的标签树，选择是否再训练一个分类器和选择训练何种分类器。</p>
+<p>在预测阶段，测试样本从根节点开始，根据每个内部节点的分类器决策结果，逐步向下传递直到达到叶节点，在叶子节点中获得完整的标签预测结果。</p>
+<p>该算法的主要优势在于：</p>
+<ol>
+<li>通过树结构将复杂的多标签分类问题分解为一系列更简单的二分类问题</li>
+<li>考虑了标签之间的相关性，特别是通过汉明距离来度量标签的相似度，用标签的相似度来进行分裂。</li>
+<li>模型会选择对应的分裂策略和分类器。用合适的分类器，可以有效缓解数据分布不平衡的影响。</li>
+<li>模型的早停策略不强求分裂叶子节点直到其中只剩一个类别，这种方法避免模型过于复杂，减轻了过拟合风险，降低了计算量。</li>
+</ol>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main/blog/20250124190059259.png" alt="训练过程流程图"></p>
+<p><em>其中的H，C分别指的是节点中的多标签熵和样本基数，</em></p>
+<p><em>分别表示的是节点中样本标签的多样性和样本个数。</em></p>
+<p><strong>具体解释训练流程：</strong></p>
+<ol>
+<li><p>H&gt;H阈值 且 C&gt;C阈值</p>
+<p>子集之间大小不平衡：使用 k-NN 分类器处理此节点。</p>
+<p>子集之间大小相对平衡：使用 SVM 分类器处理此节点。</p>
+</li>
+<li><p>H<H阈值 且 C>C阈值</p>
+<p>在该节点训练一个多层感知机（MLP）分类器</p>
+<p>MLP 适合处理相对集中的样本，能够有效学习不同类别之间的决策边界。</p>
+</li>
+<li><p>C&lt;C阈值</p>
+<p>在该节点使用 ML-kNN 分类器</p>
+<p>ML-kNN 能够在小样本条件下有效分类，并保留多标签的决策能力。</p>
+</li>
+<li><p>H=0</p>
+<p>表示该节点中仅有一个标签，将它分配给抵达的节点即可。</p>
+<p><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main/blog/20250124190124201.png" alt="推理过程流程图"></p>
+</li>
+</ol>
+<p><strong>具体解释推理流程：</strong></p>
+<ol>
+<li><p>根节点</p>
+<p>未知样本从根节点出发，使用根节点中训练好的二分类器被分类到其中一个子节点中。</p>
+</li>
+<li><p>中间节点</p>
+<p>每个中间节点包含一个二分类器，样本经过每个中间节点会被分配到左或右子节点。</p>
+</li>
+<li><p>叶子节点</p>
+<p>根据叶子节点中的标签类别或分类器，确定最终的类别。</p>
+</li>
+</ol>
+<h2 id="算法复现"><a href="#算法复现" class="headerlink" title="算法复现"></a>算法复现</h2><h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p>本次实验的数据集从<a target="_blank" rel="noopener" href="https://www.uco.es/kdis/mllresources/">Multi-Label Classification Dataset Repository</a> 下载。</p>
+<p>数据集中所有属性都已经进行了数值化，所以在这个网址下载的数据集存储大小都很小。</p>
+<p>我们选取了论文中相同的几个数据集进行复现，按论文中的大小分类，small，medium，large三类都进行了复现。</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>Dataset</th>
+<th>数据类型</th>
+<th>样本条数</th>
+<th>属性个数</th>
+<th>标签维度</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cal500</td>
+<td>Music</td>
+<td>502</td>
+<td>68</td>
+<td>174</td>
+</tr>
+<tr>
+<td>Emotions</td>
+<td>Music</td>
+<td>593</td>
+<td>72</td>
+<td>6</td>
+</tr>
+<tr>
+<td>Flags</td>
+<td>Image</td>
+<td>194</td>
+<td>19</td>
+<td>7</td>
+</tr>
+<tr>
+<td>Enron</td>
+<td>Text</td>
+<td>1702</td>
+<td>1001</td>
+<td>53</td>
+</tr>
+<tr>
+<td>Yeast</td>
+<td>Biology</td>
+<td>2417</td>
+<td>103</td>
+<td>14</td>
+</tr>
+<tr>
+<td>Bibtex</td>
+<td>Text</td>
+<td>7395</td>
+<td>1836</td>
+<td>159</td>
+</tr>
+<tr>
+<td>Delicious</td>
+<td>Text</td>
+<td>16110</td>
+<td>500</td>
+<td>983</td>
+</tr>
+<tr>
+<td>Yelp</td>
+<td>Text</td>
+<td>10810</td>
+<td>671</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="实验设置"><a href="#实验设置" class="headerlink" title="实验设置"></a>实验设置</h3><ol>
+<li><p>实验评估设置</p>
+<p>实验评估策略：5折交叉验证</p>
+<p>实验评估指标：</p>
+<ol>
+<li><p>Hamming Loss (HL)</p>
+<p>预测标记集与真实标记集的不匹配率</p>
+<p>计算每个样本预测标记集与真实标记集的对称差集大小，再除以标记集总数，最后取平均</p>
+</li>
+<li><p>Subset Accuracy (SA)</p>
+<p>完全匹配的准确率</p>
+<p>只有预测标记集与真实标记集完全相同才算正确</p>
+</li>
+<li><p>Macro-F1 (MacF1)</p>
+<p>先对每个标记计算F1值，然后取平均，对所有类别的处理权重相同</p>
+<p>不考虑样本分布不均衡</p>
+</li>
+<li><p>Micro-F1 (MicF1)</p>
+<p>将所有标记的预测结果混在一起计算整体的F1值</p>
+<p>考虑了样本分布，更关注高频标记的表现</p>
+</li>
+<li><p>F-Measure (FM)</p>
+<p>基于样本级别的F1度量</p>
+<p>对每个样本计算预测标记集与真实标记集的F1值，然后取平均</p>
+</li>
+<li><p>Accuracy (Acc)</p>
+<p>预测正确的标记占总标记数的比例</p>
+<p>计算预测标记集与真实标记集的交集大小除以标记集总数</p>
+</li>
+<li><p>Geometric Mean (GM)</p>
+<p>计算每个标记正类和负类的召回率</p>
+<p>计算两个召回率的几何平均</p>
+<p>这种GM计算方式特别关注模型在正类和负类上的平衡性能，能够有效处理类别不平衡问题</p>
+</li>
+</ol>
+</li>
+<li><p>模型与参数设置</p>
+<p>H和C的阈值设置：</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">self.h_threshold = self.<span class="built_in">compute_ml_entropy</span>(y) / self.h_threshold_den</span><br><span class="line">self.c_threshold = <span class="built_in">len</span>(X) / self.c_threshold_den</span><br></pre></td></tr></table></figure>
+<p>在实际代码中，我们使用的是根节点（初始训练集）的多标签熵和样本总数的1/10来作为叶子节点不进行分裂的阈值。</p>
+</li>
+</ol>
+<h3 id="复现代码说明"><a href="#复现代码说明" class="headerlink" title="复现代码说明"></a>复现代码说明</h3><ol>
+<li><p>树是怎么递归构建的（build_tree函数）</p>
+<p>通过对节点判断是否进行分裂，如果进行分裂，执行二分数据集代码，并选择合适的分类器。</p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">build_tree</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line"><span class="function">    <span class="string">&quot;&quot;</span><span class="string">&quot;构建分类器树&quot;</span><span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="function">    node =</span> <span class="built_in">MLBTCNode</span>()</span><br><span class="line"></span><br><span class="line">    # 检查停止条件</span><br><span class="line">    current_entropy = self.<span class="built_in">compute_ml_entropy</span>(y)</span><br><span class="line">    <span class="keyword">if</span> current_entropy &lt; self.h_threshold <span class="keyword">or</span> <span class="built_in">len</span>(X) &lt; self.c_threshold:</span><br><span class="line">        node.is_leaf = True</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(np.<span class="built_in">unique</span>(y, axis=<span class="number">0</span>)) == <span class="number">1</span>:</span><br><span class="line">            node.label_set = y[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            node.ml_classifier = <span class="built_in">MLPClassifier</span>(</span><br><span class="line">                hidden_layer_sizes=(<span class="number">100</span>,), max_iter=<span class="number">500</span></span><br><span class="line">            )</span><br><span class="line">            node.ml_classifier.<span class="built_in">fit</span>(X, y)</span><br><span class="line">        <span class="keyword">return</span> node</span><br><span class="line"></span><br><span class="line">    # 划分数据</span><br><span class="line">    clusters = self.<span class="built_in">split_data</span>(X, y)</span><br><span class="line"></span><br><span class="line">    # 如果无法划分，创建叶节点</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(np.<span class="built_in">unique</span>(clusters)) == <span class="number">1</span>:</span><br><span class="line">        node.is_leaf = True</span><br><span class="line">        node.ml_classifier = <span class="built_in">MLPClassifier</span>(hidden_layer_sizes=(<span class="number">100</span>,), max_iter=<span class="number">500</span>)</span><br><span class="line">        node.ml_classifier.<span class="built_in">fit</span>(X, y)</span><br><span class="line">        <span class="keyword">return</span> node</span><br><span class="line"></span><br><span class="line">    # 选择并训练分类器</span><br><span class="line">    node.classifier = self.<span class="built_in">select_classifier</span>(X, clusters)</span><br><span class="line">    node.classifier.<span class="built_in">fit</span>(X, clusters)</span><br><span class="line"></span><br><span class="line">    # 递归构建子树</span><br><span class="line">    left_mask = clusters == <span class="number">0</span></span><br><span class="line">    right_mask = clusters == <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    node.left = self.<span class="built_in">build_tree</span>(X[left_mask], y[left_mask])</span><br><span class="line">    node.right = self.<span class="built_in">build_tree</span>(X[right_mask], y[right_mask])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> node</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>树的二分裂中数据聚类算法是怎样实现的（split_data函数）</p>
+<ol>
+<li>计算所有标签对之间的汉明距离</li>
+<li>找到汉明距离最大的两个标签作为中心点</li>
+<li><p>其他标签根据到两个中心点的距离进行分配</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">hamming_distance</span><span class="params">(a, b)</span>:</span></span><br><span class="line"><span class="function">    <span class="string">&quot;&quot;</span><span class="string">&quot;计算两个标签向量之间的汉明距离&quot;</span><span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="function">    return np.sum(a !=</span> b)</span><br><span class="line">   </span><br><span class="line"><span class="function">def <span class="title">split_data</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line"><span class="function"> <span class="string">&quot;&quot;</span><span class="string">&quot;</span></span></span><br><span class="line"><span class="string"><span class="function">    基于最大汉明距离的标签空间划分</span></span></span><br><span class="line"><span class="string"><span class="function">    Args:</span></span></span><br><span class="line"><span class="string"><span class="function">        X: 特征矩阵</span></span></span><br><span class="line"><span class="string"><span class="function">        y: 标签矩阵 (n_samples, n_labels)</span></span></span><br><span class="line"><span class="string"><span class="function"> Returns:</span></span></span><br><span class="line"><span class="string"><span class="function">        clusters: 划分结果，0和1表示两个子集</span></span></span><br><span class="line"><span class="string"><span class="function">    &quot;</span><span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="function">   </span></span><br><span class="line"><span class="function">    if len(X) &lt;=</span> <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">return</span> np.<span class="built_in">array</span>([<span class="number">0</span>] * <span class="built_in">len</span>(X))</span><br><span class="line">   </span><br><span class="line">    n_samples = <span class="built_in">len</span>(y)</span><br><span class="line">   </span><br><span class="line">    # <span class="number">1.</span> 计算所有标签对之间的汉明距离</span><br><span class="line"> distances = np.<span class="built_in">zeros</span>((n_samples, n_samples))</span><br><span class="line">    <span class="keyword">for</span> i in <span class="built_in">range</span>(n_samples):</span><br><span class="line">        <span class="keyword">for</span> j in <span class="built_in">range</span>(i + <span class="number">1</span>, n_samples):</span><br><span class="line">         dist = <span class="built_in">hamming_distance</span>(y[i], y[j])</span><br><span class="line">            distances[i][j] = dist</span><br><span class="line">         distances[j][i] = dist</span><br><span class="line">   </span><br><span class="line">    # <span class="number">2.</span> 找到距离最大的两个标签索引</span><br><span class="line">    max_dist = <span class="number">0</span></span><br><span class="line">    center1_idx = <span class="number">0</span></span><br><span class="line">    center2_idx = <span class="number">0</span></span><br><span class="line">   </span><br><span class="line">    <span class="keyword">for</span> i in <span class="built_in">range</span>(n_samples):</span><br><span class="line">     <span class="keyword">for</span> j in <span class="built_in">range</span>(i + <span class="number">1</span>, n_samples):</span><br><span class="line">            <span class="keyword">if</span> distances[i][j] &gt; max_dist:</span><br><span class="line">                max_dist = distances[i][j]</span><br><span class="line">                center1_idx = i</span><br><span class="line">                center2_idx = j</span><br><span class="line"></span><br><span class="line">    # <span class="number">3.</span> 将其他标签分配到最近的中心点</span><br><span class="line">    clusters = np.<span class="built_in">zeros</span>(n_samples, dtype=<span class="type">int</span>)</span><br><span class="line">    clusters[center2_idx] = <span class="number">1</span>  # 第二个中心点标记为<span class="number">1</span></span><br><span class="line">   </span><br><span class="line">    # 对每个样本，计算到两个中心点的距离，分配到较近的中心点</span><br><span class="line">    <span class="keyword">for</span> i in <span class="built_in">range</span>(n_samples):</span><br><span class="line">     <span class="keyword">if</span> i != center1_idx <span class="keyword">and</span> i != center2_idx:  # 跳过中心点</span><br><span class="line">            dist_to_center1 = <span class="built_in">hamming_distance</span>(y[i], y[center1_idx])</span><br><span class="line">            dist_to_center2 = <span class="built_in">hamming_distance</span>(y[i], y[center2_idx])</span><br><span class="line">            clusters[i] = <span class="number">0</span> <span class="keyword">if</span> dist_to_center1 &lt;= dist_to_center2 <span class="keyword">else</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    # 打印一些信息以便调试</span><br><span class="line">    <span class="built_in">print</span>(f<span class="string">&quot;Selected centers: &#123;center1_idx&#125; and &#123;center2_idx&#125;&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(f<span class="string">&quot;Maximum hamming distance between centers: &#123;max_dist&#125;&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(f<span class="string">&quot;Cluster sizes: &#123;np.sum(clusters == 0)&#125; and &#123;np.sum(clusters == 1)&#125;&quot;</span>)</span><br><span class="line">   </span><br><span class="line">    <span class="keyword">return</span> clusters</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>如何选择分类器的（select_classifier函数）</p>
+<p>根据聚类形成的两个子集决定，如果两个子集之间不平衡或者样本个数较少，就使用KNN，反之使用SVM。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">def <span class="title">select_classifier</span><span class="params">(self, X, y)</span>:</span></span><br><span class="line"><span class="function">    <span class="string">&quot;&quot;</span><span class="string">&quot;根据数据特征选择合适的分类器&quot;</span><span class="string">&quot;&quot;</span></span></span><br><span class="line"><span class="function">    n_samples =</span> <span class="built_in">len</span>(X)</span><br><span class="line">    class_counts = np.<span class="built_in">sum</span>(y, axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    # 检查类别不平衡情况</span><br><span class="line">    imbalance_ratio = np.<span class="built_in">max</span>(class_counts) / np.<span class="built_in">min</span>(class_counts)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> imbalance_ratio &gt; <span class="number">10</span> <span class="keyword">or</span> n_samples &lt; <span class="number">50</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">KNeighborsClassifier</span>(n_neighbors=<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">SVC</span>(kernel=<span class="string">&quot;rbf&quot;</span>, probability=True)</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="复现结果与分析"><a href="#复现结果与分析" class="headerlink" title="复现结果与分析"></a>复现结果与分析</h2><h3 id="复现结果"><a href="#复现结果" class="headerlink" title="复现结果"></a>复现结果</h3><p>使用我们复现的结果与论文在同数据集上进行对比，以下是对比的结果：</p>
+<ul>
+<li>Cal500数据集（small）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HL↓</th>
+<th>SA↑</th>
+<th>MacF1↑</th>
+<th>MicF1↑</th>
+<th>FM↑</th>
+<th>Acc↑</th>
+<th>GM↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>0.1931</td>
+<td>0.2052</td>
+<td>0.1343</td>
+<td>0.2458</td>
+<td>0.3639</td>
+<td>0.2241</td>
+<td>0.5089</td>
+</tr>
+<tr>
+<td>复现</td>
+<td>0.1740</td>
+<td>0.0000</td>
+<td>0.1383</td>
+<td>0.3533</td>
+<td>0.3496</td>
+<td>0.8260</td>
+<td>0.1968</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Emotions数据集（small）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HL↓</th>
+<th>SA↑</th>
+<th>MacF1↑</th>
+<th>MicF1↑</th>
+<th>FM↑</th>
+<th>Acc↑</th>
+<th>GM↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>0.2126</td>
+<td>0.6384</td>
+<td>0.6352</td>
+<td>0.6601</td>
+<td>0.6704</td>
+<td>0.5518</td>
+<td>0.7018</td>
+</tr>
+<tr>
+<td>复现</td>
+<td>0.2029</td>
+<td>0.3322</td>
+<td>0.6453</td>
+<td>0.6727</td>
+<td>0.6455</td>
+<td>0.7971</td>
+<td>0.7258</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Flags数据集（small）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HL↓</th>
+<th>SA↑</th>
+<th>MacF1↑</th>
+<th>MicF1↑</th>
+<th>FM↑</th>
+<th>Acc↑</th>
+<th>GM↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>0.3438</td>
+<td>0.5922</td>
+<td>0.5085</td>
+<td>0.6114</td>
+<td>0.6697</td>
+<td>0.5194</td>
+<td>0.6115</td>
+</tr>
+<tr>
+<td>复现</td>
+<td>0.3197</td>
+<td>0.1441</td>
+<td>0.5770</td>
+<td>0.6661</td>
+<td>0.6396</td>
+<td>0.6803</td>
+<td>0.5232</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Enron数据集（medium）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HL↓</th>
+<th>SA↑</th>
+<th>MacF1↑</th>
+<th>MicF1↑</th>
+<th>FM↑</th>
+<th>Acc↑</th>
+<th>GM↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>0.0889</td>
+<td>0.3622</td>
+<td>0.1679</td>
+<td>0.3724</td>
+<td>0.4557</td>
+<td>0.3119</td>
+<td>0.5193</td>
+</tr>
+<tr>
+<td>复现</td>
+<td>0.0621</td>
+<td>0.3854</td>
+<td>0.6090</td>
+<td>0.6082</td>
+<td>0.2159</td>
+<td>0.9379</td>
+<td>0.7811</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Yeast数据集（medium）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HL↓</th>
+<th>SA↑</th>
+<th>MacF1↑</th>
+<th>MicF1↑</th>
+<th>FM↑</th>
+<th>Acc↑</th>
+<th>GM↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>0.2342</td>
+<td>0.5275</td>
+<td>0.3443</td>
+<td>0.5605</td>
+<td>0.6339</td>
+<td>0.4319</td>
+<td>0.6425</td>
+</tr>
+<tr>
+<td>复现</td>
+<td>0.2098</td>
+<td>0.2362</td>
+<td>0.4214</td>
+<td>0.6482</td>
+<td>0.6314</td>
+<td>0.7902</td>
+<td>0.4148</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Bibtex数据集（large）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HL↓</th>
+<th>SA↑</th>
+<th>MacF1↑</th>
+<th>MicF1↑</th>
+<th>FM↑</th>
+<th>Acc↑</th>
+<th>GM↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>0.0299</td>
+<td>0.2919</td>
+<td>0.1586</td>
+<td>0.2597</td>
+<td>0.3014</td>
+<td>0.2391</td>
+<td>0.3911</td>
+</tr>
+<tr>
+<td>复现</td>
+<td>0.0181</td>
+<td>0.1596</td>
+<td>0.1417</td>
+<td>0.2778</td>
+<td>0.3004</td>
+<td>0.9819</td>
+<td>0.2440</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Delicious数据集（large）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HL↓</th>
+<th>SA↑</th>
+<th>MacF1↑</th>
+<th>MicF1↑</th>
+<th>FM↑</th>
+<th>Acc↑</th>
+<th>GM↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>0.0381</td>
+<td>0.2152</td>
+<td>0.0824</td>
+<td>0.2488</td>
+<td>0.2439</td>
+<td>0.1609</td>
+<td>0.4012</td>
+</tr>
+<tr>
+<td>复现</td>
+<td>0.0242</td>
+<td>0.0063</td>
+<td>0.1243</td>
+<td>0.2818</td>
+<td>0.2738</td>
+<td>0.9758</td>
+<td>0.2277</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Yelp数据集（large）：</li>
+</ul>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th></th>
+<th>HL↓</th>
+<th>SA↑</th>
+<th>MacF1↑</th>
+<th>MicF1↑</th>
+<th>FM↑</th>
+<th>Acc↑</th>
+<th>GM↑</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>论文</td>
+<td>0.2167</td>
+<td>0.6436</td>
+<td>0.5944</td>
+<td>0.6602</td>
+<td>0.7104</td>
+<td>0.5619</td>
+<td>0.6872</td>
+</tr>
+<tr>
+<td>复现</td>
+<td>0.0901</td>
+<td>0.6760</td>
+<td>0.6802</td>
+<td>0.7173</td>
+<td>0.4859</td>
+<td>0.9099</td>
+<td>0.7470</td>
+</tr>
+</tbody>
+</table>
+</div>
+<h3 id="结果分析"><a href="#结果分析" class="headerlink" title="结果分析"></a>结果分析</h3><p>在以上评估指标中论文和复现进行对比：</p>
+<ul>
+<li>可以看出HL和F1普遍比原论文更好。</li>
+<li>在某些数据集的SA会明显低于原论文，例如Cal500，Delicious数据集，这些数据集都是典型的属性维度大于标签维度，如Cal500的属性维度为68，标签维度却有174，要实现SA即完全预测准确，我觉得这是很难的一件事，但是原始论文还是取得了0.2的得分，不清楚原始论文是否运用了额外的属性来进行预测，因为Cal500数据集其实是有多种属性（MFCC, MEL等），我们使用的是基础的属性。</li>
+<li>Acc的验证可能有问题（按理说Acc应该和HL加和为1，不清楚原始论文是如何计算Acc的）。</li>
+<li>GM较原论文波动较大。</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a id="reference1">[1]</a>  A. Law and A. Ghosh, “Multi-Label Classification Using Binary Tree of Classifiers,” in IEEE Transactions on Emerging Topics in Computational Intelligence, vol. 6, no. 3, pp. 677-689, June 2022, doi: 10.1109/TETCI.2021.3075717.</p>
+</article><div class="post-copyright"><div class="copyright-cc-box"><i class="anzhiyufont anzhiyu-icon-copyright"></i></div><div class="post-copyright__author_box"><a class="post-copyright__author_img" href="/" title="头像"><img class="post-copyright__author_img_back" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/avatar.png" title="头像" alt="头像"><img class="post-copyright__author_img_front" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/avatar.png" title="头像" alt="头像"></a><div class="post-copyright__author_name">小包子</div><div class="post-copyright__author_desc">是一只小包子哦</div></div><div class="post-copyright__post__info"><a class="post-copyright__original" title="该文章为原创文章，注意版权协议" href="https://www.xiaobaozi.cn/2025/01/17/%E3%80%90ML-BTC%E5%A4%8D%E7%8E%B0%E3%80%91%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0%EF%BC%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%BA%8C%E5%8F%89%E5%88%86%E7%B1%BB%E6%A0%91%EF%BC%89/">原创</a><a class="post-copyright-title"><span onclick="rm.copyPageUrl('https://www.xiaobaozi.cn/2025/01/17/%E3%80%90ML-BTC%E5%A4%8D%E7%8E%B0%E3%80%91%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0%EF%BC%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%BA%8C%E5%8F%89%E5%88%86%E7%B1%BB%E6%A0%91%EF%BC%89/')">【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）</span></a></div><div class="post-tools" id="post-tools"><div class="post-tools-left"><div class="rewardLeftButton"><div class="post-reward" onclick="anzhiyu.addRewardMask()"><div class="reward-button button--animated" title="赞赏作者"><i class="anzhiyufont anzhiyu-icon-hand-heart-fill"></i>打赏作者</div><div class="reward-main"><div class="reward-all"><span class="reward-title">感谢你赐予我前进的力量</span><ul class="reward-group"><li class="reward-item"><a href="wxp://f2f0qmD-azcMjUchBpvloUNM9N8fhas7e-9Z3J33K6KHXl4" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/QRcode/wechatpay.png" alt="微信"/></a><div class="post-qr-code-desc">微信</div></li><li class="reward-item"><a href="https://qr.alipay.com/fkx18907f4py3f3e7s8dm5d" target="_blank"><img class="post-qr-code-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/QRcode/alipay.png" alt="支付宝"/></a><div class="post-qr-code-desc">支付宝</div></li></ul><a class="reward-main-btn" href="/about/#about-reward" target="_blank"><div class="reward-text">赞赏者名单</div><div class="reward-dec">因为你们的支持让我意识到写文章的价值🙏</div></a></div></div></div><div id="quit-box" onclick="anzhiyu.removeRewardMask()" style="display: none"></div></div><div class="shareRight"><div class="share-link mobile"><div class="share-qrcode"><div class="share-button" title="使用手机访问这篇文章"><i class="anzhiyufont anzhiyu-icon-qrcode"></i></div><div class="share-main"><div class="share-main-all"><div id="qrcode" title="https://www.xiaobaozi.cn/2025/01/17/%E3%80%90ML-BTC%E5%A4%8D%E7%8E%B0%E3%80%91%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0%EF%BC%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%BA%8C%E5%8F%89%E5%88%86%E7%B1%BB%E6%A0%91%EF%BC%89/"></div><div class="reward-dec">使用手机访问这篇文章</div></div></div></div></div><div class="share-link weibo"><a class="share-button" target="_blank" href="https://service.weibo.com/share/share.php?title=【ML-BTC复现】多标记学习领域算法复现（多标签二叉分类树）&amp;url=https://www.xiaobaozi.cn/2025/01/17/%E3%80%90ML-BTC%E5%A4%8D%E7%8E%B0%E3%80%91%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0%E9%A2%86%E5%9F%9F%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0%EF%BC%88%E5%A4%9A%E6%A0%87%E7%AD%BE%E4%BA%8C%E5%8F%89%E5%88%86%E7%B1%BB%E6%A0%91%EF%BC%89/&amp;pic=/img/post_cover/ML-BTC_cover.png" rel="external nofollow noreferrer noopener"><i class="anzhiyufont anzhiyu-icon-weibo"></i></a></div><script>function copyCurrentPageUrl() {
+  var currentPageUrl = window.location.href;
+  var input = document.createElement("input");
+  input.setAttribute("value", currentPageUrl);
+  document.body.appendChild(input);
+  input.select();
+  input.setSelectionRange(0, 99999);
+  document.execCommand("copy");
+  document.body.removeChild(input);
+}</script><div class="share-link copyurl"><div class="share-button" id="post-share-url" title="复制链接" onclick="copyCurrentPageUrl()"><i class="anzhiyufont anzhiyu-icon-link"></i></div></div></div></div></div><div class="post-copyright__notice"><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://www.xiaobaozi.cn" target="_blank">小包子的博客</a>！</span></div></div><div class="post-tools-right"><div class="tag_share"><div class="post-meta__box"><div class="post-meta__box__tag-list"><a class="post-meta__box__tags" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>人工智能<span class="tagsPageCount">4</span></a><a class="post-meta__box__tags" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>机器学习<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>多标记学习<span class="tagsPageCount">1</span></a><a class="post-meta__box__tags" href="/tags/%E5%A4%8D%E7%8E%B0/"><span class="tags-punctuation"> <i class="anzhiyufont anzhiyu-icon-tag"></i></span>复现<span class="tagsPageCount">2</span></a></div></div></div><div class="post_share"><div class="social-share" data-image="/img/post_cover/OpenGL_cover.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"/><script src="https://cdn.cbd.int/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer="defer"></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/"><img class="prev-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/post_cover/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0_cover.png" onerror="onerror=null;src='/img/page_img_404/1.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">视频异常检测领域论文综述</div></div></a></div><div class="next-post pull-right"><a href="/2025/01/24/%E3%80%90SEU-OS-Lab1%E3%80%91%E4%B8%9C%E5%8D%97%E5%A4%A7%E5%AD%A6%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%93%E9%A2%98%E5%AE%9E%E8%B7%B5%E4%B8%80%E6%95%99%E7%A8%8B/"><img class="next-cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/post_cover/OSLab1_cover.png" onerror="onerror=null;src='/img/page_img_404/1.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">【SEU-OS-Lab1】东南大学操作系统专题实践一教程</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="anzhiyufont anzhiyu-icon-thumbs-up fa-fw" style="font-size: 1.5rem; margin-right: 4px"></i><span>喜欢这篇文章的人也看了</span></div><div class="relatedPosts-list"><div><a href="/2025/01/24/%E3%80%90S2VT%E5%A4%8D%E7%8E%B0%E3%80%91%E4%BD%BF%E7%94%A8S2VT%E5%AE%8C%E6%88%90%E8%A7%86%E9%A2%91%E6%8F%8F%E8%BF%B0%E4%BB%BB%E5%8A%A1%E7%9A%84%E5%A4%8D%E7%8E%B0%E8%AE%B0%E5%BD%95/" title="【S2VT复现】使用S2VT完成视频描述任务的复现记录"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/post_cover/S2VT_cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2025-01-24</div><div class="title">【S2VT复现】使用S2VT完成视频描述任务的复现记录</div></div></a></div><div><a href="/2024/02/24/Transformer%E7%BB%8F%E5%85%B8%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%E5%90%8E%E7%BB%BC%E8%BF%B0/" title="Transformer经典论文阅读后综述"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/post_cover/Transformer%E7%BB%BC%E8%BF%B0_cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-02-24</div><div class="title">Transformer经典论文阅读后综述</div></div></a></div><div><a href="/2024/05/10/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E9%A2%86%E5%9F%9F%E8%AE%BA%E6%96%87%E7%BB%BC%E8%BF%B0/" title="视频异常检测领域论文综述"><img class="cover" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/post_cover/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B%E7%BB%BC%E8%BF%B0_cover.png" alt="cover"><div class="content is-center"><div class="date"><i class="anzhiyufont anzhiyu-icon-calendar-days fa-fw"></i> 2024-05-10</div><div class="title">视频异常检测领域论文综述</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="anzhiyufont anzhiyu-icon-comments"></i><span> 评论</span></div><div class="comment-randomInfo"><a onclick="anzhiyu.addRandomCommentInfo()" href="javascript:void(0)">匿名评论</a><a href="/privacy" style="margin-left: 4px">隐私政策</a></div><div class="comment-tips" id="comment-tips"><span>✅ 你无需删除空行，直接评论以获取最佳展示效果</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div><div class="comment-barrage"></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-content"><div class="author-info-avatar"><img class="avatar-img" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/avatar.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__description">这里有个人学习笔记和总结的一些教程，致力于分享有趣的知识和技巧 ~</div><div class="author-info__bottom-group"><a class="author-info__bottom-group-left" href="/"><h1 class="author-info__name">小包子</h1><div class="author-info__desc">是一只小包子哦</div></a><div class="card-info-social-icons is-center"><a class="social-icon faa-parent animated-hover" href="https://github.com/Warma10032" target="_blank" title="Github"><i class="fab fa-github faa-tada"></i></a><a class="social-icon faa-parent animated-hover" href="mailto:Warma10032@qq.com" target="_blank" title="Email"><i class="fas fa-envelope faa-tada"></i></a><a class="social-icon faa-parent animated-hover" href="https://space.bilibili.com/397711814" target="_blank" title="BiliBili"><i class="fa-brands fa-bilibili faa-tada"></i></a></div></div></div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="anzhiyufont anzhiyu-icon-bars"></i><span>文章目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text">任务简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">2.</span> <span class="toc-text">算法介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E5%A4%8D%E7%8E%B0"><span class="toc-number">3.</span> <span class="toc-text">算法复现</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">3.1.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%AE%BE%E7%BD%AE"><span class="toc-number">3.2.</span> <span class="toc-text">实验设置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E7%8E%B0%E4%BB%A3%E7%A0%81%E8%AF%B4%E6%98%8E"><span class="toc-number">3.3.</span> <span class="toc-text">复现代码说明</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E7%8E%B0%E7%BB%93%E6%9E%9C%E4%B8%8E%E5%88%86%E6%9E%90"><span class="toc-number">4.</span> <span class="toc-text">复现结果与分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%8D%E7%8E%B0%E7%BB%93%E6%9E%9C"><span class="toc-number">4.1.</span> <span class="toc-text">复现结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90"><span class="toc-number">4.2.</span> <span class="toc-text">结果分析</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">5.</span> <span class="toc-text">参考文献</span></a></li></ol></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div id="workboard"><img class="workSituationImg boardsign" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/svg/小包子-上课摸鱼中-white.svg" alt="这个学能不能不上了啊~" title="这个学能不能不上了啊~"/><div id="runtimeTextTip"></div></div><p id="ghbdages"><a class="github-badge" target="_blank" href="https://hexo.io/" style="margin-inline:5px" data-title="博客框架为Hexo" title="博客框架为Hexo"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/svg/Frame-Hexo-blue.svg" alt="博客框架为Hexo"/></a><a class="github-badge" target="_blank" href="https://blog.anheyu.com/" style="margin-inline:5px" data-title="本站使用AnZhiYu主题" title="本站使用AnZhiYu主题"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/svg/Theme-AnZhiYu-2E67D3.svg" alt="本站使用AnZhiYu主题"/></a><a class="github-badge" target="_blank" href="https://vercel.com/" style="margin-inline:5px" data-title="本站部署于Vercel" title="本站部署于Vercel"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/svg/Hosted-Vercel-brightgreen.svg" alt="本站部署于Vercel"/></a><a class="github-badge" target="_blank" href="https://github.com/warma10032/warma10032.github.io/" style="margin-inline:5px" data-title="本站托管于Github" title="本站托管于Github"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/svg/Source-Github-pink.svg" alt="本站托管于Github"/></a><a class="github-badge" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" data-title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议"><img src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/svg/Copyright-BY--NC--SA 4.svg" alt="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议"/></a></p></div><div id="footer-bar"><div class="footer-bar-links"><div class="footer-bar-left"><div id="footer-bar-tips"><div class="copyright">&copy;2024 - 2025 By <a class="footer-bar-link" href="/" title="小包子" target="_blank">小包子</a></div></div><div id="footer-type-tips"></div></div><div class="footer-bar-right"><a class="footer-bar-link" target="_blank" rel="noopener" href="https://github.com/anzhiyu-c/hexo-theme-anzhiyu" title="主题">主题</a><a class="footer-bar-link" target="_blank" rel="noopener" href="https://app.xiaobaozi.cn" title="哈基米加密器">哈基米加密器</a></div></div></div></footer></div><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="sidebar-site-data site-data is-center"><a href="/archives/" title="archive"><div class="headline">文章</div><div class="length-num">12</div></a><a href="/tags/" title="tag"><div class="headline">标签</div><div class="length-num">23</div></a><a href="/categories/" title="category"><div class="headline">分类</div><div class="length-num">4</div></a></div><span class="sidebar-menu-item-title">功能</span><div class="sidebar-menu-item"><a class="darkmode_switchbutton menu-child" href="javascript:void(0);" title="显示模式"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span>显示模式</span></a></div><div class="back-menu-list-groups"><div class="back-menu-list-group"><div class="back-menu-list-title">网页</div><div class="back-menu-list"><a class="back-menu-item" href="https://www.xiaobaozi.cn/" title="博客"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="/img/favicon.svg" alt="博客"/><span class="back-menu-item-text">博客</span></a><a class="back-menu-item" target="_blank" rel="noopener" href="https://app.xiaobaozi.cn/" title="哈基米加密器"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main/blog/hajimi-favicon.jpg" alt="哈基米加密器"/><span class="back-menu-item-text">哈基米加密器</span></a></div></div><div class="back-menu-list-group"><div class="back-menu-list-title">项目</div><div class="back-menu-list"><a class="back-menu-item" target="_blank" rel="noopener" href="https://github.com/Warma10032/cyber-doctor/" title="赛博华佗"><img class="back-menu-item-icon" src= "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" onerror="this.onerror=null,this.src=&quot;/img/page_img_404/1.jpg&quot;" data-lazy-src="https://cdn.jsdelivr.net/gh/Warma10032/image@main/blog/cyber-doctor-favicon.jpg" alt="赛博华佗"/><span class="back-menu-item-text">赛博华佗</span></a></div></div></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 文章</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/archives/"><i class="anzhiyufont anzhiyu-icon-box-archive faa-tada" style="font-size: 0.9em;"></i><span> 隧道</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/categories/"><i class="anzhiyufont anzhiyu-icon-shapes faa-tada" style="font-size: 0.9em;"></i><span> 分类</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags faa-tada" style="font-size: 0.9em;"></i><span> 标签</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 友链</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/link/"><i class="anzhiyufont anzhiyu-icon-link faa-tada" style="font-size: 0.9em;"></i><span> 友人帐</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/comments/"><i class="anzhiyufont anzhiyu-icon-envelope faa-tada" style="font-size: 0.9em;"></i><span> 留言板</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><span> 我的</span></a><ul class="menus_item_child"><li><a class="site-page child faa-parent animated-hover" href="/music/?id=3220227522&amp;server=tencent"><i class="anzhiyufont anzhiyu-icon-music faa-tada" style="font-size: 0.9em;"></i><span> 音乐馆</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/bangumis/"><i class="anzhiyufont anzhiyu-icon-bilibili faa-tada" style="font-size: 0.9em;"></i><span> 追番页</span></a></li><li><a class="site-page child faa-parent animated-hover" href="/album/"><i class="anzhiyufont anzhiyu-icon-images faa-tada" style="font-size: 0.9em;"></i><span> 相册集</span></a></li></ul></div></div><span class="sidebar-menu-item-title">标签</span><div class="card-tags"><div class="item-headline"></div><div class="card-tag-cloud"><a href="/tags/Git/" style="font-size: 0.88rem;">Git<sup>1</sup></a><a href="/tags/Github/" style="font-size: 0.88rem;">Github<sup>1</sup></a><a href="/tags/OS/" style="font-size: 0.88rem;">OS<sup>3</sup></a><a href="/tags/SEO/" style="font-size: 0.88rem;">SEO<sup>1</sup></a><a href="/tags/Transformer/" style="font-size: 0.88rem;">Transformer<sup>1</sup></a><a href="/tags/Typora/" style="font-size: 0.88rem;">Typora<sup>1</sup></a><a href="/tags/hexo/" style="font-size: 0.88rem;">hexo<sup>2</sup></a><a href="/tags/markdown/" style="font-size: 0.88rem;">markdown<sup>1</sup></a><a href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/" style="font-size: 0.88rem;">人工智能<sup>4</sup></a><a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 0.88rem;">博客<sup>2</sup></a><a href="/tags/%E5%A4%8D%E7%8E%B0/" style="font-size: 0.88rem;">复现<sup>2</sup></a><a href="/tags/%E5%A4%9A%E6%A0%87%E8%AE%B0%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">多标记学习<sup>1</sup></a><a href="/tags/%E5%AE%9E%E9%AA%8C%E6%8A%A5%E5%91%8A/" style="font-size: 0.88rem;">实验报告<sup>3</sup></a><a href="/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/" style="font-size: 0.88rem;">搜索引擎<sup>1</sup></a><a href="/tags/%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F/" style="font-size: 0.88rem;">操作系统<sup>3</sup></a><a href="/tags/%E6%95%99%E7%A8%8B/" style="font-size: 0.88rem;">教程<sup>1</sup></a><a href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" style="font-size: 0.88rem;">机器学习<sup>1</sup></a><a href="/tags/%E6%A0%A1%E5%9B%AD%E8%B7%91/" style="font-size: 0.88rem;">校园跑<sup>1</sup></a><a href="/tags/%E7%BB%BC%E8%BF%B0/" style="font-size: 0.88rem;">综述<sup>2</sup></a><a href="/tags/%E8%A7%86%E9%A2%91%E5%BC%82%E5%B8%B8%E6%A3%80%E6%B5%8B/" style="font-size: 0.88rem;">视频异常检测<sup>1</sup></a><a href="/tags/%E8%A7%86%E9%A2%91%E6%8F%8F%E8%BF%B0/" style="font-size: 0.88rem;">视频描述<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%9B%BE%E5%BD%A2%E5%AD%A6/" style="font-size: 0.88rem;">计算机图形学<sup>1</sup></a><a href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/" style="font-size: 0.88rem;">计算机视觉<sup>2</sup></a></div></div><hr/></div></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="anzhiyufont anzhiyu-icon-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="anzhiyufont anzhiyu-icon-arrows-left-right"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="anzhiyufont anzhiyu-icon-gear"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="anzhiyufont anzhiyu-icon-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="anzhiyufont anzhiyu-icon-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></button></div></div><div id="nav-music"><a id="nav-music-hoverTips" onclick="anzhiyu.musicToggle()" accesskey="m">播放音乐</a><div id="console-music-bg"></div><meting-js id="3220227522" server="tencent" type="playlist" mutex="true" preload="none" theme="var(--anzhiyu-main)" data-lrctype="0" order="random" volume="0.7"></meting-js></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="anzhiyufont anzhiyu-icon-xmark"></i></button></nav><div class="is-center" id="loading-database"><i class="anzhiyufont anzhiyu-icon-spinner anzhiyu-pulse-icon"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div id="rightMenu"><div class="rightMenu-group rightMenu-small"><div class="rightMenu-item" id="menu-backward"><i class="anzhiyufont anzhiyu-icon-arrow-left"></i></div><div class="rightMenu-item" id="menu-forward"><i class="anzhiyufont anzhiyu-icon-arrow-right"></i></div><div class="rightMenu-item" id="menu-refresh"><i class="anzhiyufont anzhiyu-icon-arrow-rotate-right" style="font-size: 1rem;"></i></div><div class="rightMenu-item" id="menu-top"><i class="anzhiyufont anzhiyu-icon-arrow-up"></i></div></div><div class="rightMenu-group rightMenu-line rightMenuPlugin"><div class="rightMenu-item" id="menu-copytext"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制选中文本</span></div><div class="rightMenu-item" id="menu-pastetext"><i class="anzhiyufont anzhiyu-icon-paste"></i><span>粘贴文本</span></div><a class="rightMenu-item" id="menu-commenttext"><i class="anzhiyufont anzhiyu-icon-comment-medical"></i><span>引用到评论</span></a><div class="rightMenu-item" id="menu-newwindow"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开</span></div><div class="rightMenu-item" id="menu-copylink"><i class="anzhiyufont anzhiyu-icon-link"></i><span>复制链接地址</span></div><div class="rightMenu-item" id="menu-copyimg"><i class="anzhiyufont anzhiyu-icon-images"></i><span>复制此图片</span></div><div class="rightMenu-item" id="menu-downloadimg"><i class="anzhiyufont anzhiyu-icon-download"></i><span>下载此图片</span></div><div class="rightMenu-item" id="menu-newwindowimg"><i class="anzhiyufont anzhiyu-icon-window-restore"></i><span>新窗口打开图片</span></div><div class="rightMenu-item" id="menu-search"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>站内搜索</span></div><div class="rightMenu-item" id="menu-searchBaidu"><i class="anzhiyufont anzhiyu-icon-magnifying-glass"></i><span>百度搜索</span></div><div class="rightMenu-item" id="menu-music-toggle"><i class="anzhiyufont anzhiyu-icon-play"></i><span>播放音乐</span></div><div class="rightMenu-item" id="menu-music-back"><i class="anzhiyufont anzhiyu-icon-backward"></i><span>切换到上一首</span></div><div class="rightMenu-item" id="menu-music-forward"><i class="anzhiyufont anzhiyu-icon-forward"></i><span>切换到下一首</span></div><div class="rightMenu-item" id="menu-music-playlist" onclick="window.open(&quot;https://y.qq.com/n/ryqq/playlist/3220227522&quot;, &quot;_blank&quot;);" style="display: none;"><i class="anzhiyufont anzhiyu-icon-radio"></i><span>查看所有歌曲</span></div><div class="rightMenu-item" id="menu-music-copyMusicName"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制歌名</span></div></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item menu-link" id="menu-randomPost"><i class="anzhiyufont anzhiyu-icon-shuffle"></i><span>随便逛逛</span></a><a class="rightMenu-item menu-link" href="/categories/"><i class="anzhiyufont anzhiyu-icon-cube"></i><span>博客分类</span></a><a class="rightMenu-item menu-link" href="/tags/"><i class="anzhiyufont anzhiyu-icon-tags"></i><span>文章标签</span></a></div><div class="rightMenu-group rightMenu-line rightMenuOther"><a class="rightMenu-item" id="menu-copy" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-copy"></i><span>复制地址</span></a><a class="rightMenu-item" id="menu-commentBarrage" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-message"></i><span class="menu-commentBarrage-text">关闭热评</span></a><a class="rightMenu-item" id="menu-darkmode" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-circle-half-stroke"></i><span class="menu-darkmode-text">深色模式</span></a><a class="rightMenu-item" id="menu-translate" href="javascript:void(0);"><i class="anzhiyufont anzhiyu-icon-language"></i><span>轉為繁體</span></a></div></div><div id="rightmenu-mask"></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.cbd.int/@fancyapps/ui@5.0.28/dist/fancybox/fancybox.umd.js"></script><script src="https://cdn.cbd.int/instant.page@5.2.0/instantpage.js" type="module"></script><script src="https://cdn.cbd.int/vanilla-lazyload@17.8.5/dist/lazyload.iife.min.js"></script><script src="https://cdn.cbd.int/node-snackbar@0.1.16/dist/snackbar.min.js"></script><script>function panguFn () {
+  if (typeof pangu === 'object') pangu.autoSpacingPage()
+  else {
+    getScript('https://cdn.cbd.int/pangu@4.0.7/dist/browser/pangu.min.js')
+      .then(() => {
+        pangu.autoSpacingPage()
+      })
+  }
+}
+
+function panguInit () {
+  if (true){
+    GLOBAL_CONFIG_SITE.isPost && panguFn()
+  } else {
+    panguFn()
+  }
+}
+
+document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="universe"></canvas><script async src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.0/dark/dark.js"></script><script async src="/anzhiyu/random.js"></script><script async="async">(function () {
+  var grt = new Date("04/01/2024 00:00:00"); //设置网站上线时间
+  var now = new Date();
+  var dnum;
+  var hnum;
+  var mnum;
+  var snum;
+  var nowHour;
+
+  // 计算并更新天数、小时数、分钟数和秒数
+  function updateTime() {
+    now = new Date(); // 更新 now 的值
+    nowHour = now.getHours(); // 更新 nowHour 的值
+    var days = (now - grt) / 1000 / 60 / 60 / 24;
+    dnum = Math.floor(days);
+    var hours = (now - grt) / 1000 / 60 / 60 - 24 * dnum;
+    hnum = Math.floor(hours);
+    if (String(hnum).length == 1) {
+      hnum = "0" + hnum;
+    }
+    var minutes = (now - grt) / 1000 / 60 - 24 * 60 * dnum - 60 * hnum;
+    mnum = Math.floor(minutes);
+    if (String(mnum).length == 1) {
+      mnum = "0" + mnum;
+    }
+    var seconds = (now - grt) / 1000 - 24 * 60 * 60 * dnum - 60 * 60 * hnum - 60 * mnum;
+    snum = Math.round(seconds);
+    if (String(snum).length == 1) {
+      snum = "0" + snum;
+    }
+  }
+
+  // 更新网页中显示的网站运行时间
+  function updateHtml() {
+    const footer = document.getElementById("footer");
+    if (!footer) return
+    let currentTimeHtml = "";
+    if (nowHour < 18 && nowHour >= 9) {
+      // 如果是上班时间，默认就是"安知鱼-上班摸鱼中.svg"图片，不需要更改
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    } else {
+      // 如果是下班时间，插入"安知鱼-下班啦.svg"图片
+      let img = document.querySelector("#workboard .workSituationImg");
+      if (img != null) {
+        img.src = "/img/svg/小包子-下课休息中-white.svg";
+        img.title = "下课了就该开开心心的玩，嘿嘿~";
+        img.alt = "下课了就该开开心心的玩，嘿嘿~";
+      }
+
+      currentTimeHtml = `本站居然运行了 ${dnum} 天<span id='runtime'> ${hnum} 小时 ${mnum} 分 ${snum} 秒 </span><i class='anzhiyufont anzhiyu-icon-heartbeat' style='color:red'></i>`;
+    }
+
+    if (document.getElementById("runtimeTextTip")) {
+      document.getElementById("runtimeTextTip").innerHTML = currentTimeHtml;
+    }
+  }
+
+  setInterval(() => {
+    updateTime();
+    updateHtml();
+  }, 1000);
+})();</script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>(() => {
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+      region: '',
+      onCommentLoaded: () => {
+        anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') setTimeout(runFn,0)
+    else getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+      region: '',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(res => {
+      countELement.textContent = res[0].count
+    }).catch(err => {
+      console.error(err)
+    })
+  }
+
+  const runFn = () => {
+    init();
+    GLOBAL_CONFIG_SITE.isPost && getCount()
+  }
+
+  if ('Twikoo' === 'Twikoo' || !false) {
+    if (false) anzhiyu.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else {
+      loadTwikoo()
+    }
+  } else {
+    window.loadOtherComment = loadTwikoo
+  }
+})()</script><input type="hidden" name="page-type" id="page-type" value="post"></div><script>window.addEventListener('load', () => {
+  const changeContent = (content) => {
+    if (content === '') return content
+
+    content = content.replace(/<img.*?src="(.*?)"?[^\>]+>/ig, '[图片]') // replace image link
+    content = content.replace(/<a[^>]+?href=["']?([^"']+)["']?[^>]*>([^<]+)<\/a>/gi, '[链接]') // replace url
+    content = content.replace(/<pre><code>.*?<\/pre>/gi, '[代码]') // replace code
+    content = content.replace(/<[^>]+>/g,"") // remove html tag
+
+    if (content.length > 150) {
+      content = content.substring(0,150) + '...'
+    }
+    return content
+  }
+
+  const getComment = () => {
+    const runTwikoo = () => {
+      twikoo.getRecentComments({
+        envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+        region: '',
+        pageSize: 6,
+        includeReply: true
+      }).then(function (res) {
+        const twikooArray = res.map(e => {
+          return {
+            'content': changeContent(e.comment),
+            'avatar': e.avatar,
+            'nick': e.nick,
+            'url': e.url + '#' + e.id,
+            'date': new Date(e.created).toISOString()
+          }
+        })
+
+        saveToLocal.set('twikoo-newest-comments', JSON.stringify(twikooArray), 10/(60*24))
+        generateHtml(twikooArray)
+      }).catch(function (err) {
+        const $dom = document.querySelector('#card-newest-comments .aside-list')
+        $dom.textContent= "无法获取评论，请确认相关配置是否正确"
+      })
+    }
+
+    if (typeof twikoo === 'object') {
+      runTwikoo()
+    } else {
+      getScript('https://cdn.cbd.int/twikoo@1.6.39/dist/twikoo.all.min.js').then(runTwikoo)
+    }
+  }
+
+  const generateHtml = array => {
+    let result = ''
+
+    if (array.length) {
+      for (let i = 0; i < array.length; i++) {
+        result += '<div class=\'aside-list-item\'>'
+
+        if (true) {
+          const name = 'data-lazy-src'
+          result += `<a href='${array[i].url}' class='thumbnail'><img ${name}='${array[i].avatar}' alt='${array[i].nick}'><div class='name'><span>${array[i].nick} </span></div></a>`
+        }
+        
+        result += `<div class='content'>
+        <a class='comment' href='${array[i].url}' title='${array[i].content}'>${array[i].content}</a>
+        <time datetime="${array[i].date}">${anzhiyu.diffDate(array[i].date, true)}</time></div>
+        </div>`
+      }
+    } else {
+      result += '没有评论'
+    }
+
+    let $dom = document.querySelector('#card-newest-comments .aside-list')
+    $dom && ($dom.innerHTML= result)
+    window.lazyLoadInstance && window.lazyLoadInstance.update()
+    window.pjax && window.pjax.refresh($dom)
+  }
+
+  const newestCommentInit = () => {
+    if (document.querySelector('#card-newest-comments .aside-list')) {
+      const data = saveToLocal.get('twikoo-newest-comments')
+      if (data) {
+        generateHtml(JSON.parse(data))
+      } else {
+        getComment()
+      }
+    }
+  }
+
+  newestCommentInit()
+  document.addEventListener('pjax:complete', newestCommentInit)
+})</script><script async data-pjax src="https://npm.elemecdn.com/anzhiyu-theme-static@1.0.1/bubble/bubble.js"></script><script>var visitorMail = "";
+</script><script async data-pjax src="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/waterfall/waterfall.js"></script><script src="https://lf3-cdn-tos.bytecdntp.com/cdn/expire-1-M/qrcodejs/1.0.0/qrcode.min.js"></script><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.1.9/icon/ali_iconfont_css.css"><link rel="stylesheet" href="https://cdn.cbd.int/anzhiyu-theme-static@1.0.0/aplayer/APlayer.min.css" media="print" onload="this.media='all'"><script src="https://cdn.cbd.int/anzhiyu-blog-static@1.0.1/js/APlayer.min.js"></script><script src="https://cdn.cbd.int/hexo-anzhiyu-music@1.0.1/assets/js/Meting2.min.js"></script><script src="https://cdn.cbd.int/pjax@0.2.8/pjax.min.js"></script><script>let pjaxSelectors = ["meta[property=\"og:image\"]","meta[property=\"og:title\"]","meta[property=\"og:url\"]","meta[property=\"og:type\"]","meta[property=\"og:site_name\"]","meta[property=\"og:description\"]","head > title","#config-diff","#body-wrap","#rightside-config-hide","#rightside-config-show",".js-pjax"]
+var pjax = new Pjax({
+  elements: 'a:not([target="_blank"])',
+  selectors: pjaxSelectors,
+  cacheBust: false,
+  analytics: true,
+  scrollRestoration: false
+})
+
+document.addEventListener('pjax:send', function () {
+  // removeEventListener scroll 
+  anzhiyu.removeGlobalFnEvent('pjax')
+  anzhiyu.removeGlobalFnEvent('themeChange')
+
+  document.getElementById('rightside').classList.remove('rightside-show')
+  
+  if (window.aplayers) {
+    for (let i = 0; i < window.aplayers.length; i++) {
+      if (!window.aplayers[i].options.fixed) {
+        window.aplayers[i].destroy()
+      }
+    }
+  }
+
+  typeof typed === 'object' && typed.destroy()
+
+  //reset readmode
+  const $bodyClassList = document.body.classList
+  $bodyClassList.contains('read-mode') && $bodyClassList.remove('read-mode')
+})
+
+document.addEventListener('pjax:complete', function () {
+  window.refreshFn()
+
+  document.querySelectorAll('script[data-pjax]').forEach(item => {
+    const newScript = document.createElement('script')
+    const content = item.text || item.textContent || item.innerHTML || ""
+    Array.from(item.attributes).forEach(attr => newScript.setAttribute(attr.name, attr.value))
+    newScript.appendChild(document.createTextNode(content))
+    item.parentNode.replaceChild(newScript, item)
+  })
+
+  GLOBAL_CONFIG.islazyload && window.lazyLoadInstance.update()
+
+  typeof panguInit === 'function' && panguInit()
+
+  // google analytics
+  typeof gtag === 'function' && gtag('config', 'G-NFRB00T5VL', {'page_path': window.location.pathname});
+
+  // baidu analytics
+  typeof _hmt === 'object' && _hmt.push(['_trackPageview',window.location.pathname]);
+
+  typeof loadMeting === 'function' && document.getElementsByClassName('aplayer').length && loadMeting()
+
+  // prismjs
+  typeof Prism === 'object' && Prism.highlightAll()
+})
+
+document.addEventListener('pjax:error', e => {
+  if (e.request.status === 404) {
+    pjax.loadUrl('/404')
+  }
+})</script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><script charset="UTF-8" src="https://cdn.cbd.int/anzhiyu-theme-static@1.1.5/accesskey/accesskey.js"></script></div><div id="popup-window"><div class="popup-window-title">通知</div><div class="popup-window-divider"></div><div class="popup-window-content"><div class="popup-tip">你好呀</div><div class="popup-link"><i class="anzhiyufont anzhiyu-icon-arrow-circle-right"></i></div></div></div></body></html>
