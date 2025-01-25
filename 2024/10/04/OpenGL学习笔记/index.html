@@ -20,7 +20,7 @@ gtag('config', 'G-NFRB00T5VL');
   diytitle: {"enable":true,"leaveTitle":"w(ﾟДﾟ)w 不要走！再看看嘛！","backTitle":"♪(^∇^*)欢迎肥来！"},
   LA51: undefined,
   greetingBox: undefined,
-  twikooEnvId: 'https://twikoo-seven-gamma-22.vercel.app/',
+  twikooEnvId: 'https://comment.xiaobaozi.cn/',
   commentBarrageConfig:undefined,
   music_page_default: "nav_music",
   root: '/',
@@ -452,7 +452,7 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="uni
   const init = () => {
     twikoo.init(Object.assign({
       el: '#twikoo-wrap',
-      envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+      envId: 'https://comment.xiaobaozi.cn/',
       region: '',
       onCommentLoaded: () => {
         anzhiyu.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
@@ -469,7 +469,7 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="uni
     const countELement = document.getElementById('twikoo-count')
     if(!countELement) return
     twikoo.getCommentsCount({
-      envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+      envId: 'https://comment.xiaobaozi.cn/',
       region: '',
       urls: [window.location.pathname],
       includeReply: false
@@ -511,7 +511,7 @@ document.addEventListener('DOMContentLoaded', panguInit)</script><canvas id="uni
   const getComment = () => {
     const runTwikoo = () => {
       twikoo.getRecentComments({
-        envId: 'https://twikoo-seven-gamma-22.vercel.app/',
+        envId: 'https://comment.xiaobaozi.cn/',
         region: '',
         pageSize: 6,
         includeReply: true
