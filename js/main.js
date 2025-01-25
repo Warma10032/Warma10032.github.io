@@ -1475,7 +1475,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // 开发者工具键盘监听
   window.onkeydown = function (e) {
-    123 === e.keyCode && anzhiyu.snackbarShow("开发者模式已打开，请遵循GPL协议", !1);
+    123 === e.keyCode && anzhiyu.snackbarShow("开发者模式已打开", !1);
   };
 
   // 欢迎语
@@ -1810,4 +1810,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
   refreshFn();
   unRefreshFn();
+});
+
+$(document).ready(function() {
+  // 捕获pjax的错误
+  $(document).on('pjax:error', function(event, xhr, options) {
+      if (xhr.status === 404) {
+          // 如果返回404，跳转到404页面
+          window.location = options.url;
+      }
+  });
 });
