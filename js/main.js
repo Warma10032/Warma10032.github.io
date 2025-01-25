@@ -1813,7 +1813,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.addEventListener('pjax:error', function(event) {
     if (event.request.status === 404) {
-      pjax.loadUrl('/404'); // 跳转到你的 404 页面
+      window.location.href = '/404' // 跳转到你的 404 页面
     }
   });
   
