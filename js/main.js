@@ -1812,12 +1812,8 @@ document.addEventListener("DOMContentLoaded", function () {
   unRefreshFn();
 });
 
-$(document).ready(function() {
-  // 捕获pjax的错误
-  $(document).on('pjax:error', function(event, xhr, options) {
-      if (xhr.status === 404) {
-          // 如果返回404，跳转到404页面
-          window.location = options.url;
-      }
-  });
+document.addEventListener('pjax:error', function(event) {
+  if (event.request.status === 404) {
+    pjax.loadUrl('/404'); // 跳转到你的 404 页面
+  }
 });
